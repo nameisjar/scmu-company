@@ -39,6 +39,7 @@ export const navigation: NavigationItem[] = [
       { label: "Pengiriman Kereta", href: "/layanan/pengiriman-kereta" },
     ],
   },
+  { label: "Dokumentasi", href: "/dokumentasi" },
   {
     label: "Informasi",
     href: "/area-pengiriman",

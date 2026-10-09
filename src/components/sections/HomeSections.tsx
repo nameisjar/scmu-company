@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { DocumentationGallery } from "@/components/documentation/DocumentationGallery";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
 import { QuotationForm } from "../forms/QuotationForm";
@@ -101,6 +102,26 @@ export function WhySection() {
             Kenali PT. SCMU <ArrowRight aria-hidden="true" />
           </Link>
         </div>
+      </Container>
+    </section>
+  );
+}
+
+export function DocumentationSection() {
+  return (
+    <section className="section documentation-section" id="dokumentasi" data-scroll-section="true">
+      <Container>
+        <div className="documentation-section__heading">
+          <div>
+            <p className="section-label">Dokumentasi Kegiatan</p>
+            <h2>Aktivitas transportasi dan logistik di lapangan.</h2>
+          </div>
+          <div>
+            <p>Foto kegiatan operasional ditampilkan tanpa keterangan waktu, lokasi, rute, atau pelanggan yang belum terverifikasi.</p>
+            <ButtonLink href="/dokumentasi" variant="outline">Lihat Semua Dokumentasi</ButtonLink>
+          </div>
+        </div>
+        <DocumentationGallery limit={5} variant="preview" />
       </Container>
     </section>
   );
