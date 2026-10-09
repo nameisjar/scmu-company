@@ -60,9 +60,9 @@ export function HeroSection() {
       </div>
       <Container className="hero__inner">
         <div className="hero__copy">
-          <h1>Pengiriman Barang melalui Lima Moda Transportasi</h1>
+          <h1>Dari Papua Selatan, Menghubungkan Indonesia.</h1>
           <p>
-            Kirimkan jenis barang, jumlah, asal, dan tujuan. PT. SCMU membantu menentukan moda yang tersedia untuk kebutuhan tersebut.
+            SCMU membantu pengiriman barang ke, dari, dan antarwilayah di Papua Selatan melalui jaringan mitra transportasi yang menjangkau berbagai daerah di Indonesia.
           </p>
           <div className="hero-actions">
             <ButtonLink href="#layanan">Lihat Layanan <ArrowRight aria-hidden="true" /></ButtonLink>

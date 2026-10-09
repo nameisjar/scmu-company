@@ -3,10 +3,6 @@ import {
   ClipboardList,
   Headphones,
   MapPin,
-  MessageCircle,
-  PackageCheck,
-  Route,
-  Send,
   Settings2,
   ShipWheel,
 } from "lucide-react";
@@ -29,14 +25,6 @@ const values = [
 ];
 
 const roadService = services[0];
-
-const steps = [
-  { title: "Konsultasi", text: "Sampaikan kebutuhan awal Anda.", Icon: MessageCircle },
-  { title: "Detail Pengiriman", text: "Lengkapi informasi barang dan rute.", Icon: PackageCheck },
-  { title: "Solusi Transportasi", text: "Moda dan solusi yang sesuai ditentukan.", Icon: Route },
-  { title: "Proses Pengiriman", text: "Pengiriman dilakukan sesuai kesepakatan.", Icon: Send },
-  { title: "Barang Diterima", text: "Proses selesai di tujuan.", Icon: MapPin },
-];
 
 export function CompanyIntro() {
   return (
@@ -113,31 +101,6 @@ export function WhySection() {
             Kenali PT. SCMU <ArrowRight aria-hidden="true" />
           </Link>
         </div>
-      </Container>
-    </section>
-  );
-}
-
-export function ProcessSection() {
-  return (
-    <section className="section process-section" id="proses" data-scroll-section="true">
-      <Container>
-        <SectionHeading
-          title="Proses Pengiriman"
-          description="Lima tahap dari konsultasi sampai penerimaan. Urutan ini menjelaskan proses layanan secara umum dan bukan pelacakan pengiriman real-time."
-          align="center"
-          inverse
-        />
-        <ol className="process-list">
-          {steps.map(({ title, text, Icon }, index) => (
-            <li key={title}>
-              <div className="process-list__marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
-              <Icon aria-hidden="true" />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </li>
-          ))}
-        </ol>
       </Container>
     </section>
   );

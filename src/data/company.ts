@@ -1,6 +1,6 @@
 export const company = {
-  name: "PT. SCMU",
-  tagline: "Pengiriman Barang melalui Lima Moda Transportasi",
+  name: "PT. Sarana Cipta Mandiri Utama",
+  tagline: "Dari Papua Selatan, Menghubungkan Indonesia.",
   description:
     "PT. SCMU melayani pengiriman barang melalui jalur darat, udara, laut, sungai, dan kereta. Pemilihan moda dibahas berdasarkan jenis barang, jumlah, asal, tujuan, dan ketersediaan rute.",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "",
@@ -25,7 +25,6 @@ export const navigation: NavigationItem[] = [
     children: [
       { label: "Profil Perusahaan", href: "/tentang-kami" },
       { label: "Mengapa Memilih PT. SCMU", href: "/#keunggulan" },
-      { label: "Proses Pengiriman", href: "/#proses" },
     ],
   },
   {
