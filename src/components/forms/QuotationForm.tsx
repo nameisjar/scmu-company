@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FormEvent, useRef, useState } from "react";
-import { ArrowUpRight, LockKeyhole } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { company } from "@/data/company";
 import { createWhatsAppUrl, type QuoteData } from "@/lib/whatsapp";
 
@@ -95,11 +95,11 @@ export function QuotationForm() {
       {errors.config && <p className="form-config-error" role="alert">{errors.config}</p>}
       <div className="form-submit-row">
         <div className="form-submit-row__actions">
-          <button className="button button--primary" type="submit">
-            Kirim melalui WhatsApp <ArrowUpRight aria-hidden="true" />
+          <button className="button button--whatsapp" type="submit">
+            <WhatsAppIcon />
+            <span>Kirim melalui WhatsApp</span>
           </button>
         </div>
-        <p><LockKeyhole aria-hidden="true" /> Data tidak disimpan di website.</p>
       </div>
     </form>
   );

@@ -85,6 +85,9 @@ p { color: var(--neutral-600); }
 .button svg { width: 18px; height: 18px; }
 .button--primary { background: var(--scmu-red); color: white; }
 .button--primary:hover { background: var(--scmu-red-dark); }
+.button--whatsapp { background: #25d366; color: white; }
+.button--whatsapp:hover { background: #1fbd5a; color: white; transform: translateY(-1px); }
+.button--whatsapp svg { width: 20px; height: 20px; flex: 0 0 auto; fill: currentColor; }
 .button--secondary { background: var(--scmu-blue); color: white; }
 .button--secondary:hover { background: var(--scmu-blue-dark); }
 .button--outline { border-color: var(--scmu-blue); color: var(--scmu-blue); background: transparent; }
@@ -269,9 +272,8 @@ p { color: var(--neutral-600); }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--scmu-blue); outline: 0; box-shadow: 0 0 0 3px rgba(0,87,217,.12); }
 .form-field input[aria-invalid="true"], .form-field select[aria-invalid="true"] { border-color: var(--scmu-red); }.form-field small { color: var(--scmu-red); font-weight: 600; }
 .form-field--full { grid-column: 1 / -1; }
-.form-submit-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--neutral-200); }
+.form-submit-row { display: flex; align-items: center; justify-content: flex-end; gap: 20px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--neutral-200); }
 .form-submit-row__actions { display: flex; align-items: center; gap: 10px; }
-.form-submit-row p { display: flex; align-items: center; gap: 8px; margin: 0; font-size: .82rem; }.form-submit-row p svg { width: 16px; color: var(--scmu-blue); }
 .form-config-error { margin: 20px 0 0; padding: 12px 14px; border: 1px solid #fecaca; border-radius: var(--radius-sm); background: #fff1f2; color: #9f1239; font-size: .88rem; }
 
 /* Company profile */
