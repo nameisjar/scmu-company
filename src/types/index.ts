@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 
 export type Service = {
   slug: string;
@@ -8,7 +8,7 @@ export type Service = {
   overview: string;
   benefits: string[];
   suitableFor: string[];
-  Icon: LucideIcon;
+  Icon: ComponentType<SVGProps<SVGSVGElement>>;
   image: {
     src: string;
     alt: string;

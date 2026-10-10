@@ -1,4 +1,10 @@
-import { Plane, Ship, TrainFront, Truck, Waves } from "lucide-react";
+import {
+  ScmuAirIcon,
+  ScmuRailIcon,
+  ScmuRiverIcon,
+  ScmuRoadIcon,
+  ScmuSeaIcon,
+} from "@/components/icons/ScmuIcons";
 import type { Service } from "@/types";
 
 export const services: Service[] = [
@@ -6,7 +12,7 @@ export const services: Service[] = [
     slug: "pengiriman-darat",
     title: "Pengiriman Darat",
     shortTitle: "Darat",
-    Icon: Truck,
+    Icon: ScmuRoadIcon,
     description:
       "Distribusi melalui jalur darat untuk pengiriman antarkota atau antarwilayah sesuai cakupan layanan.",
     overview:
@@ -33,7 +39,7 @@ export const services: Service[] = [
     slug: "pengiriman-udara",
     title: "Pengiriman Udara",
     shortTitle: "Udara",
-    Icon: Plane,
+    Icon: ScmuAirIcon,
     description:
       "Pengiriman melalui jalur udara untuk barang dengan prioritas waktu pada rute penerbangan yang tersedia.",
     overview:
@@ -60,7 +66,7 @@ export const services: Service[] = [
     slug: "pengiriman-laut",
     title: "Pengiriman Laut",
     shortTitle: "Laut",
-    Icon: Ship,
+    Icon: ScmuSeaIcon,
     description:
       "Pengiriman melalui jalur laut untuk distribusi antarpulau serta barang dengan karakteristik atau volume yang sesuai.",
     overview:
@@ -87,7 +93,7 @@ export const services: Service[] = [
     slug: "pengiriman-sungai",
     title: "Pengiriman Sungai",
     shortTitle: "Sungai",
-    Icon: Waves,
+    Icon: ScmuRiverIcon,
     description:
       "Angkutan melalui jalur sungai untuk barang dan wilayah yang terhubung dengan rute perairan yang tersedia.",
     overview:
@@ -114,7 +120,7 @@ export const services: Service[] = [
     slug: "pengiriman-kereta",
     title: "Pengiriman Kereta",
     shortTitle: "Kereta",
-    Icon: TrainFront,
+    Icon: ScmuRailIcon,
     description:
       "Angkutan barang melalui jaringan kereta untuk koridor dan terminal yang mendukung layanan kargo.",
     overview:

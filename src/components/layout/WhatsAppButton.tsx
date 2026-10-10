@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { company } from "@/data/company";
 
 function WhatsAppIcon() {
@@ -9,7 +12,9 @@ function WhatsAppIcon() {
 }
 
 export function WhatsAppButton() {
-  if (!company.whatsapp) return null;
+  const pathname = usePathname();
+
+  if (!company.whatsapp || pathname === "/kontak") return null;
 
   const href = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Halo PT. SCMU, saya ingin berkonsultasi mengenai pengiriman barang.")}`;
 

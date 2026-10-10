@@ -1,51 +1,71 @@
 import type { Metadata } from "next";
-import { ClipboardCheck, MessageSquareText, Route, Waypoints } from "lucide-react";
-import { PageHero } from "@/components/layout/PageHero";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Tentang Kami",
-  description: "Mengenal PT. SCMU dan layanan pengiriman melalui jalur darat, udara, laut, sungai, dan kereta.",
+  title: "Profil Perusahaan",
+  description: "Profil PT. SCMU, visi perusahaan, dan komitmen dalam layanan logistik, transportasi, serta pengiriman barang.",
 };
-
-const values = [
-  { title: "Memahami kebutuhan", text: "Detail barang dan tujuan menjadi dasar setiap pembahasan solusi.", Icon: MessageSquareText },
-  { title: "Menghubungkan pilihan", text: "Lima moda dipertimbangkan sesuai barang, rute, dan konteks pengiriman.", Icon: Waypoints },
-  { title: "Menata proses", text: "Informasi disusun agar koordinasi pengiriman lebih terarah.", Icon: ClipboardCheck },
-  { title: "Menjaga komunikasi", text: "Konsultasi membantu menyamakan informasi sebelum proses dimulai.", Icon: Route },
-];
 
 export default function AboutPage() {
   return (
-    <main>
-      <PageHero context="Tentang PT. SCMU" title="Pengiriman dibahas dari barang dan rutenya." description={company.description}>
-        <ButtonLink href="/#penawaran">Mulai Konsultasi</ButtonLink>
-      </PageHero>
-      <section className="section">
-        <Container className="editorial-grid">
-          <div><p className="section-label">Profil perusahaan</p><h2>Lima pilihan moda pengiriman.</h2></div>
-          <div>
-            <p className="lead">PT. SCMU bergerak dalam layanan pengiriman barang melalui jalur darat, udara, laut, sungai, dan kereta.</p>
-            <p>Kami menempatkan kebutuhan pengiriman sebagai titik awal: jenis barang, jumlah, asal, tujuan, serta prioritas menjadi informasi penting sebelum solusi dibahas.</p>
-            <p className="data-note">Deskripsi legal, sejarah, dan informasi korporasi lainnya akan dilengkapi berdasarkan data resmi PT. SCMU.</p>
-          </div>
+    <main className="about-page">
+      <section className="company-profile">
+        <Container className="company-profile__layout">
+          <figure className="company-profile__visual">
+            <Image
+              src="/images/company-profile-scmu-transparent.png"
+              alt="Ilustrasi layanan logistik SCMU melalui pesawat, kapal, forklift, dan truk"
+              fill
+              priority
+              sizes="(max-width: 860px) 100vw, 46vw"
+            />
+          </figure>
+
+          <article className="company-profile__copy">
+            <p className="section-label">Profil Perusahaan</p>
+            <h1>{company.name}</h1>
+            <div className="company-profile__body">
+              <p>Berdiri sejak tahun 2009, PT. SCMU merupakan perusahaan yang bergerak di bidang jasa logistik, transportasi, dan pengiriman barang melalui jalur laut, udara, maupun darat. Kami hadir untuk membantu memenuhi kebutuhan distribusi barang dengan layanan yang terencana dan sesuai dengan kebutuhan pelanggan.</p>
+              <p>Seiring dengan perkembangan dunia usaha dan meningkatnya kebutuhan distribusi barang, PT. SCMU berkomitmen untuk memberikan solusi logistik yang efektif dan efisien guna mendukung kelancaran kegiatan bisnis serta rantai pasok pelanggan.</p>
+              <p>Dengan mengutamakan kualitas pelayanan, keamanan barang, dan komunikasi yang baik, kami berupaya membangun kepercayaan serta hubungan kerja sama jangka panjang dengan setiap pelanggan.</p>
+              <p>Didukung oleh tim yang berdedikasi dan koordinasi operasional yang baik, PT. SCMU terus berupaya memberikan layanan pengiriman yang profesional, andal, dan berorientasi pada kepuasan pelanggan.</p>
+            </div>
+          </article>
         </Container>
       </section>
-      <section className="section section--soft">
-        <Container>
-          <div className="section-heading"><h2>Informasi diperiksa sebelum pilihan ditentukan.</h2></div>
-          <div className="values-grid">
-            {values.map(({ title, text, Icon }) => (
-              <article className="value-item" key={title}>
-                <Icon aria-hidden="true" /><h3>{title}</h3><p>{text}</p>
-              </article>
-            ))}
+
+      <section className="company-vision" aria-labelledby="vision-title">
+        <Container className="company-vision__layout">
+          <div className="company-vision__label">
+            <p>Visi Perusahaan</p>
           </div>
+          <blockquote id="vision-title">Menjadi mitra logistik pilihan yang menghubungkan kebutuhan distribusi pelanggan melalui layanan pengiriman yang andal, inovatif, dan berkelanjutan.</blockquote>
         </Container>
       </section>
-      <section className="section section--cta"><Container className="cta-band"><div><h2>Kirim detail barang dan rute Anda.</h2><p>PT. SCMU akan menggunakan informasi tersebut untuk memulai pembahasan pengiriman.</p></div><ButtonLink href="/#penawaran" variant="light">Minta Penawaran</ButtonLink></Container></section>
+
+      <section className="section director-profile">
+        <Container className="director-profile__layout">
+          <figure className="director-profile__portrait">
+            <Image src="/images/director-scmu.png" alt="Direktur PT. SCMU" fill sizes="(max-width: 860px) 100vw, 34vw" />
+            <figcaption>Direktur PT. SCMU</figcaption>
+          </figure>
+
+          <article className="director-profile__copy">
+            <p className="section-label">Direktur PT. SCMU</p>
+            <div className="director-profile__identity">
+              <p className="director-profile__name">H. Multazam Malik, S.E.</p>
+              <p className="director-profile__role">Direktur PT. Sarana Cipta Mandiri Utama</p>
+            </div>
+            <h2>Kepemimpinan yang dekat dengan operasional.</h2>
+            <p className="lead">Arah perusahaan dibangun melalui koordinasi yang baik, perhatian terhadap keamanan barang, dan komunikasi yang jelas dengan pelanggan.</p>
+            <p>Direktur PT. SCMU memimpin upaya perusahaan dalam menjaga kualitas pelayanan, koordinasi operasional, serta hubungan kerja sama jangka panjang dengan setiap pelanggan.</p>
+            <ButtonLink href="/kontak">Hubungi PT. SCMU</ButtonLink>
+          </article>
+        </Container>
+      </section>
     </main>
   );
 }

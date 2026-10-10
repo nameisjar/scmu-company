@@ -1,9 +1,10 @@
 "use client";
 
-import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type MouseEvent, useEffect, useRef, useState } from "react";
+import { ScmuChatIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { company, navigation } from "@/data/company";
 import { Brand } from "./Brand";
 import { Container } from "../ui/Container";
@@ -96,14 +97,14 @@ export function Navbar() {
           <Brand />
           <div className="utility-bar__details">
             {company.email ? (
-              <a href={`mailto:${company.email}`}><Mail aria-hidden="true" />{company.email}</a>
+              <a href={`mailto:${company.email}`}><ScmuMailIcon aria-hidden="true" />{company.email}</a>
             ) : (
-              <span className="utility-bar__placeholder"><Mail aria-hidden="true" /><span>info@scmu.co.id</span></span>
+              <span className="utility-bar__placeholder"><ScmuMailIcon aria-hidden="true" /><span>info@scmu.co.id</span></span>
             )}
             {company.whatsapp ? (
-              <a href={`https://wa.me/${company.whatsapp}`} target="_blank" rel="noreferrer"><Phone aria-hidden="true" />{company.phone || company.whatsapp}</a>
+              <a href={`https://wa.me/${company.whatsapp}`} target="_blank" rel="noreferrer"><ScmuChatIcon aria-hidden="true" />{company.phone || company.whatsapp}</a>
             ) : (
-              <span className="utility-bar__placeholder"><Phone aria-hidden="true" /><span>+62 812 3456 7890</span></span>
+              <span className="utility-bar__placeholder"><ScmuChatIcon aria-hidden="true" /><span>+62 812 3456 7890</span></span>
             )}
           </div>
         </Container>

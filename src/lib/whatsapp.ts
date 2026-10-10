@@ -1,28 +1,19 @@
 export type QuoteData = {
   name: string;
-  whatsapp: string;
-  item: string;
-  quantity: string;
-  origin: string;
-  destination: string;
-  mode: string;
-  notes: string;
+  email: string;
+  message: string;
 };
 
 export function createWhatsAppMessage(data: QuoteData) {
   return `Halo PT. SCMU,
 
-Saya ingin meminta informasi/penawaran
-untuk pengiriman barang.
+Saya ingin berkonsultasi mengenai pengiriman barang.
 
 Nama: ${data.name}
-Nomor WhatsApp: ${data.whatsapp}
-Jenis Barang: ${data.item}
-Jumlah/Berat: ${data.quantity || "-"}
-Lokasi Asal: ${data.origin}
-Lokasi Tujuan: ${data.destination}
-Moda Transportasi: ${data.mode}
-Catatan: ${data.notes || "-"}
+Email: ${data.email}
+
+Pesan:
+${data.message}
 
 Terima kasih.`;
 }

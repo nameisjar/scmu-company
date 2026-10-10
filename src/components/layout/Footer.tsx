@@ -1,5 +1,5 @@
-import { Mail, MapPin, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { ScmuChatIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { company, navigation } from "@/data/company";
 import { services } from "@/data/services";
 import { Container } from "../ui/Container";
@@ -34,16 +34,18 @@ export function Footer() {
         <div>
           <h2>Kontak</h2>
           <ul className="footer__contact">
-            <li><MessageCircle aria-hidden="true" />{company.whatsapp || "Nomor resmi belum diisi"}</li>
-            <li><Mail aria-hidden="true" />{company.email || "Email resmi belum diisi"}</li>
-            <li><MapPin aria-hidden="true" />{company.address || "Alamat resmi belum diisi"}</li>
+            <li><ScmuChatIcon aria-hidden="true" />{company.phone || "Nomor resmi belum diisi"}</li>
+            <li><ScmuMailIcon aria-hidden="true" />{company.email || "Email resmi belum diisi"}</li>
+            <li><ScmuLocationIcon aria-hidden="true" />{company.address || "Alamat resmi belum diisi"}</li>
           </ul>
         </div>
       </Container>
-      <Container className="footer__bottom">
-        <p>© {new Date().getFullYear()} PT. SCMU. All Rights Reserved.</p>
-              <p>Pengiriman darat · udara · laut · sungai · kereta</p>
-      </Container>
+      <div className="footer__legal">
+        <Container className="footer__bottom">
+          <p>© {new Date().getFullYear()} PT. SCMU. All Rights Reserved.</p>
+          <p>Pengiriman darat · udara · laut · sungai · kereta</p>
+        </Container>
+      </div>
     </footer>
   );
 }

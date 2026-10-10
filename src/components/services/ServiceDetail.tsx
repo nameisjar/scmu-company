@@ -1,14 +1,15 @@
-import { Check, ClipboardList, PackageCheck, Route, Send } from "lucide-react";
+import { Check } from "lucide-react";
+import { ScmuCargoIcon, ScmuConsultIcon, ScmuDispatchIcon, ScmuRouteIcon } from "@/components/icons/ScmuIcons";
 import type { Service } from "@/types";
 import { Container } from "../ui/Container";
 import { ButtonLink } from "../ui/ButtonLink";
 import { PageHero } from "../layout/PageHero";
 
 const process = [
-  { title: "Konsultasi", Icon: ClipboardList },
-  { title: "Detail barang", Icon: PackageCheck },
-  { title: "Solusi rute", Icon: Route },
-  { title: "Pengiriman", Icon: Send },
+  { title: "Konsultasi", Icon: ScmuConsultIcon },
+  { title: "Detail barang", Icon: ScmuCargoIcon },
+  { title: "Solusi rute", Icon: ScmuRouteIcon },
+  { title: "Pengiriman", Icon: ScmuDispatchIcon },
 ];
 
 export function ServiceDetail({ service }: { service: Service }) {

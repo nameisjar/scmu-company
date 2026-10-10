@@ -1,13 +1,8 @@
-import {
-  ArrowRight,
-  ClipboardList,
-  Headphones,
-  Settings2,
-  ShipWheel,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DocumentationGallery } from "@/components/documentation/DocumentationGallery";
+import { ScmuCargoIcon, ScmuConsultIcon, ScmuDispatchIcon, ScmuRouteIcon } from "@/components/icons/ScmuIcons";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
 import { QuotationForm } from "../forms/QuotationForm";
@@ -18,10 +13,10 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { FaqAccordion } from "./FaqAccordion";
 
 const values = [
-  { title: "Lima pilihan moda", text: "Darat, udara, laut, sungai, dan kereta dibahas dari satu informasi pengiriman.", Icon: ShipWheel },
-  { title: "Berdasarkan detail barang", text: "Jenis barang, jumlah, asal, dan tujuan menjadi dasar pembahasan.", Icon: Settings2 },
-  { title: "Tahapan yang jelas", text: "Informasi diperiksa sebelum moda dan rute pengiriman dikonfirmasi.", Icon: ClipboardList },
-  { title: "Percakapan langsung", text: "Permintaan penawaran diteruskan ke WhatsApp setelah formulir lengkap.", Icon: Headphones },
+  { title: "Lima pilihan moda", text: "Darat, udara, laut, sungai, dan kereta dibahas dari satu informasi pengiriman.", Icon: ScmuRouteIcon },
+  { title: "Berdasarkan detail barang", text: "Jenis barang, jumlah, asal, dan tujuan menjadi dasar pembahasan.", Icon: ScmuCargoIcon },
+  { title: "Tahapan yang jelas", text: "Informasi diperiksa sebelum moda dan rute pengiriman dikonfirmasi.", Icon: ScmuDispatchIcon },
+  { title: "Percakapan langsung", text: "Permintaan penawaran diteruskan ke WhatsApp setelah formulir lengkap.", Icon: ScmuConsultIcon },
 ];
 
 const roadService = services[0];
@@ -153,7 +148,7 @@ export function QuotationSection() {
       <Container>
         <SectionHeading
           title="Minta Penawaran"
-          description="Isi data barang dan rute. Setelah lengkap, website menyiapkan pesan untuk dikirim melalui WhatsApp."
+          description="Tulis kebutuhan Anda secara singkat. Website akan menyiapkan pesan untuk dilanjutkan melalui WhatsApp."
           align="center"
         />
         <div className="quote-layout"><QuotationForm /></div>
