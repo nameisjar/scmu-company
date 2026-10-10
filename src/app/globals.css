@@ -313,15 +313,15 @@ p { color: var(--neutral-600); }
 .mini-process { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--scmu-blue-light); }.mini-process__item { position: relative; padding: 35px 24px 24px; text-align: center; }.mini-process__item::before { content: ""; position: absolute; left: 50%; top: -7px; width: 12px; height: 12px; border: 3px solid white; border-radius: 50%; background: var(--scmu-blue); transform: translateX(-50%); }.mini-process__item > span { display: block; margin-bottom: 20px; color: var(--scmu-red); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }.mini-process__item svg { width: 28px; margin: 0 auto 15px; color: var(--scmu-blue); }.mini-process__item h3 { font-size: 1rem; }
 .section--cta { padding: 72px 0; background: var(--scmu-blue-dark); }.cta-band { display: flex; align-items: center; justify-content: space-between; gap: 40px; }.cta-band h2 { margin-bottom: 12px; color: white; }.cta-band p { margin: 0; color: rgba(255,255,255,.72); }
 .faq-page { max-width: 880px; }.faq-contact { display: flex; align-items: center; justify-content: space-between; gap: 50px; }.faq-contact h2 { margin-bottom: 14px; }.faq-contact p { margin: 0; }
-.contact-hero { position: relative; min-height: 280px; display: grid; overflow: hidden; isolation: isolate; background: var(--scmu-blue-deep); }
-.contact-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,25,61,.62); }
-.contact-hero__image { z-index: -2; object-fit: cover; }
-.contact-hero__inner { min-height: 280px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 52px; color: white; text-align: left; }
-.contact-hero__inner > p { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: rgba(255,255,255,.82); font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.contact-hero__inner > p::before { content: ""; width: 34px; height: 2px; background: var(--scmu-red); }
-.contact-hero__inner h1 { max-width: 720px; margin: 0; color: white; font-size: clamp(2rem, 3vw, 2.8rem); }
-.contact-hero__credit { position: absolute; right: 18px; bottom: 12px; z-index: 2; color: rgba(255,255,255,.68); font-size: .62rem; }
-.contact-hero__credit:hover { color: white; }
+.photo-page-hero { position: relative; min-height: 280px; display: grid; overflow: hidden; isolation: isolate; background: var(--scmu-blue-deep); }
+.photo-page-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,25,61,.62); }
+.photo-page-hero__image { z-index: -2; object-fit: cover; }
+.photo-page-hero__inner { min-height: 280px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 52px; color: white; text-align: left; }
+.photo-page-hero__inner > p { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: rgba(255,255,255,.82); font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.photo-page-hero__inner > p::before { content: ""; width: 34px; height: 2px; background: var(--scmu-red); }
+.photo-page-hero__inner h1 { max-width: 720px; margin: 0; color: white; font-size: clamp(2rem, 3vw, 2.8rem); }
+.photo-page-hero__credit { position: absolute; right: 18px; bottom: 12px; z-index: 2; color: rgba(255,255,255,.68); font-size: .62rem; }
+.photo-page-hero__credit:hover { color: white; }
 .contact-page { padding: 52px 0 64px; background: #f3f6f8; }
 .contact-workspace { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: 28px; align-items: start; }
 .contact-panel { border: 1px solid var(--neutral-200); background: white; box-shadow: 0 8px 22px rgba(15,23,42,.05); }
@@ -444,8 +444,8 @@ p { color: var(--neutral-600); }
 }
 
 @media (max-width: 860px) {
-  .contact-hero,
-  .contact-hero__inner {
+  .photo-page-hero,
+  .photo-page-hero__inner {
     min-height: 240px;
   }
 
@@ -479,16 +479,16 @@ p { color: var(--neutral-600); }
 }
 
 @media (max-width: 620px) {
-  .contact-hero,
-  .contact-hero__inner {
+  .photo-page-hero,
+  .photo-page-hero__inner {
     min-height: 210px;
   }
 
-  .contact-hero__inner {
+  .photo-page-hero__inner {
     padding-block: 40px;
   }
 
-  .contact-hero__inner h1 {
+  .photo-page-hero__inner h1 {
     font-size: 1.9rem;
   }
 

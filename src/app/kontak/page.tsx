@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { QuotationForm } from "@/components/forms/QuotationForm";
 import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
+import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
@@ -26,24 +26,7 @@ const contacts = [
 export default function ContactPage() {
   return (
     <main>
-      <section className="contact-hero">
-        <Image
-          className="contact-hero__image"
-          src={contactHeroService.image.src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectPosition: contactHeroService.image.position }}
-        />
-        <Container className="contact-hero__inner">
-          <p>Kontak PT. SCMU</p>
-          <h1>Diskusikan kebutuhan pengiriman Anda.</h1>
-        </Container>
-        <a className="contact-hero__credit" href={contactHeroService.image.source} target="_blank" rel="noreferrer">
-          Foto: {contactHeroService.image.credit} / Unsplash
-        </a>
-      </section>
+      <PhotoPageHero eyebrow="Kontak PT. SCMU" title="Diskusikan kebutuhan pengiriman Anda." image={contactHeroService.image} />
 
       <section className="section contact-page">
         <Container className="contact-workspace">
