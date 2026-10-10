@@ -88,7 +88,7 @@ export function QuotationForm() {
   }
 
   return (
-    <form className="quote-form" onSubmit={handleSubmit} noValidate ref={formRef} data-section-scroll-native="true">
+    <form className="quote-form" onSubmit={handleSubmit} noValidate ref={formRef}>
       <div className="quote-form__header">
         <div>
           <p className="quote-form__step" aria-live="polite">Langkah {step} dari 2</p>

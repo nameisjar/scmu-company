@@ -3,11 +3,11 @@ export const company = {
   tagline: "Dari Papua Selatan, Menghubungkan Indonesia.",
   description:
     "PT. SCMU melayani pengiriman barang melalui jalur darat, udara, laut, sungai, dan kereta. Pemilihan moda dibahas berdasarkan jenis barang, jumlah, asal, tujuan, dan ketersediaan rute.",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "",
-  phone: "",
-  email: "",
-  address: "",
-  operationalHours: "",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "6281248272727",
+  phone: "+62 812-4827-2727",
+  email: "scmumerauke@gmail.com",
+  address: "Jl. TMP (Taman Makam Pahlawan) Polder. 45 A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
+  operationalHours: "08.00–17.00 WIT",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
 

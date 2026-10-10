@@ -29,7 +29,7 @@ const roadService = services[0];
 
 export function CompanyIntro() {
   return (
-    <section className="section intro-section" id="tentang-kami" data-scroll-section="true">
+    <section className="section anchor-section intro-section" id="tentang-kami">
       <Container>
         <SectionHeading title="Tentang PT. SCMU" align="center" />
         <div className="intro-grid">
@@ -49,7 +49,7 @@ export function CompanyIntro() {
 
 export function ServicesSection() {
   return (
-    <section className="section services-section" id="layanan" data-scroll-section="true">
+    <section className="section anchor-section services-section" id="layanan">
       <Container>
         <SectionHeading title="Layanan Pengiriman" align="center" />
         <ServiceCarousel />
@@ -60,7 +60,7 @@ export function ServicesSection() {
 
 export function WhySection() {
   return (
-    <section className="section why-section" id="keunggulan" data-scroll-section="true">
+    <section className="section anchor-section why-section" id="keunggulan">
       <Container className="why-editorial">
         <figure className="why-editorial__media">
           <div className="why-editorial__image">
@@ -109,7 +109,7 @@ export function WhySection() {
 
 export function DocumentationSection() {
   return (
-    <section className="section documentation-section" id="dokumentasi" data-scroll-section="true">
+    <section className="section anchor-section documentation-section" id="dokumentasi">
       <Container>
         <div className="documentation-section__heading">
           <div>
@@ -129,7 +129,7 @@ export function DocumentationSection() {
 
 export function CoverageSection() {
   return (
-    <section className="section coverage-section" id="area-pengiriman" data-scroll-section="true">
+    <section className="section anchor-section coverage-section" id="area-pengiriman">
       <Container>
         <SectionHeading title="Area Pengiriman" align="center" />
         <div className="coverage-grid">
@@ -154,7 +154,7 @@ export function CoverageSection() {
 
 export function FaqSection() {
   return (
-    <section className="section section--soft" id="faq" data-scroll-section="true">
+    <section className="section anchor-section section--soft" id="faq">
       <Container>
         <SectionHeading
           title="Pertanyaan Umum"
@@ -176,7 +176,7 @@ export function FaqSection() {
 
 export function QuotationSection() {
   return (
-    <section className="section quote-section" id="penawaran" data-scroll-section="true">
+    <section className="section anchor-section quote-section" id="penawaran">
       <Container>
         <SectionHeading
           title="Minta Penawaran"

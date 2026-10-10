@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function DocumentationPage() {
   return (
-    <main data-section-scroll-native>
+    <main>
       <section className="section documentation-page">
         <Container>
           <h1 className="visually-hidden">Dokumentasi Kegiatan</h1>

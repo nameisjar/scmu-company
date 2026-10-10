@@ -38,11 +38,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section
-      id="beranda"
-      className="hero"
-      data-scroll-section="true"
-    >
+    <section id="beranda" className="hero">
       <div className="hero__media" aria-hidden="true">
         {services.map((service, index) => (
           <Image

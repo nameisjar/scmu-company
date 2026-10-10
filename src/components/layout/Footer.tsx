@@ -7,7 +7,7 @@ import { Brand } from "./Brand";
 
 export function Footer() {
   return (
-    <footer className="footer" id="footer" data-scroll-section="true">
+    <footer className="footer anchor-section" id="footer">
       <Container className="footer__grid">
         <div className="footer__about">
           <Brand />
