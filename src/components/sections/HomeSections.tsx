@@ -2,7 +2,6 @@ import {
   ArrowRight,
   ClipboardList,
   Headphones,
-  MapPin,
   Settings2,
   ShipWheel,
 } from "lucide-react";
@@ -117,36 +116,10 @@ export function DocumentationSection() {
             <h2>Aktivitas transportasi dan logistik di lapangan.</h2>
           </div>
           <div>
-            <p>Foto kegiatan operasional ditampilkan tanpa keterangan waktu, lokasi, rute, atau pelanggan yang belum terverifikasi.</p>
             <ButtonLink href="/dokumentasi" variant="outline">Lihat Semua Dokumentasi</ButtonLink>
           </div>
         </div>
         <DocumentationGallery limit={5} variant="preview" />
-      </Container>
-    </section>
-  );
-}
-
-export function CoverageSection() {
-  return (
-    <section className="section anchor-section coverage-section" id="area-pengiriman">
-      <Container>
-        <SectionHeading title="Area Pengiriman" align="center" />
-        <div className="coverage-grid">
-          <div>
-            <h3 className="coverage-grid__headline">Sebutkan asal dan tujuan untuk memeriksa rute.</h3>
-            <p>PT. SCMU melayani kebutuhan pengiriman ke berbagai wilayah sesuai rute dan ketersediaan layanan. Sampaikan asal dan tujuan untuk mendapatkan konfirmasi.</p>
-            <ButtonLink href="/area-pengiriman" variant="outline">Lihat Informasi Area</ButtonLink>
-          </div>
-          <div className="coverage-map" aria-label="Ilustrasi jaringan rute; bukan representasi cakupan operasional sebenarnya">
-            <p className="coverage-map__label"><MapPin aria-hidden="true" /> Cakupan dikonfirmasi per permintaan</p>
-            <svg viewBox="0 0 600 300" aria-hidden="true">
-              <path d="M54 215C135 215 144 73 253 83C357 92 325 244 446 220C504 208 518 131 561 96" />
-              <circle cx="54" cy="215" r="8" /><circle cx="253" cy="83" r="8" /><circle cx="446" cy="220" r="8" /><circle cx="561" cy="96" r="11" />
-            </svg>
-            <p>Visual koneksi bersifat ilustratif, bukan daftar rute layanan.</p>
-          </div>
-        </div>
       </Container>
     </section>
   );

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <main>
-      <PageHero context="Pertanyaan umum" title="Informasi sebelum mengirim detail barang." description="Pelajari layanan, perbedaan moda, dan data yang perlu disiapkan untuk meminta penawaran.">
+      <PageHero context="Pertanyaan umum" title="Informasi sebelum mengirim detail barang." description="Pelajari cakupan wilayah, layanan, perbedaan moda, dan data yang perlu disiapkan untuk meminta penawaran.">
         <ButtonLink href="/#penawaran">Minta Penawaran</ButtonLink>
       </PageHero>
       <section className="section section--soft"><Container className="faq-page"><FaqAccordion /></Container></section>

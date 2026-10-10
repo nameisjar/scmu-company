@@ -1,6 +1,5 @@
 import {
   CompanyIntro,
-  CoverageSection,
   DocumentationSection,
   FaqSection,
   QuotationSection,
@@ -17,7 +16,6 @@ export default function HomePage() {
       <ServicesSection />
       <WhySection />
       <DocumentationSection />
-      <CoverageSection />
       <FaqSection />
       <QuotationSection />
     </main>

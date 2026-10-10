@@ -40,13 +40,6 @@ export const navigation: NavigationItem[] = [
     ],
   },
   { label: "Dokumentasi", href: "/dokumentasi" },
-  {
-    label: "Informasi",
-    href: "/area-pengiriman",
-    children: [
-      { label: "Area Pengiriman", href: "/area-pengiriman" },
-      { label: "Pertanyaan Umum", href: "/faq" },
-    ],
-  },
+  { label: "FAQ", href: "/faq" },
   { label: "Kontak", href: "/kontak" },
 ];
