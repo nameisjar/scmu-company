@@ -286,25 +286,22 @@ p { color: var(--neutral-600); }
 .company-profile__body p { margin: 0; color: var(--neutral-700); font-size: .98rem; line-height: 1.72; }
 .company-profile__body p:first-child { color: var(--neutral-900); font-size: 1.05rem; }
 
-.company-vision { padding: 70px 0; border-block: 1px solid var(--neutral-200); background: #f5f7f9; }
-.company-vision__layout { display: grid; grid-template-columns: minmax(180px, .28fr) minmax(0, 1fr); gap: 56px; align-items: stretch; }
-.company-vision__label { display: flex; align-items: flex-start; padding-top: 7px; padding-right: 44px; border-right: 1px solid #cbd5df; }
-.company-vision__label p { margin: 0; color: var(--scmu-blue); font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.company-vision blockquote { max-width: 980px; margin: 0; color: var(--scmu-blue-dark); font-size: clamp(1.65rem, 2.25vw, 2rem); font-weight: 620; line-height: 1.42; letter-spacing: -.018em; }
+.company-vision { padding: 64px 0; border-block: 1px solid var(--neutral-200); background: #f5f7f9; }
+.company-vision__layout { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.company-vision__title { margin: 0; color: var(--scmu-blue); font-size: .78rem; font-weight: 800; line-height: 1.4; letter-spacing: .12em; text-transform: uppercase; }
+.company-vision__statement { max-width: 760px; margin: 0 auto; color: var(--scmu-blue-dark); font-size: 1.05rem; font-weight: 500; line-height: 1.72; letter-spacing: 0; text-wrap: balance; }
 
-.director-profile { background: #f3f6f8; }
-.director-profile__layout { display: grid; grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr); gap: 84px; align-items: center; }
-.director-profile__portrait { position: relative; width: 100%; max-width: 410px; aspect-ratio: 3 / 5; margin: 0; overflow: hidden; background: var(--neutral-200); }
-.director-profile__portrait img { object-fit: cover; object-position: center; }
-.director-profile__portrait figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: var(--scmu-blue-dark); color: rgba(255,255,255,.78); font-size: .69rem; line-height: 1.4; }
+.director-profile { background: #fff; }
+.director-profile__layout { display: grid; grid-template-columns: minmax(280px, .74fr) minmax(0, 1.26fr); gap: 72px; align-items: center; }
+.director-profile__portrait { position: relative; width: 100%; max-width: 380px; aspect-ratio: 4 / 5; margin: 0; overflow: hidden; background: var(--neutral-200); }
+.director-profile__portrait img { object-fit: cover; object-position: center 30%; }
 .director-profile__copy { max-width: 660px; }
 .director-profile__copy .section-label { margin-bottom: 12px; }
-.director-profile__identity { margin-bottom: 28px; }
+.director-profile__identity { margin-bottom: 24px; }
 .director-profile__identity .director-profile__name { margin: 0; color: var(--scmu-blue); font-size: clamp(1.45rem, 2vw, 1.75rem); font-weight: 750; line-height: 1.25; letter-spacing: -.015em; }
 .director-profile__identity .director-profile__role { margin: 5px 0 0; color: var(--neutral-600); font-size: .98rem; line-height: 1.5; }
-.director-profile__copy h2 { margin-bottom: 22px; font-size: clamp(2rem, 3.2vw, 3rem); }
-.director-profile__copy .lead { margin-bottom: 18px; color: var(--neutral-900); }
-.director-profile__copy > p:not(.section-label) { line-height: 1.72; }
+.director-profile__copy h2 { max-width: 590px; margin-bottom: 20px; font-size: clamp(1.8rem, 2.5vw, 2.35rem); }
+.director-profile__copy > p:not(.section-label) { max-width: 620px; color: var(--neutral-700); line-height: 1.72; }
 .director-profile__copy .button { margin-top: 14px; }
 
 /* Detail pages */
@@ -462,14 +459,7 @@ p { color: var(--neutral-600); }
   }
 
   .company-vision__layout {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .company-vision__label {
-    padding: 0 0 14px;
-    border-right: 0;
-    border-bottom: 1px solid #cbd5df;
+    gap: 16px;
   }
 
   .director-profile__portrait {
@@ -543,9 +533,9 @@ p { color: var(--neutral-600); }
     padding: 46px 0;
   }
 
-  .company-vision blockquote {
-    font-size: 1.42rem;
-    line-height: 1.45;
+  .company-vision__statement {
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .director-profile__layout {
