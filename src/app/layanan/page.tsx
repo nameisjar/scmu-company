@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/layout/PageHero";
+import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
@@ -7,15 +7,24 @@ import { services } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Layanan Pengiriman",
-  description: "Layanan pengiriman barang PT. SCMU melalui jalur darat, udara, laut, sungai, dan kereta.",
+  description: "Layanan pengiriman barang PT. SCMU melalui jalur darat, udara, laut, sungai, dan multimoda.",
 };
 
 export default function ServicesPage() {
   return (
     <main>
-      <PageHero context="Layanan PT. SCMU" title="Lima moda dengan penggunaan yang berbeda." description="Pilih berdasarkan karakteristik barang, asal, tujuan, dan prioritas waktu. Jika belum yakin, kirimkan detail untuk dibahas terlebih dahulu.">
+      <PhotoPageHero
+        eyebrow="Layanan PT. SCMU"
+        title="Lima layanan untuk kebutuhan pengiriman yang berbeda."
+        description="Pilih berdasarkan karakteristik barang, asal, tujuan, dan prioritas waktu. Jika belum yakin, kirimkan detail untuk dibahas terlebih dahulu."
+        image={{
+          src: "/images/documentation/operasional-03.jpg",
+          position: "center 52%",
+          credit: "Dokumentasi PT. SCMU",
+        }}
+      >
         <ButtonLink href="/#penawaran">Minta Penawaran</ButtonLink>
-      </PageHero>
+      </PhotoPageHero>
       <section className="section section--soft">
         <Container><div className="services-grid">{services.map((service) => <ServiceCard key={service.slug} service={service} />)}</div></Container>
       </section>

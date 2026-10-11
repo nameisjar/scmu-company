@@ -6,6 +6,11 @@ export type Service = {
   shortTitle: string;
   description: string;
   overview: string;
+  quickFacts: {
+    suitableFor: string;
+    initialInformation: string;
+    availability: string;
+  };
   benefits: string[];
   suitableFor: string[];
   Icon: ComponentType<SVGProps<SVGSVGElement>>;

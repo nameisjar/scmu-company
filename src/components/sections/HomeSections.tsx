@@ -6,14 +6,13 @@ import { ScmuCargoIcon, ScmuConsultIcon, ScmuDispatchIcon, ScmuRouteIcon } from 
 import { company } from "@/data/company";
 import { services } from "@/data/services";
 import { QuotationForm } from "../forms/QuotationForm";
-import { ServiceCarousel } from "../services/ServiceCarousel";
 import { ButtonLink } from "../ui/ButtonLink";
 import { Container } from "../ui/Container";
 import { SectionHeading } from "../ui/SectionHeading";
 import { FaqAccordion } from "./FaqAccordion";
 
 const values = [
-  { title: "Lima pilihan moda", text: "Darat, udara, laut, sungai, dan kereta dibahas dari satu informasi pengiriman.", Icon: ScmuRouteIcon },
+  { title: "Lima pilihan layanan", text: "Darat, udara, laut, sungai, dan multimoda dibahas dari satu informasi pengiriman.", Icon: ScmuRouteIcon },
   { title: "Berdasarkan detail barang", text: "Jenis barang, jumlah, asal, dan tujuan menjadi dasar pembahasan.", Icon: ScmuCargoIcon },
   { title: "Tahapan yang jelas", text: "Informasi diperiksa sebelum moda dan rute pengiriman dikonfirmasi.", Icon: ScmuDispatchIcon },
   { title: "Percakapan langsung", text: "Permintaan penawaran diteruskan ke WhatsApp setelah formulir lengkap.", Icon: ScmuConsultIcon },
@@ -28,7 +27,7 @@ export function CompanyIntro() {
         <SectionHeading title="Tentang PT. SCMU" align="center" />
         <div className="intro-grid">
           <div>
-            <h3 className="intro-grid__headline">Lima moda dalam satu pembahasan pengiriman.</h3>
+            <h3 className="intro-grid__headline">Lima layanan dalam satu pembahasan pengiriman.</h3>
           </div>
           <div>
             <p className="lead">{company.description}</p>
@@ -46,7 +45,29 @@ export function ServicesSection() {
     <section className="section anchor-section services-section" id="layanan">
       <Container>
         <SectionHeading title="Layanan Pengiriman" align="center" />
-        <ServiceCarousel />
+        <div className="home-services-grid">
+          {services.map((service) => (
+            <Link
+              className="home-service-card"
+              href={`/layanan#${service.slug}`}
+              key={service.slug}
+            >
+              <div className="home-service-card__image">
+                <Image
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  fill
+                  sizes="(max-width: 620px) 100vw, (max-width: 860px) 50vw, 34vw"
+                  style={{ objectPosition: service.image.position }}
+                />
+              </div>
+              <div className="home-service-card__copy">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </Container>
     </section>
   );
@@ -71,7 +92,7 @@ export function WhySection() {
           </div>
           <figcaption className="why-editorial__stat">
             <strong>5</strong>
-            <span>Moda<br />Pengiriman</span>
+            <span>Layanan<br />Pengiriman</span>
           </figcaption>
         </figure>
 

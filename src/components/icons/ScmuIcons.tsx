@@ -55,6 +55,10 @@ export function ScmuRailIcon(props: SVGProps<SVGSVGElement>) {
   return <IconBase {...props}><path d="M8 4h16l3 5v13l-4 4H9l-4-4V9l3-5Z" /><path d="M9 9h14v8H9V9Zm0 12h3m8 0h3M12 26l-4 4m12-4 4 4M11 30h10" /><path d="M16 9v8" /></IconBase>;
 }
 
+export function ScmuMultimodalIcon(props: SVGProps<SVGSVGElement>) {
+  return <IconBase {...props}><path d="m10 11 6-4 6 4v8l-6 4-6-4v-8Z" /><path d="m10 11 6 4 6-4M16 15v8M16 7V3M16 29v-6M10 15H4M28 15h-6" /><path d="m13 5 3-2 3 2M13 27l3 2 3-2M6 12l-2 3 2 3M26 12l2 3-2 3" /></IconBase>;
+}
+
 export function ScmuConsultIcon(props: SVGProps<SVGSVGElement>) {
   return <IconBase {...props}><path d="M4 5h19l3 3v11l-3 3H13l-6 5v-5H4V5Z" /><path d="M9 10h12M9 15h8" /><path d="M22 25h6M25 22v6" /></IconBase>;
 }

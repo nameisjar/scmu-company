@@ -4,7 +4,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Apa saja layanan PT. SCMU?",
     answer:
-      "PT. SCMU melayani pengiriman barang melalui jalur darat, udara, laut, sungai, dan kereta. Pilihan moda dibahas dari karakteristik barang, jumlah, asal, tujuan, dan ketersediaan rute.",
+      "PT. SCMU melayani pengiriman barang melalui jalur darat, udara, laut, sungai, dan multimoda. Pilihan layanan dibahas dari karakteristik barang, jumlah, asal, tujuan, dan ketersediaan rute.",
   },
   {
     question: "Wilayah mana saja yang termasuk area pengiriman PT. SCMU?",
@@ -12,23 +12,23 @@ export const faqs: FaqItem[] = [
       "Area layanan PT. SCMU di Papua Selatan mencakup Merauke, Mappi, Asmat, dan Boven Digoel. Ketersediaan pengiriman pada setiap lokasi dikonfirmasi berdasarkan rute, jenis barang, dan moda transportasi yang dibutuhkan.",
   },
   {
-    question: "Apa perbedaan lima moda pengiriman yang tersedia?",
+    question: "Apa perbedaan lima layanan pengiriman yang tersedia?",
     answer:
-      "Setiap moda memiliki karakteristik berbeda. Darat digunakan pada cakupan jalan yang tersedia, udara untuk prioritas waktu, laut untuk distribusi antarpulau, sungai untuk koridor perairan, dan kereta untuk jaringan rel serta terminal yang mendukung kargo.",
+      "Setiap layanan memiliki penggunaan berbeda. Darat digunakan pada cakupan jalan yang tersedia, udara untuk prioritas waktu, laut untuk distribusi antarpulau, sungai untuk koridor perairan, dan multimoda untuk rute yang membutuhkan kombinasi dua atau lebih moda transportasi.",
   },
   {
     question: "Bagaimana cara meminta penawaran?",
     answer:
-      "Isi formulir permintaan penawaran pada website. Setelah data lengkap, website akan menyusun pesan dan mengarahkan Anda ke WhatsApp resmi PT. SCMU. Data tidak disimpan di website.",
+      "Isi formulir pesan pada website. Setelah data lengkap, website akan menyusun pesan dan mengarahkan Anda ke WhatsApp resmi PT. SCMU.",
   },
   {
     question: "Informasi apa yang perlu disiapkan?",
     answer:
-      "Siapkan nama, nomor WhatsApp, jenis barang, jumlah atau berat, lokasi asal, lokasi tujuan, moda yang diinginkan, serta catatan tambahan jika ada.",
+      "Siapkan nama, alamat email, dan pesan singkat mengenai jenis barang, jumlah, lokasi asal, lokasi tujuan, serta prioritas pengiriman.",
   },
   {
     question: "Bagaimana cara menghubungi PT. SCMU?",
     answer:
-      "Gunakan formulir penawaran atau tombol WhatsApp setelah nomor resmi perusahaan dikonfigurasi. Detail kontak resmi lainnya akan ditampilkan setelah tersedia.",
+      "Gunakan formulir pesan, tombol WhatsApp, email scmumerauke@gmail.com, atau nomor +62 812-4827-2727 pada jam operasional.",
   },
 ];

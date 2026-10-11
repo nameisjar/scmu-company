@@ -14,6 +14,11 @@ const process = [
 
 export function ServiceDetail({ service }: { service: Service }) {
   const { Icon } = service;
+  const quickFacts = [
+    { label: "Cocok untuk", value: service.quickFacts.suitableFor },
+    { label: "Informasi awal", value: service.quickFacts.initialInformation },
+    { label: "Ketersediaan", value: service.quickFacts.availability },
+  ];
   return (
     <main>
       <PageHero
@@ -21,7 +26,7 @@ export function ServiceDetail({ service }: { service: Service }) {
         description={service.description}
         context="Layanan PT. SCMU"
       >
-        <ButtonLink href="/#penawaran">Konsultasikan Pengiriman</ButtonLink>
+        <ButtonLink href="/kontak">Konsultasikan {service.shortTitle}</ButtonLink>
         <ButtonLink href="/layanan" variant="outline">Lihat Semua Layanan</ButtonLink>
       </PageHero>
 
@@ -33,6 +38,14 @@ export function ServiceDetail({ service }: { service: Service }) {
             <h2>Moda ditentukan setelah detail pengiriman diperiksa.</h2>
             <p>{service.overview}</p>
             <p className="data-note">Ketersediaan layanan dan rute dikonfirmasi setelah detail pengiriman diterima.</p>
+            <dl className="service-detail__facts">
+              {quickFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Container>
       </section>
@@ -83,7 +96,7 @@ export function ServiceDetail({ service }: { service: Service }) {
             <h2>Diskusikan kebutuhan {service.shortTitle.toLowerCase()} Anda.</h2>
             <p>Sampaikan jenis barang, jumlah, asal, dan tujuan untuk memulai konsultasi.</p>
           </div>
-          <ButtonLink href="/#penawaran" variant="light">Minta Penawaran</ButtonLink>
+          <ButtonLink href="/kontak" variant="light">Konsultasikan {service.shortTitle}</ButtonLink>
         </Container>
       </section>
     </main>

@@ -43,7 +43,7 @@ export function Footer() {
       <div className="footer__legal">
         <Container className="footer__bottom">
           <p>© {new Date().getFullYear()} PT. SCMU. All Rights Reserved.</p>
-          <p>Pengiriman darat · udara · laut · sungai · kereta</p>
+          <p>Pengiriman darat · udara · laut · sungai · multimoda</p>
         </Container>
       </div>
     </footer>

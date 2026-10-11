@@ -28,7 +28,7 @@ export default function AboutPage() {
             <p className="section-label">Profil Perusahaan</p>
             <h1>{company.name}</h1>
             <div className="company-profile__body">
-              <p>Berdiri sejak tahun 2009, PT. SCMU menyediakan jasa logistik, transportasi, dan pengiriman barang melalui jalur laut, udara, maupun darat. Setiap layanan direncanakan sesuai jenis barang, tujuan, dan kebutuhan pelanggan.</p>
+              <p>Berdiri sejak tahun 2009, PT. SCMU bergerak di bidang jasa logistik, transportasi, dan pengiriman barang melalui jalur laut, udara, maupun darat dengan wilayah operasional di Papua Selatan yang mencakup Merauke, Mappi, Boven Digoel, dan Asmat. Setiap layanan direncanakan sesuai jenis barang, tujuan, dan kebutuhan pelanggan.</p>
               <p>Seiring meningkatnya kebutuhan distribusi, kami membantu pelanggan merencanakan pengiriman yang efektif dan efisien untuk mendukung kelancaran kegiatan bisnis serta rantai pasok.</p>
               <p>Didukung oleh tim yang berdedikasi, PT. SCMU mengutamakan keamanan barang, koordinasi operasional, dan komunikasi yang jelas untuk membangun kepercayaan serta hubungan kerja sama jangka panjang.</p>
             </div>

@@ -1,6 +1,6 @@
 import {
   ScmuAirIcon,
-  ScmuRailIcon,
+  ScmuMultimodalIcon,
   ScmuRiverIcon,
   ScmuRoadIcon,
   ScmuSeaIcon,
@@ -17,6 +17,11 @@ export const services: Service[] = [
       "Distribusi melalui jalur darat untuk pengiriman antarkota atau antarwilayah sesuai cakupan layanan.",
     overview:
       "Layanan darat mendukung distribusi antarkota dan antarwilayah. Jenis kendaraan dan rute dibahas dari barang, asal, tujuan, serta ketersediaan layanan.",
+    quickFacts: {
+      suitableFor: "Distribusi antarkota dan antarwilayah",
+      initialInformation: "Jenis barang, volume, asal, dan tujuan",
+      availability: "Sesuai akses jalan dan armada yang tersedia",
+    },
     benefits: [
       "Mendukung distribusi antarkota atau antarwilayah",
       "Pilihan angkutan mempertimbangkan karakteristik barang",
@@ -44,6 +49,11 @@ export const services: Service[] = [
       "Pengiriman melalui jalur udara untuk barang dengan prioritas waktu pada rute penerbangan yang tersedia.",
     overview:
       "Layanan udara ditujukan untuk pengiriman yang membutuhkan penanganan waktu lebih singkat, mengikuti ketersediaan rute dan ketentuan penerbangan.",
+    quickFacts: {
+      suitableFor: "Pengiriman dengan prioritas waktu",
+      initialInformation: "Jenis barang, berat, dimensi, dan tujuan",
+      availability: "Mengikuti rute dan jadwal penerbangan",
+    },
     benefits: [
       "Pilihan untuk kebutuhan dengan prioritas waktu",
       "Rute disesuaikan dengan ketersediaan penerbangan",
@@ -71,6 +81,11 @@ export const services: Service[] = [
       "Pengiriman melalui jalur laut untuk distribusi antarpulau serta barang dengan karakteristik atau volume yang sesuai.",
     overview:
       "Layanan ini ditujukan untuk distribusi antarpulau. Ketersediaan ditentukan setelah jenis barang, volume, asal, tujuan, dan rute diperiksa.",
+    quickFacts: {
+      suitableFor: "Distribusi antarpulau dan volume lebih besar",
+      initialInformation: "Kemasan, volume, asal, dan tujuan",
+      availability: "Mengikuti jadwal kapal dan pelabuhan",
+    },
     benefits: [
       "Pilihan untuk kebutuhan distribusi antarpulau",
       "Sesuai untuk karakteristik barang dan volume tertentu",
@@ -98,6 +113,11 @@ export const services: Service[] = [
       "Angkutan melalui jalur sungai untuk barang dan wilayah yang terhubung dengan rute perairan yang tersedia.",
     overview:
       "Layanan sungai dipertimbangkan untuk wilayah yang memiliki akses perairan. Ketersediaan kapal, titik muat, titik bongkar, dan kondisi rute perlu dikonfirmasi terlebih dahulu.",
+    quickFacts: {
+      suitableFor: "Wilayah yang terhubung jalur perairan",
+      initialInformation: "Muatan, titik muat, dan titik bongkar",
+      availability: "Sesuai kapal, rute, dan kondisi perairan",
+    },
     benefits: [
       "Pilihan untuk wilayah yang terhubung jalur sungai",
       "Dapat dipertimbangkan untuk karakteristik muatan tertentu",
@@ -117,27 +137,32 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "pengiriman-kereta",
-    title: "Pengiriman Kereta",
-    shortTitle: "Kereta",
-    Icon: ScmuRailIcon,
+    slug: "pengiriman-multimoda",
+    title: "Pengiriman Multimoda",
+    shortTitle: "Multimoda",
+    Icon: ScmuMultimodalIcon,
     description:
-      "Angkutan barang melalui jaringan kereta untuk koridor dan terminal yang mendukung layanan kargo.",
+      "Pengiriman yang menggabungkan dua atau lebih moda untuk menyesuaikan rute, akses wilayah, dan kebutuhan barang.",
     overview:
-      "Layanan kereta dipertimbangkan pada koridor yang memiliki jaringan dan terminal kargo. Jadwal, kapasitas, titik asal, dan titik tujuan perlu diperiksa sebelum moda dikonfirmasi.",
+      "Layanan multimoda menghubungkan moda darat, laut, udara, sungai, atau moda lanjutan lain pada koridor yang tersedia. Susunan perjalanan dibahas setelah barang, asal, tujuan, dan titik perpindahan diperiksa.",
+    quickFacts: {
+      suitableFor: "Rute yang membutuhkan lebih dari satu moda",
+      initialInformation: "Barang, asal, tujuan, dan prioritas",
+      availability: "Sesuai koneksi rute dan moda lanjutan",
+    },
     benefits: [
-      "Pilihan untuk koridor yang terhubung jaringan rel",
-      "Mendukung perpindahan muatan antarterminal tertentu",
-      "Jadwal dan kapasitas dibahas dari kebutuhan pengiriman",
+      "Menghubungkan wilayah dengan akses transportasi yang berbeda",
+      "Susunan moda disesuaikan dengan rute dan karakteristik barang",
+      "Titik perpindahan dan moda lanjutan dikonfirmasi sebelum pengiriman",
     ],
     suitableFor: [
-      "Barang yang memenuhi ketentuan angkutan kereta",
-      "Distribusi pada koridor rel yang tersedia",
-      "Pengiriman yang dapat terhubung dengan moda lanjutan",
+      "Distribusi yang membutuhkan kombinasi darat dan perairan",
+      "Tujuan yang memerlukan perpindahan antarmoda",
+      "Pengiriman dengan rute lanjutan di luar satu jaringan transportasi",
     ],
     image: {
       src: "/images/service-rail.jpg",
-      alt: "Kereta barang membawa rangkaian kontainer",
+      alt: "Kereta barang sebagai salah satu moda dalam jaringan pengiriman multimoda",
       credit: "Roger Starnes Sr",
       source: "https://unsplash.com/photos/XXVattcDrWA",
       position: "center 58%",

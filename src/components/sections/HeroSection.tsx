@@ -3,13 +3,12 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { services } from "@/data/services";
+import { homepageHeroSlides } from "@/data/documentation";
 import { Container } from "../ui/Container";
 import { ButtonLink } from "../ui/ButtonLink";
 
 export function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeService = services[activeIndex];
 
   useEffect(() => {
     const autoplayStartedAt = Date.now();
@@ -19,7 +18,7 @@ export function HeroSection() {
       if (autoplayTimer) window.clearTimeout(autoplayTimer);
 
       const elapsed = Date.now() - autoplayStartedAt;
-      const nextIndex = Math.floor(elapsed / 3000) % services.length;
+      const nextIndex = Math.floor(elapsed / 3000) % homepageHeroSlides.length;
       setActiveIndex(nextIndex);
 
       const untilNextSlide = 3000 - (elapsed % 3000);
@@ -40,17 +39,17 @@ export function HeroSection() {
   return (
     <section id="beranda" className="hero">
       <div className="hero__media" aria-hidden="true">
-        {services.map((service, index) => (
+        {homepageHeroSlides.map((slide, index) => (
           <Image
             className={`hero__image ${index === activeIndex ? "is-active" : ""}`}
-            src={service.image.src}
+            src={slide.src}
             alt=""
             fill
             priority={index === 0}
             quality={88}
             sizes="100vw"
-            style={{ objectPosition: service.image.position }}
-            key={service.slug}
+            style={{ objectPosition: slide.position }}
+            key={slide.src}
           />
         ))}
       </div>
@@ -65,9 +64,7 @@ export function HeroSection() {
           </div>
         </div>
       </Container>
-      <a className="hero__credit" href={activeService.image.source} target="_blank" rel="noreferrer">
-        Foto: {activeService.image.credit} / Unsplash
-      </a>
+      <span className="hero__credit">Dokumentasi PT. SCMU</span>
     </section>
   );
 }

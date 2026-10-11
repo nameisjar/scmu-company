@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(company.siteUrl),
   title: {
-    default: "PT. SCMU | Pengiriman Darat, Udara, Laut, Sungai, dan Kereta",
+    default: "PT. SCMU | Pengiriman Darat, Udara, Laut, Sungai, dan Multimoda",
     template: "%s | PT. SCMU",
   },
   description: company.description,

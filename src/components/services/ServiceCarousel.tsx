@@ -69,6 +69,11 @@ export function ServiceCarousel() {
         {services.map((service, index) => {
           const isActive = index === activeIndex;
           const { Icon } = service;
+          const quickFacts = [
+            { label: "Cocok untuk", value: service.quickFacts.suitableFor },
+            { label: "Informasi awal", value: service.quickFacts.initialInformation },
+            { label: "Ketersediaan", value: service.quickFacts.availability },
+          ];
 
           return (
             <article
@@ -91,8 +96,16 @@ export function ServiceCarousel() {
                   <Icon className="service-slide__icon" aria-hidden="true" />
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
+                  <dl className="service-slide__facts">
+                    {quickFacts.map((fact) => (
+                      <div key={fact.label}>
+                        <dt>{fact.label}</dt>
+                        <dd>{fact.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <Link className="service-slide__link" href={`/layanan/${service.slug}`}>
-                    Lihat detail layanan <ArrowUpRight aria-hidden="true" />
+                    Pelajari {service.shortTitle} <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <a className="service-slide__credit" href={service.image.source} target="_blank" rel="noreferrer">
                     Foto: {service.image.credit} / Unsplash

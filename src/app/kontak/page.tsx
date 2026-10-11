@@ -5,14 +5,12 @@ import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/c
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
-import { services } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Kontak",
   description: "Hubungi PT. SCMU untuk konsultasi dan permintaan penawaran pengiriman barang.",
 };
 
-const contactHeroService = services[0];
 const googleMapsUrl = "https://maps.app.goo.gl/5N3aXytZuSUihv1i8";
 const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(company.address)}&output=embed`;
 
@@ -26,7 +24,16 @@ const contacts = [
 export default function ContactPage() {
   return (
     <main>
-      <PhotoPageHero eyebrow="Kontak PT. SCMU" title="Diskusikan kebutuhan pengiriman Anda." image={contactHeroService.image} />
+      <PhotoPageHero
+        eyebrow="Kontak PT. SCMU"
+        title="Diskusikan kebutuhan pengiriman Anda."
+        description="Sampaikan kebutuhan Anda secara singkat. Tim PT. SCMU akan membantu membahas layanan yang sesuai."
+        image={{
+          src: "/images/documentation/operasional-01.jpg",
+          position: "center 52%",
+          credit: "Dokumentasi PT. SCMU",
+        }}
+      />
 
       <section className="section contact-page">
         <Container className="contact-workspace">
