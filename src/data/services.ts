@@ -33,11 +33,10 @@ export const services: Service[] = [
       "Pengiriman dengan kebutuhan angkutan yang berbeda",
     ],
     image: {
-      src: "/images/service-road.jpg",
-      alt: "Truk kargo merah melintas di jalan raya",
-      credit: "Tom Jackson",
-      source: "https://unsplash.com/photos/H2UzCyX32p4",
-      position: "center 64%",
+      src: "/images/documentation/operasional-05.jpg",
+      alt: "Tiga truk bermuatan material berada di area kontainer",
+      credit: "Dokumentasi PT. SCMU",
+      position: "center 52%",
     },
   },
   {
@@ -65,11 +64,10 @@ export const services: Service[] = [
       "Kebutuhan antarkota pada rute yang tersedia",
     ],
     image: {
-      src: "/images/service-air.jpg",
-      alt: "Pesawat kargo sedang melakukan bongkar muat di bandara",
-      credit: "Peaky_82",
-      source: "https://unsplash.com/photos/85gDb_IHdAQ",
-      position: "center 56%",
+      src: "/images/documentation/operasional-13.jpg",
+      alt: "Forklift memindahkan peti kayu berukuran besar di area operasional",
+      credit: "Dokumentasi PT. SCMU",
+      position: "center 55%",
     },
   },
   {
@@ -97,11 +95,10 @@ export const services: Service[] = [
       "Kebutuhan logistik yang sesuai ketentuan angkutan laut",
     ],
     image: {
-      src: "/images/service-sea.jpg",
-      alt: "Kapal kontainer sedang bersandar di terminal pelabuhan",
-      credit: "Daniel Miksha",
-      source: "https://unsplash.com/photos/4ZornyPnGlA",
-      position: "center",
+      src: "/images/documentation/operasional-08.jpg",
+      alt: "Kapal bersandar di pelabuhan dekat area kontainer",
+      credit: "Dokumentasi PT. SCMU",
+      position: "center 43%",
     },
   },
   {
@@ -129,11 +126,10 @@ export const services: Service[] = [
       "Kebutuhan antartitik dengan akses dermaga atau pelabuhan sungai",
     ],
     image: {
-      src: "/images/service-river.jpg",
-      alt: "Kapal tongkang membawa muatan menyusuri sungai",
-      credit: "Bernd Dittrich",
-      source: "https://unsplash.com/photos/o9vMLTC7jXM",
-      position: "64% 52%",
+      src: "/images/documentation/operasional-10.jpg",
+      alt: "Muatan tangki berukuran besar berada di atas trailer dekat perairan",
+      credit: "Dokumentasi PT. SCMU",
+      position: "center 48%",
     },
   },
   {
@@ -161,14 +157,81 @@ export const services: Service[] = [
       "Pengiriman dengan rute lanjutan di luar satu jaringan transportasi",
     ],
     image: {
-      src: "/images/service-rail.jpg",
-      alt: "Kereta barang sebagai salah satu moda dalam jaringan pengiriman multimoda",
-      credit: "Roger Starnes Sr",
-      source: "https://unsplash.com/photos/XXVattcDrWA",
-      position: "center 58%",
+      src: "/images/documentation/operasional-01.jpg",
+      alt: "Forklift membantu proses pemuatan di antara truk dan deretan kontainer",
+      credit: "Dokumentasi PT. SCMU",
+      position: "center 52%",
     },
   },
 ];
 
 export const getService = (slug: string) =>
   services.find((service) => service.slug === slug);
+
+const serviceTranslations = [
+  {
+    title: "Road Freight",
+    shortTitle: "Road",
+    description: "Road distribution for intercity and regional deliveries within the available service coverage.",
+    overview: "Road freight supports intercity and regional distribution. Vehicle type and route are discussed based on the cargo, origin, destination, and service availability.",
+    suitableFor: "Intercity and regional distribution",
+    initialInformation: "Cargo type, volume, origin, and destination",
+    availability: "Subject to road access and fleet availability",
+  },
+  {
+    title: "Air Freight",
+    shortTitle: "Air",
+    description: "Air freight for time-sensitive cargo on available flight routes.",
+    overview: "Air freight is intended for shipments requiring shorter handling times, subject to route availability and aviation requirements.",
+    suitableFor: "Time-sensitive shipments",
+    initialInformation: "Cargo type, weight, dimensions, and destination",
+    availability: "Subject to flight routes and schedules",
+  },
+  {
+    title: "Sea Freight",
+    shortTitle: "Sea",
+    description: "Sea freight for inter-island distribution and cargo with suitable characteristics or volume.",
+    overview: "This service supports inter-island distribution. Availability is determined after the cargo type, volume, origin, destination, and route have been reviewed.",
+    suitableFor: "Inter-island distribution and larger volumes",
+    initialInformation: "Packaging, volume, origin, and destination",
+    availability: "Subject to vessel and port schedules",
+  },
+  {
+    title: "River Freight",
+    shortTitle: "River",
+    description: "River transport for cargo and areas connected by available inland-waterway routes.",
+    overview: "River freight is considered for areas with waterway access. Vessel availability, loading and unloading points, and route conditions must be confirmed first.",
+    suitableFor: "Areas connected by inland waterways",
+    initialInformation: "Cargo, loading point, and unloading point",
+    availability: "Subject to vessel, route, and water conditions",
+  },
+  {
+    title: "Multimodal Freight",
+    shortTitle: "Multimodal",
+    description: "Freight combining two or more transport modes to suit the route, regional access, and cargo requirements.",
+    overview: "Multimodal freight connects road, sea, air, river, or other onward modes on available corridors. The journey is planned after the cargo, origin, destination, and transfer points have been reviewed.",
+    suitableFor: "Routes requiring more than one transport mode",
+    initialInformation: "Cargo, origin, destination, and priority",
+    availability: "Subject to route connections and onward modes",
+  },
+] as const;
+
+export const servicesEn: Service[] = services.map((service, index) => {
+  const translation = serviceTranslations[index];
+  return {
+    ...service,
+    title: translation.title,
+    shortTitle: translation.shortTitle,
+    description: translation.description,
+    overview: translation.overview,
+    quickFacts: {
+      suitableFor: translation.suitableFor,
+      initialInformation: translation.initialInformation,
+      availability: translation.availability,
+    },
+    image: {
+      ...service.image,
+      credit: "PT. SCMU Documentation",
+    },
+  };
+});

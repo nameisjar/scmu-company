@@ -3,27 +3,35 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
+import type { Locale } from "@/i18n/config";
+import { localizeHref } from "@/i18n/config";
 
 export const metadata: Metadata = {
   title: "Pertanyaan Umum",
   description: "Jawaban atas pertanyaan umum mengenai layanan dan permintaan penawaran PT. SCMU.",
 };
 
-export default function FaqPage() {
+export function FaqPageContent({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
   return (
     <main>
       <PhotoPageHero
-        eyebrow="Pertanyaan Umum"
-        title="Informasi sebelum mengirim detail barang."
-        description="Temukan jawaban ringkas mengenai layanan, kebutuhan awal, dan proses pembahasan pengiriman bersama PT. SCMU."
+        creditLabel={english ? "Photo" : "Foto"}
+        eyebrow={english ? "Frequently Asked Questions" : "Pertanyaan Umum"}
+        title={english ? "Information before you send cargo details." : "Informasi sebelum mengirim detail barang."}
+        description={english ? "Find concise answers about our services, initial requirements, and the freight-planning process with PT. SCMU." : "Temukan jawaban ringkas mengenai layanan, kebutuhan awal, dan proses pembahasan pengiriman bersama PT. SCMU."}
         image={{
           src: "/images/documentation/operasional-07.jpg",
           position: "center 54%",
-          credit: "Dokumentasi PT. SCMU",
+          credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />
-      <section className="section section--soft"><Container className="faq-page"><FaqAccordion /></Container></section>
-      <section className="section"><Container className="faq-contact"><div><h2>Pertanyaan Anda belum terjawab?</h2><p>Gunakan formulir untuk menyusun detail pengiriman dan melanjutkan percakapan melalui WhatsApp.</p></div><ButtonLink href="/#penawaran" variant="outline">Buka Formulir</ButtonLink></Container></section>
+      <section className="section section--soft"><Container className="faq-page"><FaqAccordion locale={locale} /></Container></section>
+      <section className="section"><Container className="faq-contact"><div><h2>{english ? "Still have a question?" : "Pertanyaan Anda belum terjawab?"}</h2><p>{english ? "Use the form to organize your shipment details and continue the conversation via WhatsApp." : "Gunakan formulir untuk menyusun detail pengiriman dan melanjutkan percakapan melalui WhatsApp."}</p></div><ButtonLink href={localizeHref("/#penawaran", locale)} variant="outline">{english ? "Open Form" : "Buka Formulir"}</ButtonLink></Container></section>
     </main>
   );
+}
+
+export default function FaqPage() {
+  return <FaqPageContent />;
 }

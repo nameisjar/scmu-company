@@ -5,6 +5,7 @@ import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/c
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
+import type { Locale } from "@/i18n/config";
 
 export const metadata: Metadata = {
   title: "Kontak",
@@ -14,24 +15,25 @@ export const metadata: Metadata = {
 const googleMapsUrl = "https://maps.app.goo.gl/5N3aXytZuSUihv1i8";
 const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(company.address)}&output=embed`;
 
-const contacts = [
-  { label: "Alamat", value: company.address || "Alamat resmi belum diisi", href: googleMapsUrl, Icon: ScmuLocationIcon },
-  { label: "Telepon / WhatsApp", value: company.phone || "Nomor resmi belum diisi", href: company.whatsapp ? `https://wa.me/${company.whatsapp}` : undefined, Icon: ScmuChatIcon },
-  { label: "Email", value: company.email || "Email resmi belum diisi", href: company.email ? `mailto:${company.email}` : undefined, Icon: ScmuMailIcon },
-  { label: "Jam operasional", value: company.operationalHours || "Jam operasional belum diisi", href: undefined, Icon: ScmuClockIcon },
-];
-
-export default function ContactPage() {
+export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
+  const contacts = [
+    { label: english ? "Address" : "Alamat", value: company.address, href: googleMapsUrl, Icon: ScmuLocationIcon },
+    { label: english ? "Phone / WhatsApp" : "Telepon / WhatsApp", value: company.phone, href: company.whatsapp ? `https://wa.me/${company.whatsapp}` : undefined, Icon: ScmuChatIcon },
+    { label: "Email", value: company.email, href: company.email ? `mailto:${company.email}` : undefined, Icon: ScmuMailIcon },
+    { label: english ? "Business hours" : "Jam operasional", value: english ? "Monday–Saturday, 08:00–17:00 WIT" : company.operationalHours, href: undefined, Icon: ScmuClockIcon },
+  ];
   return (
     <main>
       <PhotoPageHero
-        eyebrow="Kontak PT. SCMU"
-        title="Diskusikan kebutuhan pengiriman Anda."
-        description="Sampaikan kebutuhan Anda secara singkat. Tim PT. SCMU akan membantu membahas layanan yang sesuai."
+        creditLabel={english ? "Photo" : "Foto"}
+        eyebrow={english ? "Contact PT. SCMU" : "Kontak PT. SCMU"}
+        title={english ? "Discuss your freight requirements." : "Diskusikan kebutuhan pengiriman Anda."}
+        description={english ? "Briefly describe your requirements. The PT. SCMU team will help discuss a suitable service." : "Sampaikan kebutuhan Anda secara singkat. Tim PT. SCMU akan membantu membahas layanan yang sesuai."}
         image={{
           src: "/images/documentation/operasional-01.jpg",
           position: "center 52%",
-          credit: "Dokumentasi PT. SCMU",
+          credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />
 
@@ -39,9 +41,9 @@ export default function ContactPage() {
         <Container className="contact-workspace">
           <aside className="contact-panel contact-panel--details" aria-labelledby="contact-information-title">
             <header className="contact-panel__heading">
-              <p className="section-label">Hubungi Kami</p>
-              <h2 id="contact-information-title">Informasi kontak</h2>
-              <p>Hubungi PT. SCMU atau kunjungi lokasi kantor pada jam operasional.</p>
+              <p className="section-label">{english ? "Contact Us" : "Hubungi Kami"}</p>
+              <h2 id="contact-information-title">{english ? "Contact information" : "Informasi kontak"}</h2>
+              <p>{english ? "Contact PT. SCMU or visit our office during business hours." : "Hubungi PT. SCMU atau kunjungi lokasi kantor pada jam operasional."}</p>
             </header>
             <dl className="contact-list">
               {contacts.map(({ label, value, href, Icon }) => (
@@ -52,15 +54,15 @@ export default function ContactPage() {
               ))}
             </dl>
             <div className="contact-panel__map-heading">
-              <h3>Lokasi kantor</h3>
+              <h3>{english ? "Office location" : "Lokasi kantor"}</h3>
               <a href={googleMapsUrl} target="_blank" rel="noreferrer">
-                Buka di Google Maps <ArrowUpRight aria-hidden="true" />
+                {english ? "Open in Google Maps" : "Buka di Google Maps"} <ArrowUpRight aria-hidden="true" />
               </a>
             </div>
             <div className="contact-map">
               <iframe
                 src={googleMapsEmbedUrl}
-                title="Lokasi kantor PT. SCMU di Google Maps"
+                title={english ? "PT. SCMU office location on Google Maps" : "Lokasi kantor PT. SCMU di Google Maps"}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -74,4 +76,8 @@ export default function ContactPage() {
       </section>
     </main>
   );
+}
+
+export default function ContactPage() {
+  return <ContactPageContent />;
 }

@@ -1,49 +1,63 @@
+"use client";
+
 import Link from "next/link";
-import { ScmuChatIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
-import { company, navigation } from "@/data/company";
-import { services } from "@/data/services";
+import { usePathname } from "next/navigation";
+import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
+import { company, companyEn, navigation, navigationEn } from "@/data/company";
+import { services, servicesEn } from "@/data/services";
+import { getCommonCopy } from "@/i18n/copy";
+import { localeFromPathname } from "@/i18n/config";
 import { Container } from "../ui/Container";
 import { Brand } from "./Brand";
 
 export function Footer() {
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname);
+  const copy = getCommonCopy(locale);
+  const localizedCompany = locale === "en" ? companyEn : company;
+  const localizedNavigation = locale === "en" ? navigationEn : navigation;
+  const localizedServices = locale === "en" ? servicesEn : services;
+  const homeHref = locale === "en" ? "/en" : "/";
+
   return (
     <footer className="footer anchor-section" id="footer">
       <Container className="footer__grid">
         <div className="footer__about">
-          <Brand />
-          <p>{company.description}</p>
+          <Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} />
+          <p>{localizedCompany.description}</p>
         </div>
         <div>
-          <h2>Navigasi</h2>
+          <h2>{copy.navigation}</h2>
           <ul>
-            {navigation.slice(1).map((item) => (
+            {localizedNavigation.slice(1).map((item) => (
               <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
             ))}
           </ul>
         </div>
         <div>
-          <h2>Layanan</h2>
+          <h2>{copy.services}</h2>
           <ul>
-            {services.map((service) => (
+            {localizedServices.map((service) => (
               <li key={service.slug}>
-                <Link href={`/layanan/${service.slug}`}>{service.title}</Link>
+                <Link href={`${locale === "en" ? "/en" : ""}/layanan#${service.slug}`}>{service.title}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h2>Kontak</h2>
+          <h2>{copy.contact}</h2>
           <ul className="footer__contact">
             <li><ScmuChatIcon aria-hidden="true" />{company.phone || "Nomor resmi belum diisi"}</li>
             <li><ScmuMailIcon aria-hidden="true" />{company.email || "Email resmi belum diisi"}</li>
             <li><ScmuLocationIcon aria-hidden="true" />{company.address || "Alamat resmi belum diisi"}</li>
+            <li><ScmuClockIcon aria-hidden="true" />{localizedCompany.operationalHours}</li>
           </ul>
         </div>
       </Container>
       <div className="footer__legal">
         <Container className="footer__bottom">
-          <p>© {new Date().getFullYear()} PT. SCMU. All Rights Reserved.</p>
-          <p>Pengiriman darat · udara · laut · sungai · multimoda</p>
+          <p>© {new Date().getFullYear()} PT. SCMU. {copy.allRights}</p>
+          <p>{copy.footerModes}</p>
         </Container>
       </div>
     </footer>

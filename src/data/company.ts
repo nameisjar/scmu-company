@@ -7,7 +7,7 @@ export const company = {
   phone: "+62 812-4827-2727",
   email: "scmumerauke@gmail.com",
   address: "Jl. TMP (Taman Makam Pahlawan) Polder. 45 A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
-  operationalHours: "08.00–17.00 WIT",
+  operationalHours: "Senin–Sabtu, 08.00–17.00 WIT",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
 
@@ -24,7 +24,7 @@ export const navigation: NavigationItem[] = [
     href: "/tentang-kami",
     children: [
       { label: "Profil Perusahaan", href: "/tentang-kami" },
-      { label: "Mengapa Memilih PT. SCMU", href: "/#keunggulan" },
+      { label: "Mengapa PT. SCMU", href: "/#keunggulan" },
     ],
   },
   {
@@ -35,3 +35,27 @@ export const navigation: NavigationItem[] = [
   { label: "FAQ", href: "/faq" },
   { label: "Kontak", href: "/kontak" },
 ];
+
+export const navigationEn: NavigationItem[] = [
+  { label: "Home", href: "/en" },
+  {
+    label: "About Us",
+    href: "/en/tentang-kami",
+    children: [
+      { label: "Company Profile", href: "/en/tentang-kami" },
+      { label: "Why PT. SCMU", href: "/en#keunggulan" },
+    ],
+  },
+  { label: "Services", href: "/en/layanan" },
+  { label: "Documentation", href: "/en/dokumentasi" },
+  { label: "FAQ", href: "/en/faq" },
+  { label: "Contact", href: "/en/kontak" },
+];
+
+export const companyEn = {
+  ...company,
+  tagline: "From South Papua, Connecting Indonesia.",
+  description:
+    "PT. SCMU provides road, air, sea, river, and multimodal freight services. Service options are discussed based on cargo type, quantity, origin, destination, and route availability.",
+  operationalHours: "Monday–Saturday, 08:00–17:00 WIT",
+};

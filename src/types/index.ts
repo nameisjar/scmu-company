@@ -18,7 +18,8 @@ export type Service = {
     src: string;
     alt: string;
     credit: string;
-    source: string;
+    source?: string;
+    provider?: string;
     position?: string;
   };
 };

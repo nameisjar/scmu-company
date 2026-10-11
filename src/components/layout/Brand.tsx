@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function Brand() {
+export function Brand({ href = "/", homeLabel = "Beranda" }: { href?: string; homeLabel?: string }) {
   return (
-    <Link className="brand" href="/" aria-label="SCMU — PT. Sarana Cipta Mandiri Utama — Beranda">
+    <Link className="brand" href={href} aria-label={`SCMU — PT. Sarana Cipta Mandiri Utama — ${homeLabel}`}>
       <Image
         className="brand__logo"
         src="/logo/scmu-mark.png"

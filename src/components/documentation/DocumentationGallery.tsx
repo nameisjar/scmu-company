@@ -1,13 +1,16 @@
 import Image from "next/image";
-import { documentation } from "@/data/documentation";
+import { documentation, documentationEn } from "@/data/documentation";
+import type { Locale } from "@/i18n/config";
 
 type Props = {
   limit?: number;
   variant?: "preview" | "full";
+  locale?: Locale;
 };
 
-export function DocumentationGallery({ limit, variant = "full" }: Props) {
-  const items = typeof limit === "number" ? documentation.slice(0, limit) : documentation;
+export function DocumentationGallery({ limit, variant = "full", locale = "id" }: Props) {
+  const source = locale === "en" ? documentationEn : documentation;
+  const items = typeof limit === "number" ? source.slice(0, limit) : source;
 
   return (
     <div className={`documentation-gallery documentation-gallery--${variant}`}>
@@ -17,7 +20,7 @@ export function DocumentationGallery({ limit, variant = "full" }: Props) {
           href={item.src}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Buka foto: ${item.label}`}
+          aria-label={`${locale === "en" ? "Open photo" : "Buka foto"}: ${item.label}`}
           key={item.src}
         >
           <figure>

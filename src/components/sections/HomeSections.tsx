@@ -2,37 +2,58 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DocumentationGallery } from "@/components/documentation/DocumentationGallery";
-import { ScmuCargoIcon, ScmuConsultIcon, ScmuDispatchIcon, ScmuRouteIcon } from "@/components/icons/ScmuIcons";
-import { company } from "@/data/company";
-import { services } from "@/data/services";
+import { ScmuCargoPictogram, ScmuConversationPictogram, ScmuCoordinationPictogram, ScmuRoutePictogram } from "@/components/icons/ScmuApproachPictograms";
+import { services, servicesEn } from "@/data/services";
+import type { Locale } from "@/i18n/config";
+import { localizeHref } from "@/i18n/config";
 import { QuotationForm } from "../forms/QuotationForm";
 import { ButtonLink } from "../ui/ButtonLink";
 import { Container } from "../ui/Container";
 import { SectionHeading } from "../ui/SectionHeading";
 import { FaqAccordion } from "./FaqAccordion";
 
-const values = [
-  { title: "Lima pilihan layanan", text: "Darat, udara, laut, sungai, dan multimoda dibahas dari satu informasi pengiriman.", Icon: ScmuRouteIcon },
-  { title: "Berdasarkan detail barang", text: "Jenis barang, jumlah, asal, dan tujuan menjadi dasar pembahasan.", Icon: ScmuCargoIcon },
-  { title: "Tahapan yang jelas", text: "Informasi diperiksa sebelum moda dan rute pengiriman dikonfirmasi.", Icon: ScmuDispatchIcon },
-  { title: "Percakapan langsung", text: "Permintaan penawaran diteruskan ke WhatsApp setelah formulir lengkap.", Icon: ScmuConsultIcon },
+const whyReasons = [
+  { title: "Berbasis di Merauke", text: "Cakupan layanan di Papua Selatan meliputi Merauke, Boven Digoel, Mappi, dan Asmat.", Icon: ScmuCargoPictogram },
+  { title: "Pilihan moda transportasi", text: "Darat, laut, udara, sungai, dan multimoda untuk menyesuaikan kebutuhan barang serta rute yang tersedia.", Icon: ScmuRoutePictogram },
+  { title: "Cakupan rute antardaerah", text: "Menghubungkan Merauke dengan Jakarta, Surabaya, dan Makassar, serta melayani pengiriman dari Merauke ke Pontianak dan Medan.", Icon: ScmuCoordinationPictogram },
+  { title: "Pembahasan melalui kontak resmi", text: "Konsultasikan jenis barang, asal, tujuan, dan kebutuhan pengiriman melalui WhatsApp resmi PT. SCMU.", Icon: ScmuConversationPictogram },
 ];
 
-const roadService = services[0];
-
-export function CompanyIntro() {
+export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
   return (
     <section className="section anchor-section intro-section" id="tentang-kami">
       <Container>
-        <SectionHeading title="Tentang PT. SCMU" align="center" />
-        <div className="intro-grid">
-          <div>
-            <h3 className="intro-grid__headline">Lima layanan dalam satu pembahasan pengiriman.</h3>
-          </div>
-          <div>
-            <p className="lead">{company.description}</p>
-            <p>Setiap kebutuhan dimulai dari pemahaman terhadap jenis barang, jumlah, lokasi asal, lokasi tujuan, dan prioritas pengiriman.</p>
-            <Link className="text-link" href="/tentang-kami">Kenali PT. SCMU <ArrowRight aria-hidden="true" /></Link>
+        <div className="intro-profile">
+          <figure className="intro-profile__media">
+            <Image
+              src="/images/documentation/operasional-06.jpg"
+              alt={english ? "Dock area and freight-vehicle activity in the port" : "Area dermaga dan aktivitas kendaraan angkut di kawasan pelabuhan"}
+              fill
+              sizes="(max-width: 860px) 100vw, 44vw"
+            />
+            <figcaption>{english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU"}</figcaption>
+          </figure>
+
+          <div className="intro-profile__copy">
+            <p className="section-label">{english ? "Company Overview" : "Profil Singkat"}</p>
+            <h2>{english ? "A transport-management partner from South Papua since 2009." : "Mitra pengurusan transportasi dari Papua Selatan sejak 2009."}</h2>
+            <p className="lead">
+              {english ? "PT. SCMU is a transport-management company supporting distribution needs through road, air, sea, river, and multimodal services." : "PT. SCMU merupakan perusahaan Jasa Pengurusan Transportasi yang membantu kebutuhan distribusi melalui jalur darat, udara, laut, sungai, dan multimoda."}
+            </p>
+            <p>
+              {english ? "Based in Merauke, our services cover Merauke, Mappi, Boven Digoel, Asmat, and other regions subject to route availability." : "Berbasis di Merauke, layanan kami mencakup Merauke, Mappi, Boven Digoel, Asmat, serta berbagai wilayah lain sesuai ketersediaan rute."}
+            </p>
+
+            <dl className="intro-profile__facts">
+              <div><dt>{english ? "Established" : "Tahun berdiri"}</dt><dd>2009</dd></div>
+              <div><dt>{english ? "South Papua focus" : "Fokus Papua Selatan"}</dt><dd>{english ? "4 regions" : "4 wilayah"}</dd></div>
+              <div><dt>{english ? "Transport options" : "Pilihan transportasi"}</dt><dd>{english ? "5 services" : "5 layanan"}</dd></div>
+            </dl>
+
+            <Link className="text-link" href={localizeHref("/tentang-kami", locale)}>
+              {english ? "View Company Profile" : "Lihat Profil Perusahaan"} <ArrowRight aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </Container>
@@ -40,16 +61,17 @@ export function CompanyIntro() {
   );
 }
 
-export function ServicesSection() {
+export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
+  const localizedServices = locale === "en" ? servicesEn : services;
   return (
     <section className="section anchor-section services-section" id="layanan">
       <Container>
-        <SectionHeading title="Layanan Pengiriman" align="center" />
+        <SectionHeading title={locale === "en" ? "Freight Services" : "Layanan Pengiriman"} align="center" />
         <div className="home-services-grid">
-          {services.map((service) => (
+          {localizedServices.map((service) => (
             <Link
               className="home-service-card"
-              href={`/layanan#${service.slug}`}
+              href={`${locale === "en" ? "/en" : ""}/layanan#${service.slug}`}
               key={service.slug}
             >
               <div className="home-service-card__image">
@@ -73,48 +95,44 @@ export function ServicesSection() {
   );
 }
 
-export function WhySection() {
+export function WhySection({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
+  const localizedReasons = english ? [
+    { title: "Based in Merauke", text: "Our South Papua service coverage includes Merauke, Boven Digoel, Mappi, and Asmat.", Icon: ScmuCargoPictogram },
+    { title: "Transport mode options", text: "Road, sea, air, river, and multimodal options to suit cargo requirements and available routes.", Icon: ScmuRoutePictogram },
+    { title: "Interregional route coverage", text: "Connecting Merauke with Jakarta, Surabaya, and Makassar, with outbound services from Merauke to Pontianak and Medan.", Icon: ScmuCoordinationPictogram },
+    { title: "Discussion through official channels", text: "Discuss cargo type, origin, destination, and shipping requirements through PT. SCMU’s official WhatsApp contact.", Icon: ScmuConversationPictogram },
+  ] : whyReasons;
   return (
-    <section className="section anchor-section why-section" id="keunggulan">
-      <Container className="why-editorial">
-        <figure className="why-editorial__media">
-          <div className="why-editorial__image">
-            <Image
-              src={roadService.image.src}
-              alt={roadService.image.alt}
-              fill
-              sizes="(max-width: 860px) 100vw, 42vw"
-              style={{ objectPosition: roadService.image.position }}
-            />
-            <a href={roadService.image.source} target="_blank" rel="noreferrer">
-              Foto: {roadService.image.credit} / Unsplash
-            </a>
+    <section className="section anchor-section approach-section" id="keunggulan" aria-labelledby="why-heading">
+      <Container>
+        <div className="approach-editorial__header">
+          <div className="approach-editorial__heading">
+            <p className="section-label">{english ? "Why PT. SCMU" : "Mengapa PT. SCMU"}</p>
+            <h2 id="why-heading">{english ? "A freight partner for distribution needs in South Papua." : "Mitra pengiriman untuk kebutuhan distribusi di Papua Selatan."}</h2>
           </div>
-          <figcaption className="why-editorial__stat">
-            <strong>5</strong>
-            <span>Layanan<br />Pengiriman</span>
-          </figcaption>
-        </figure>
-
-        <div className="why-editorial__copy">
-          <p className="section-label">Mengapa PT. SCMU</p>
-          <h2>Pembahasan pengiriman dimulai dari data yang jelas.</h2>
-          <p className="lead">
-            Informasi barang, jumlah, asal, tujuan, dan prioritas digunakan sebagai dasar sebelum moda serta rute pengiriman dibahas.
-          </p>
-          <div className="why-editorial__points">
-            {values.map(({ title, text, Icon }) => (
-              <article key={title} className="why-editorial__point">
-                <Icon aria-hidden="true" />
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
+          <div className="approach-editorial__intro">
+            <p>
+              {english ? "PT. SCMU supports shipping needs within South Papua and between regions through available transport modes and routes. Discuss service details directly through our official contact channels." : "PT. SCMU membantu kebutuhan pengiriman di Papua Selatan dan antardaerah melalui pilihan moda serta rute yang tersedia. Detail layanan dapat dibahas langsung melalui kontak resmi perusahaan."}
+            </p>
           </div>
-          <Link className="text-link why-editorial__link" href="/tentang-kami">
-            Kenali PT. SCMU <ArrowRight aria-hidden="true" />
+        </div>
+        <ul className="approach-editorial__principles">
+          {localizedReasons.map(({ title, text, Icon }) => (
+            <li key={title} className="approach-editorial__principle">
+              <div className="approach-editorial__marker" aria-hidden="true">
+                <Icon />
+              </div>
+              <div className="approach-editorial__content">
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="approach-editorial__footer">
+          <Link className="text-link approach-editorial__route-link" href={localizeHref("/layanan#cakupan-rute", locale)}>
+            {english ? "View Route Coverage" : "Lihat Cakupan Rute"} <ArrowRight aria-hidden="true" />
           </Link>
         </div>
       </Container>
@@ -122,54 +140,56 @@ export function WhySection() {
   );
 }
 
-export function DocumentationSection() {
+export function DocumentationSection({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
   return (
     <section className="section anchor-section documentation-section" id="dokumentasi">
       <Container>
         <div className="documentation-section__heading">
           <div>
-            <p className="section-label">Dokumentasi Kegiatan</p>
-            <h2>Aktivitas transportasi dan logistik di lapangan.</h2>
+            <p className="section-label">{english ? "Activity Documentation" : "Dokumentasi Kegiatan"}</p>
+            <h2>{english ? "Transport and logistics activities in the field." : "Aktivitas transportasi dan logistik di lapangan."}</h2>
           </div>
           <div>
-            <ButtonLink href="/dokumentasi" variant="outline">Lihat Semua Dokumentasi</ButtonLink>
+            <ButtonLink href={localizeHref("/dokumentasi", locale)} variant="outline">{english ? "View All Documentation" : "Lihat Semua Dokumentasi"}</ButtonLink>
           </div>
         </div>
-        <DocumentationGallery limit={5} variant="preview" />
+        <DocumentationGallery limit={5} variant="preview" locale={locale} />
       </Container>
     </section>
   );
 }
 
-export function FaqSection() {
+export function FaqSection({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
   return (
     <section className="section anchor-section section--soft" id="faq">
       <Container>
         <SectionHeading
-          title="Pertanyaan Umum"
-          description="Jawaban ringkas tentang layanan dan proses sebelum Anda mengirim detail barang."
+          title={english ? "Frequently Asked Questions" : "Pertanyaan Umum"}
+          description={english ? "Brief answers about our services and process before you send cargo details." : "Jawaban ringkas tentang layanan dan proses sebelum Anda mengirim detail barang."}
           align="center"
         />
         <div className="faq-grid">
           <div>
-            <h3 className="faq-grid__headline">Temukan informasi yang Anda perlukan.</h3>
-            <p>Jika jawaban yang dicari belum tersedia, hubungi kami untuk membahas kebutuhan pengiriman Anda.</p>
-            <Link className="text-link" href="/faq">Lihat semua FAQ <ArrowRight aria-hidden="true" /></Link>
+            <h3 className="faq-grid__headline">{english ? "Find the information you need." : "Temukan informasi yang Anda perlukan."}</h3>
+            <p>{english ? "If your question is not answered here, contact us to discuss your shipping needs." : "Jika jawaban yang dicari belum tersedia, hubungi kami untuk membahas kebutuhan pengiriman Anda."}</p>
+            <Link className="text-link" href={localizeHref("/faq", locale)}>{english ? "View all FAQs" : "Lihat semua FAQ"} <ArrowRight aria-hidden="true" /></Link>
           </div>
-          <FaqAccordion limit={4} />
+          <FaqAccordion limit={4} locale={locale} />
         </div>
       </Container>
     </section>
   );
 }
 
-export function QuotationSection() {
+export function QuotationSection({ locale = "id" }: { locale?: Locale }) {
   return (
     <section className="section anchor-section quote-section" id="penawaran">
       <Container>
         <SectionHeading
-          title="Minta Penawaran"
-          description="Tulis kebutuhan Anda secara singkat. Website akan menyiapkan pesan untuk dilanjutkan melalui WhatsApp."
+          title={locale === "en" ? "Request a Quotation" : "Minta Penawaran"}
+          description={locale === "en" ? "Briefly describe your needs. The website will prepare a message to continue via WhatsApp." : "Tulis kebutuhan Anda secara singkat. Website akan menyiapkan pesan untuk dilanjutkan melalui WhatsApp."}
           align="center"
         />
         <div className="quote-layout"><QuotationForm /></div>

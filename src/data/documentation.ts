@@ -142,6 +142,42 @@ export const documentation: DocumentationItem[] = [
   },
 ];
 
+const documentationLabelsEn = [
+  "Cargo coordination in the container yard",
+  "Heavy-equipment handling on a flat rack",
+  "Container movement with lifting equipment",
+  "Oversized project-cargo handling",
+  "Fleet and material-cargo preparation",
+  "Distribution activity in the port area",
+  "Container stacking and management area",
+  "Transport connectivity through the port",
+  "Loading packaged goods from warehouse to vehicle",
+  "Project-cargo transport through the dock",
+  "Loading heavy equipment for shipment",
+  "Vehicle shipment by water transport",
+  "Moving a wooden crate with a forklift",
+  "Night-time loading operation",
+  "Unloading goods from a container",
+  "Arranging cargo on a transport vehicle",
+  "Freight vehicle in the operational area",
+  "Freight-fleet preparation",
+  "Transferring cargo from a container",
+  "Vessel and container activity at the port",
+  "Cargo handling with a crane",
+  "Vehicle and heavy-equipment handling",
+  "Cargo lifting in the dock area",
+  "Container stacking area",
+  "Operational activity supervision",
+  "Travel through challenging road conditions",
+  "Cargo-handling coordination",
+] as const;
+
+export const documentationEn: DocumentationItem[] = documentation.map((item, index) => ({
+  ...item,
+  label: documentationLabelsEn[index] ?? "PT. SCMU operational documentation",
+  alt: documentationLabelsEn[index] ?? "PT. SCMU operational documentation",
+}));
+
 export const homepageHeroSlides = [
   {
     src: "/images/documentation/operasional-08.jpg",

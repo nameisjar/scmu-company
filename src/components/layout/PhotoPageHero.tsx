@@ -14,10 +14,11 @@ type PhotoPageHeroProps = {
     source?: string;
     provider?: string;
   };
+  creditLabel?: string;
 };
 
-export function PhotoPageHero({ eyebrow, title, description, children, image }: PhotoPageHeroProps) {
-  const credit = <>Foto: {image.credit}{image.provider ? ` / ${image.provider}` : ""}</>;
+export function PhotoPageHero({ eyebrow, title, description, children, image, creditLabel = "Foto" }: PhotoPageHeroProps) {
+  const credit = <>{creditLabel}: {image.credit}{image.provider ? ` / ${image.provider}` : ""}</>;
 
   return (
     <section className="photo-page-hero">

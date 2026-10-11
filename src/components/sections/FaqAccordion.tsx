@@ -2,11 +2,13 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { faqs } from "@/data/faq";
+import { faqs, faqsEn } from "@/data/faq";
+import type { Locale } from "@/i18n/config";
 
-export function FaqAccordion({ limit }: { limit?: number }) {
+export function FaqAccordion({ limit, locale = "id" }: { limit?: number; locale?: Locale }) {
   const [openIndex, setOpenIndex] = useState(0);
-  const items = limit ? faqs.slice(0, limit) : faqs;
+  const source = locale === "en" ? faqsEn : faqs;
+  const items = limit ? source.slice(0, limit) : source;
 
   return (
     <div className="faq-list">

@@ -3,13 +3,16 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Container } from "@/components/ui/Container";
 import { company } from "@/data/company";
+import type { Locale } from "@/i18n/config";
+import { localizeHref } from "@/i18n/config";
 
 export const metadata: Metadata = {
   title: "Profil Perusahaan",
   description: "Profil PT. SCMU, visi perusahaan, dan komitmen dalam layanan logistik, transportasi, serta pengiriman barang.",
 };
 
-export default function AboutPage() {
+export function AboutPageContent({ locale = "id" }: { locale?: Locale }) {
+  const english = locale === "en";
   return (
     <main className="about-page">
       <section className="company-profile">
@@ -17,7 +20,7 @@ export default function AboutPage() {
           <figure className="company-profile__visual">
             <Image
               src="/images/company-profile-scmu-transparent.png"
-              alt="Ilustrasi layanan logistik SCMU melalui pesawat, kapal, forklift, dan truk"
+              alt={english ? "SCMU logistics services by aircraft, ship, forklift, and truck" : "Ilustrasi layanan logistik SCMU melalui pesawat, kapal, forklift, dan truk"}
               fill
               priority
               sizes="(max-width: 860px) 100vw, 46vw"
@@ -25,12 +28,18 @@ export default function AboutPage() {
           </figure>
 
           <article className="company-profile__copy">
-            <p className="section-label">Profil Perusahaan</p>
+            <p className="section-label">{english ? "Company Profile" : "Profil Perusahaan"}</p>
             <h1>{company.name}</h1>
             <div className="company-profile__body">
-              <p>Berdiri sejak tahun 2009, PT. SCMU bergerak di bidang jasa logistik, transportasi, dan pengiriman barang melalui jalur laut, udara, maupun darat dengan wilayah operasional di Papua Selatan yang mencakup Merauke, Mappi, Boven Digoel, dan Asmat. Setiap layanan direncanakan sesuai jenis barang, tujuan, dan kebutuhan pelanggan.</p>
-              <p>Seiring meningkatnya kebutuhan distribusi, kami membantu pelanggan merencanakan pengiriman yang efektif dan efisien untuk mendukung kelancaran kegiatan bisnis serta rantai pasok.</p>
-              <p>Didukung oleh tim yang berdedikasi, PT. SCMU mengutamakan keamanan barang, koordinasi operasional, dan komunikasi yang jelas untuk membangun kepercayaan serta hubungan kerja sama jangka panjang.</p>
+              {english ? <>
+                <p>Established in 2009, PT. SCMU provides logistics, transport, and freight services by sea, air, and road. Our operations in South Papua cover Merauke, Mappi, Boven Digoel, and Asmat. Each service is planned around the cargo type, destination, and customer requirements.</p>
+                <p>As distribution needs continue to grow, we help customers plan effective and efficient shipments that support smooth business operations and supply chains.</p>
+                <p>Supported by a dedicated team, PT. SCMU prioritizes cargo safety, operational coordination, and clear communication to build trust and long-term partnerships.</p>
+              </> : <>
+                <p>Berdiri sejak tahun 2009, PT. SCMU bergerak di bidang jasa logistik, transportasi, dan pengiriman barang melalui jalur laut, udara, maupun darat dengan wilayah operasional di Papua Selatan yang mencakup Merauke, Mappi, Boven Digoel, dan Asmat. Setiap layanan direncanakan sesuai jenis barang, tujuan, dan kebutuhan pelanggan.</p>
+                <p>Seiring meningkatnya kebutuhan distribusi, kami membantu pelanggan merencanakan pengiriman yang efektif dan efisien untuk mendukung kelancaran kegiatan bisnis serta rantai pasok.</p>
+                <p>Didukung oleh tim yang berdedikasi, PT. SCMU mengutamakan keamanan barang, koordinasi operasional, dan komunikasi yang jelas untuk membangun kepercayaan serta hubungan kerja sama jangka panjang.</p>
+              </>}
             </div>
           </article>
         </Container>
@@ -38,29 +47,33 @@ export default function AboutPage() {
 
       <section className="company-vision" aria-labelledby="vision-title">
         <Container className="company-vision__layout">
-          <h2 id="vision-title" className="company-vision__title">Visi</h2>
-          <p className="company-vision__statement">Menjadi mitra logistik pilihan yang menghubungkan kebutuhan distribusi pelanggan melalui layanan pengiriman yang andal, inovatif, dan berkelanjutan.</p>
+          <h2 id="vision-title" className="company-vision__title">{english ? "Vision" : "Visi"}</h2>
+          <p className="company-vision__statement">{english ? "To become the preferred logistics partner connecting customers' distribution needs through reliable, innovative, and sustainable freight services." : "Menjadi mitra logistik pilihan yang menghubungkan kebutuhan distribusi pelanggan melalui layanan pengiriman yang andal, inovatif, dan berkelanjutan."}</p>
         </Container>
       </section>
 
       <section className="section director-profile">
         <Container className="director-profile__layout">
           <figure className="director-profile__portrait">
-            <Image src="/images/director-scmu.png" alt="H. Multazam Malik, S.E., Direktur PT. SCMU" fill sizes="(max-width: 860px) 100vw, 32vw" />
+            <Image src="/images/director-scmu.png" alt={english ? "H. Multazam Malik, S.E., Director of PT. SCMU" : "H. Multazam Malik, S.E., Direktur PT. SCMU"} fill sizes="(max-width: 860px) 100vw, 32vw" />
           </figure>
 
           <article className="director-profile__copy">
-            <p className="section-label">Profil Pimpinan</p>
+            <p className="section-label">{english ? "Leadership Profile" : "Profil Pimpinan"}</p>
             <div className="director-profile__identity">
               <p className="director-profile__name">H. Multazam Malik, S.E.</p>
-              <p className="director-profile__role">Direktur PT. Sarana Cipta Mandiri Utama</p>
+              <p className="director-profile__role">{english ? "Director of PT. Sarana Cipta Mandiri Utama" : "Direktur PT. Sarana Cipta Mandiri Utama"}</p>
             </div>
-            <h2>Kepemimpinan yang memahami operasional.</h2>
-            <p>Di bawah kepemimpinan H. Multazam Malik, S.E., PT. SCMU mengutamakan koordinasi operasional, keamanan barang, dan komunikasi yang jelas dengan pelanggan. Pendekatan ini menjadi dasar perusahaan dalam menjaga kualitas pelayanan serta membangun kerja sama jangka panjang.</p>
-            <ButtonLink href="/kontak">Hubungi Kami</ButtonLink>
+            <h2>{english ? "Leadership grounded in operations." : "Kepemimpinan yang memahami operasional."}</h2>
+            <p>{english ? "Under the leadership of H. Multazam Malik, S.E., PT. SCMU prioritizes operational coordination, cargo safety, and clear communication with customers. This approach guides the company in maintaining service quality and building long-term partnerships." : "Di bawah kepemimpinan H. Multazam Malik, S.E., PT. SCMU mengutamakan koordinasi operasional, keamanan barang, dan komunikasi yang jelas dengan pelanggan. Pendekatan ini menjadi dasar perusahaan dalam menjaga kualitas pelayanan serta membangun kerja sama jangka panjang."}</p>
+            <ButtonLink href={localizeHref("/kontak", locale)}>{english ? "Contact Us" : "Hubungi Kami"}</ButtonLink>
           </article>
         </Container>
       </section>
     </main>
   );
+}
+
+export default function AboutPage() {
+  return <AboutPageContent />;
 }

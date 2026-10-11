@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { LocaleEffects } from "@/components/layout/LocaleEffects";
 import { company } from "@/data/company";
 import "./globals.css";
 
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="id">
       <body>
-        <a className="skip-link" href="#main-content">Lewati ke konten utama</a>
+        <LocaleEffects />
         <Navbar />
         <div id="main-content">{children}</div>
         <Footer />
