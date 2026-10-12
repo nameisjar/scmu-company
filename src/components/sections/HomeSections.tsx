@@ -68,11 +68,7 @@ export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
         <SectionHeading title={locale === "en" ? "Freight Services" : "Layanan Pengiriman"} align="center" />
         <div className="home-services-grid">
           {localizedServices.map((service) => (
-            <Link
-              className="home-service-card"
-              href={`${locale === "en" ? "/en" : ""}/layanan#${service.slug}`}
-              key={service.slug}
-            >
+            <article className="home-service-card" key={service.slug}>
               <div className="home-service-card__image">
                 <Image
                   src={service.image.src}
@@ -86,7 +82,7 @@ export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </Container>

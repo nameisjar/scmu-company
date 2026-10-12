@@ -4,7 +4,7 @@ import { QuotationForm } from "@/components/forms/QuotationForm";
 import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { Container } from "@/components/ui/Container";
-import { company } from "@/data/company";
+import { company, offices } from "@/data/company";
 import type { Locale } from "@/i18n/config";
 
 export const metadata: Metadata = {
@@ -12,13 +12,12 @@ export const metadata: Metadata = {
   description: "Hubungi PT. SCMU untuk konsultasi dan permintaan penawaran pengiriman barang.",
 };
 
-const googleMapsUrl = "https://maps.app.goo.gl/5N3aXytZuSUihv1i8";
-const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(company.address)}&output=embed`;
+const primaryOffice = offices.find((office) => office.primary) ?? offices[0];
+const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(primaryOffice.address)}&output=embed`;
 
 export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
   const english = locale === "en";
   const contacts = [
-    { label: english ? "Address" : "Alamat", value: company.address, href: googleMapsUrl, Icon: ScmuLocationIcon },
     { label: english ? "Phone / WhatsApp" : "Telepon / WhatsApp", value: company.phone, href: company.whatsapp ? `https://wa.me/${company.whatsapp}` : undefined, Icon: ScmuChatIcon },
     { label: "Email", value: company.email, href: company.email ? `mailto:${company.email}` : undefined, Icon: ScmuMailIcon },
     { label: english ? "Business hours" : "Jam operasional", value: english ? "Monday–Saturday, 08:00–17:00 WIT" : company.operationalHours, href: undefined, Icon: ScmuClockIcon },
@@ -45,7 +44,7 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
               <h2 id="contact-information-title">{english ? "Contact information" : "Informasi kontak"}</h2>
               <p>{english ? "Contact PT. SCMU or visit our office during business hours." : "Hubungi PT. SCMU atau kunjungi lokasi kantor pada jam operasional."}</p>
             </header>
-            <dl className="contact-list">
+            <dl className="contact-list contact-list--summary">
               {contacts.map(({ label, value, href, Icon }) => (
                 <div key={label}>
                   <dt><Icon aria-hidden="true" /><span>{label}</span></dt>
@@ -53,9 +52,30 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
                 </div>
               ))}
             </dl>
+            <section className="office-locations" aria-labelledby="office-locations-title">
+              <header className="office-locations__heading">
+                <h3 id="office-locations-title">{english ? "Our offices" : "Lokasi kantor"}</h3>
+                <p>{english ? "Choose an office to view its location and route." : "Pilih kantor untuk melihat lokasi dan rute."}</p>
+              </header>
+              <div className="office-locations__grid">
+                {offices.map((office) => (
+                  <article className={`office-card${office.primary ? " office-card--primary" : ""}`} key={office.id}>
+                    <span className="office-card__icon" aria-hidden="true"><ScmuLocationIcon /></span>
+                    <div>
+                      <p className="office-card__type">{english ? office.typeEn : office.type}</p>
+                      <h4>{english ? office.labelEn : office.label}</h4>
+                      <address>{office.address}</address>
+                      <a href={office.mapsUrl} target="_blank" rel="noreferrer">
+                        {english ? "View on Google Maps" : "Lihat di Google Maps"} <ArrowUpRight aria-hidden="true" />
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
             <div className="contact-panel__map-heading">
-              <h3>{english ? "Office location" : "Lokasi kantor"}</h3>
-              <a href={googleMapsUrl} target="_blank" rel="noreferrer">
+              <h3>{english ? "Head office map" : "Peta kantor utama"}</h3>
+              <a href={primaryOffice.mapsUrl} target="_blank" rel="noreferrer">
                 {english ? "Open in Google Maps" : "Buka di Google Maps"} <ArrowUpRight aria-hidden="true" />
               </a>
             </div>

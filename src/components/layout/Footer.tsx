@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
-import { company, companyEn, navigation, navigationEn } from "@/data/company";
+import { company, companyEn, navigation, navigationEn, offices } from "@/data/company";
 import { services, servicesEn } from "@/data/services";
 import { getCommonCopy } from "@/i18n/copy";
 import { localeFromPathname } from "@/i18n/config";
@@ -24,7 +24,7 @@ export function Footer() {
       <Container className="footer__grid">
         <div className="footer__about">
           <Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} />
-          <p>{localizedCompany.description}</p>
+          <p>{localizedCompany.footerDescription}</p>
         </div>
         <div>
           <h2>{copy.navigation}</h2>
@@ -49,7 +49,15 @@ export function Footer() {
           <ul className="footer__contact">
             <li><ScmuChatIcon aria-hidden="true" />{company.phone || "Nomor resmi belum diisi"}</li>
             <li><ScmuMailIcon aria-hidden="true" />{company.email || "Email resmi belum diisi"}</li>
-            <li><ScmuLocationIcon aria-hidden="true" />{company.address || "Alamat resmi belum diisi"}</li>
+            {offices.map((office) => (
+              <li className="footer__office" key={office.id}>
+                <ScmuLocationIcon aria-hidden="true" />
+                <a className="footer__office-link" href={office.mapsUrl} target="_blank" rel="noreferrer">
+                  <strong>{locale === "en" ? office.typeEn : office.type}</strong>
+                  <span>{office.address}</span>
+                </a>
+              </li>
+            ))}
             <li><ScmuClockIcon aria-hidden="true" />{localizedCompany.operationalHours}</li>
           </ul>
         </div>

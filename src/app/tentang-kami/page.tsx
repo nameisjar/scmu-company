@@ -55,17 +55,17 @@ export function AboutPageContent({ locale = "id" }: { locale?: Locale }) {
       <section className="section director-profile">
         <Container className="director-profile__layout">
           <figure className="director-profile__portrait">
-            <Image src="/images/director-scmu.png" alt={english ? "H. Multazam Malik, S.E., Director of PT. SCMU" : "H. Multazam Malik, S.E., Direktur PT. SCMU"} fill sizes="(max-width: 860px) 100vw, 32vw" />
+            <Image src="/images/director-scmu.png" alt={english ? "Multazam Malik, Director of PT. SCMU" : "Multazam Malik, Direktur PT. SCMU"} fill sizes="(max-width: 860px) 100vw, 32vw" />
           </figure>
 
           <article className="director-profile__copy">
             <p className="section-label">{english ? "Leadership Profile" : "Profil Pimpinan"}</p>
             <div className="director-profile__identity">
-              <p className="director-profile__name">H. Multazam Malik, S.E.</p>
+              <p className="director-profile__name">Multazam Malik</p>
               <p className="director-profile__role">{english ? "Director of PT. Sarana Cipta Mandiri Utama" : "Direktur PT. Sarana Cipta Mandiri Utama"}</p>
             </div>
             <h2>{english ? "Leadership grounded in operations." : "Kepemimpinan yang memahami operasional."}</h2>
-            <p>{english ? "Under the leadership of H. Multazam Malik, S.E., PT. SCMU prioritizes operational coordination, cargo safety, and clear communication with customers. This approach guides the company in maintaining service quality and building long-term partnerships." : "Di bawah kepemimpinan H. Multazam Malik, S.E., PT. SCMU mengutamakan koordinasi operasional, keamanan barang, dan komunikasi yang jelas dengan pelanggan. Pendekatan ini menjadi dasar perusahaan dalam menjaga kualitas pelayanan serta membangun kerja sama jangka panjang."}</p>
+            <p>{english ? "Under the leadership of Multazam Malik, PT. SCMU prioritizes operational coordination, cargo safety, and clear communication with customers. This approach guides the company in maintaining service quality and building long-term partnerships." : "Di bawah kepemimpinan Multazam Malik, PT. SCMU mengutamakan koordinasi operasional, keamanan barang, dan komunikasi yang jelas dengan pelanggan. Pendekatan ini menjadi dasar perusahaan dalam menjaga kualitas pelayanan serta membangun kerja sama jangka panjang."}</p>
             <ButtonLink href={localizeHref("/kontak", locale)}>{english ? "Contact Us" : "Hubungi Kami"}</ButtonLink>
           </article>
         </Container>
