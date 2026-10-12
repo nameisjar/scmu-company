@@ -19,7 +19,6 @@ export function FaqPageContent({ locale = "id" }: { locale?: Locale }) {
         creditLabel={english ? "Photo" : "Foto"}
         eyebrow={english ? "Frequently Asked Questions" : "Pertanyaan Umum"}
         title={english ? "Information before you send cargo details." : "Informasi sebelum mengirim detail barang."}
-        description={english ? "Find concise answers about our services, initial requirements, and the freight-planning process with PT. SCMU." : "Temukan jawaban ringkas mengenai layanan, kebutuhan awal, dan proses pembahasan pengiriman bersama PT. SCMU."}
         image={{
           src: "/images/documentation/operasional-07.jpg",
           position: "center 54%",

@@ -52,10 +52,20 @@ export function Footer() {
             {offices.map((office) => (
               <li className="footer__office" key={office.id}>
                 <ScmuLocationIcon aria-hidden="true" />
-                <a className="footer__office-link" href={office.mapsUrl} target="_blank" rel="noreferrer">
-                  <strong>{locale === "en" ? office.typeEn : office.type}</strong>
-                  <span>{office.address}</span>
-                </a>
+                <div className="footer__office-details">
+                  <a className="footer__office-link" href={office.mapsUrl} target="_blank" rel="noreferrer">
+                    <strong>{locale === "en" ? office.typeEn : office.type}</strong>
+                    <span>{office.address}</span>
+                  </a>
+                  <a
+                    className="footer__office-phone"
+                    href={`https://wa.me/${office.phone.replace(/\D/g, "").replace(/^0/, "62")}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {locale === "en" ? "Phone / WhatsApp" : "Telepon / WhatsApp"}: {office.phone}
+                  </a>
+                </div>
               </li>
             ))}
             <li><ScmuClockIcon aria-hidden="true" />{localizedCompany.operationalHours}</li>

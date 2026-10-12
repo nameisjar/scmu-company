@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
 import { QuotationForm } from "@/components/forms/QuotationForm";
-import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
 import { Container } from "@/components/ui/Container";
 import { company, offices } from "@/data/company";
@@ -18,9 +16,9 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(p
 export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
   const english = locale === "en";
   const contacts = [
-    { label: english ? "Phone / WhatsApp" : "Telepon / WhatsApp", value: company.phone, href: company.whatsapp ? `https://wa.me/${company.whatsapp}` : undefined, Icon: ScmuChatIcon },
-    { label: "Email", value: company.email, href: company.email ? `mailto:${company.email}` : undefined, Icon: ScmuMailIcon },
-    { label: english ? "Business hours" : "Jam operasional", value: english ? "Monday–Saturday, 08:00–17:00 WIT" : company.operationalHours, href: undefined, Icon: ScmuClockIcon },
+    { label: english ? "Phone / WhatsApp" : "Telepon / WhatsApp", value: company.phone, href: company.whatsapp ? `https://wa.me/${company.whatsapp}` : undefined },
+    { label: "Email", value: company.email, href: company.email ? `mailto:${company.email}` : undefined },
+    { label: english ? "Business hours" : "Jam operasional", value: english ? "Monday–Saturday, 08:00–17:00 WIT" : company.operationalHours, href: undefined },
   ];
   return (
     <main>
@@ -28,7 +26,6 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
         creditLabel={english ? "Photo" : "Foto"}
         eyebrow={english ? "Contact PT. SCMU" : "Kontak PT. SCMU"}
         title={english ? "Discuss your freight requirements." : "Diskusikan kebutuhan pengiriman Anda."}
-        description={english ? "Briefly describe your requirements. The PT. SCMU team will help discuss a suitable service." : "Sampaikan kebutuhan Anda secara singkat. Tim PT. SCMU akan membantu membahas layanan yang sesuai."}
         image={{
           src: "/images/documentation/operasional-01.jpg",
           position: "center 52%",
@@ -37,46 +34,64 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
       />
 
       <section className="section contact-page">
-        <Container className="contact-workspace">
-          <aside className="contact-panel contact-panel--details" aria-labelledby="contact-information-title">
+        <Container className="contact-layout">
+          <section className="contact-summary" aria-labelledby="contact-information-title">
             <header className="contact-panel__heading">
-              <p className="section-label">{english ? "Contact Us" : "Hubungi Kami"}</p>
               <h2 id="contact-information-title">{english ? "Contact information" : "Informasi kontak"}</h2>
-              <p>{english ? "Contact PT. SCMU or visit our office during business hours." : "Hubungi PT. SCMU atau kunjungi lokasi kantor pada jam operasional."}</p>
             </header>
             <dl className="contact-list contact-list--summary">
-              {contacts.map(({ label, value, href, Icon }) => (
+              {contacts.map(({ label, value, href }) => (
                 <div key={label}>
-                  <dt><Icon aria-hidden="true" /><span>{label}</span></dt>
+                  <dt>{label}</dt>
                   <dd>{href ? <a href={href}>{value}</a> : value}</dd>
                 </div>
               ))}
             </dl>
-            <section className="office-locations" aria-labelledby="office-locations-title">
-              <header className="office-locations__heading">
-                <h3 id="office-locations-title">{english ? "Our offices" : "Lokasi kantor"}</h3>
-                <p>{english ? "Choose an office to view its location and route." : "Pilih kantor untuk melihat lokasi dan rute."}</p>
-              </header>
-              <div className="office-locations__grid">
-                {offices.map((office) => (
-                  <article className={`office-card${office.primary ? " office-card--primary" : ""}`} key={office.id}>
-                    <span className="office-card__icon" aria-hidden="true"><ScmuLocationIcon /></span>
-                    <div>
+          </section>
+
+          <div className="contact-workspace">
+            <div className="contact-panel contact-page__form">
+              <QuotationForm />
+            </div>
+
+            <aside className="contact-panel contact-panel--offices" aria-labelledby="office-locations-title">
+              <div className="office-locations">
+                <header className="office-locations__heading">
+                  <h3 id="office-locations-title">{english ? "Our offices" : "Lokasi kantor"}</h3>
+                </header>
+                <div className="office-locations__grid">
+                  {offices.map((office) => (
+                    <article className="office-card" key={office.id}>
                       <p className="office-card__type">{english ? office.typeEn : office.type}</p>
                       <h4>{english ? office.labelEn : office.label}</h4>
                       <address>{office.address}</address>
-                      <a href={office.mapsUrl} target="_blank" rel="noreferrer">
-                        {english ? "View on Google Maps" : "Lihat di Google Maps"} <ArrowUpRight aria-hidden="true" />
+                      <p className="office-card__phone">
+                        <span>{english ? "Phone / WhatsApp" : "Telepon / WhatsApp"}</span>{" "}
+                        <a
+                          href={`https://wa.me/${office.phone.replace(/\D/g, "").replace(/^0/, "62")}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {office.phone}
+                        </a>
+                      </p>
+                      <a className="office-card__map-link" href={office.mapsUrl} target="_blank" rel="noreferrer">
+                        {english ? "View on Google Maps" : "Lihat di Google Maps"}
                       </a>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ))}
+                </div>
               </div>
-            </section>
+            </aside>
+          </div>
+
+          <section className="contact-map-panel" aria-labelledby="primary-office-map-title">
             <div className="contact-panel__map-heading">
-              <h3>{english ? "Head office map" : "Peta kantor utama"}</h3>
+              <div>
+                <h3 id="primary-office-map-title">{english ? "Head office map" : "Peta kantor utama"}</h3>
+              </div>
               <a href={primaryOffice.mapsUrl} target="_blank" rel="noreferrer">
-                {english ? "Open in Google Maps" : "Buka di Google Maps"} <ArrowUpRight aria-hidden="true" />
+                {english ? "Open in Google Maps" : "Buka di Google Maps"}
               </a>
             </div>
             <div className="contact-map">
@@ -88,10 +103,7 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
                 allowFullScreen
               />
             </div>
-          </aside>
-          <div className="contact-panel contact-page__form">
-            <QuotationForm />
-          </div>
+          </section>
         </Container>
       </section>
     </main>

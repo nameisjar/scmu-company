@@ -16,9 +16,6 @@ export function DocumentationPageContent({ locale = "id" }: { locale?: Locale })
         <Container>
           <h1 className="visually-hidden">{english ? "Activity Documentation" : "Dokumentasi Kegiatan"}</h1>
           <DocumentationGallery locale={locale} />
-          <p className="documentation-note">
-            {english ? "Photo descriptions explain the activity visible in each image and do not indicate a specific time, location, route, or customer identity." : "Keterangan foto menjelaskan aktivitas yang tampak pada gambar dan tidak menyatakan waktu, lokasi, rute, atau identitas pelanggan tertentu."}
-          </p>
         </Container>
       </section>
     </main>

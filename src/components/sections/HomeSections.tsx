@@ -27,11 +27,33 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
         <div className="intro-profile">
           <figure className="intro-profile__media">
             <Image
-              src="/logo/scmu-profile.jpeg"
-              alt={english ? "PT. SCMU logo — PT. Sarana Cipta Mandiri Utama" : "Logo PT. SCMU — PT. Sarana Cipta Mandiri Utama"}
+              className="intro-profile__photo"
+              src="/images/documentation/lapangan-03.jpeg"
+              alt={english ? "SCMU forklift handling a container in the operational yard" : "Forklift SCMU menangani kontainer di area operasional"}
               fill
-              sizes="(max-width: 460px) calc(100vw - 40px), (max-width: 860px) 420px, (max-width: 1248px) 42vw, 520px"
+              sizes="(max-width: 492px) calc(100vw - 32px), (max-width: 860px) 460px, (max-width: 1248px) 42vw, 460px"
             />
+            <div className="intro-profile__experience">
+              <span>15+</span>
+              <strong>{english ? "Years of Experience" : "Tahun Pengalaman"}</strong>
+            </div>
+            <div className="intro-profile__map-area">
+              <Image
+                className="intro-profile__map"
+                src="/images/scmu-south-papua-map.png"
+                alt={english ? "Illustration of Mappi, Boven Digoel, Asmat, and Merauke" : "Ilustrasi wilayah Mappi, Boven Digoel, Asmat, dan Merauke"}
+                width={1536}
+                height={1024}
+                sizes="(max-width: 492px) 52vw, 240px"
+              />
+            </div>
+            <div className="intro-profile__branding">
+              <div className="intro-profile__logo">
+                <Image src="/logo/scmu-mark.png" alt="" width={120} height={120} />
+              </div>
+              <strong>PT. SARANA CIPTA MANDIRI UTAMA</strong>
+              <span>PT. SCMU</span>
+            </div>
           </figure>
 
           <div className="intro-profile__copy">
