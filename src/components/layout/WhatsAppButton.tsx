@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import { WhatsAppBrandIcon } from "@/components/icons/WhatsAppIcon";
 import { company } from "@/data/company";
 import { localeFromPathname } from "@/i18n/config";
 
@@ -21,7 +21,7 @@ export function WhatsAppButton() {
       rel="noreferrer"
       aria-label={locale === "en" ? "Chat with PT. SCMU via WhatsApp" : "Chat PT. SCMU melalui WhatsApp"}
     >
-      <WhatsAppIcon />
+      <WhatsAppBrandIcon />
     </a>
   );
 }

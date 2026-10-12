@@ -82,6 +82,19 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const desktopViewport = window.matchMedia("(min-width: 1025px)");
+    const closeMobileMenuOnDesktop = (event: MediaQueryListEvent | MediaQueryList) => {
+      if (!event.matches) return;
+      setOpen(false);
+      setMobileOpen(null);
+    };
+
+    closeMobileMenuOnDesktop(desktopViewport);
+    desktopViewport.addEventListener("change", closeMobileMenuOnDesktop);
+    return () => desktopViewport.removeEventListener("change", closeMobileMenuOnDesktop);
+  }, []);
+
   const isChildActive = (href: string) => {
     const [childPath, childHash] = href.split("#");
     if (pathname !== childPath) return false;
@@ -137,8 +150,8 @@ export function Navbar() {
             className="utility-bar__ticker"
             role="note"
             aria-label={locale === "en"
-              ? offices.map((office) => `${office.typeEn}: ${office.address}`).join(". ")
-              : offices.map((office) => `${office.type}: ${office.address}`).join(". ")}
+              ? offices.map((office) => `${office.typeEn}: ${office.address}. Phone and WhatsApp: ${office.phone}`).join(". ")
+              : offices.map((office) => `${office.type}: ${office.address}. Telepon dan WhatsApp: ${office.phone}`).join(". ")}
           >
             <div className="utility-bar__ticker-track" aria-hidden="true">
               {[0, 1].map((copyIndex) => (
@@ -147,6 +160,9 @@ export function Navbar() {
                     <span className="utility-bar__ticker-item" key={`${copyIndex}-${office.id}`}>
                       <strong>{locale === "en" ? office.typeEn : office.type}:</strong>
                       <span>{office.address}</span>
+                      <span className="utility-bar__ticker-phone">
+                        {locale === "en" ? "Phone / WhatsApp" : "Telepon / WhatsApp"}: {office.phone}
+                      </span>
                     </span>
                   ))}
                 </div>
