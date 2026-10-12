@@ -22,7 +22,6 @@ export function WhatsAppButton() {
       aria-label={locale === "en" ? "Chat with PT. SCMU via WhatsApp" : "Chat PT. SCMU melalui WhatsApp"}
     >
       <WhatsAppIcon />
-      <span>WhatsApp</span>
     </a>
   );
 }

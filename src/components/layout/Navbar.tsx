@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
-import { company, navigation } from "@/data/company";
+import { company, navigation, offices } from "@/data/company";
 import { navigationEn } from "@/data/company";
 import { getCommonCopy } from "@/i18n/copy";
 import { localeFromPathname, switchLocaleHref } from "@/i18n/config";
@@ -133,6 +133,26 @@ export function Navbar() {
     <>
       <div className="utility-bar">
         <Container className="utility-bar__inner">
+          <div
+            className="utility-bar__ticker"
+            role="note"
+            aria-label={locale === "en"
+              ? offices.map((office) => `${office.typeEn}: ${office.address}`).join(". ")
+              : offices.map((office) => `${office.type}: ${office.address}`).join(". ")}
+          >
+            <div className="utility-bar__ticker-track" aria-hidden="true">
+              {[0, 1].map((copyIndex) => (
+                <div className="utility-bar__ticker-group" key={copyIndex}>
+                  {offices.map((office) => (
+                    <span className="utility-bar__ticker-item" key={`${copyIndex}-${office.id}`}>
+                      <strong>{locale === "en" ? office.typeEn : office.type}:</strong>
+                      <span>{office.address}</span>
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="utility-bar__details">
             {company.email ? (
               <a href={`mailto:${company.email}`}><span className="utility-bar__contact-icon"><ScmuMailIcon aria-hidden="true" /></span>{company.email}</a>
