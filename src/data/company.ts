@@ -8,7 +8,7 @@ export const company = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "") ?? "6281248272727",
   phone: "+62 812-4827-2727",
   email: "scmumerauke@gmail.com",
-  address: "Jl. TMP Polder No. 45A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
+  address: "Jl. TMP (Taman Makam Pahlawan) Polder. 45 A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
   operationalHours: "Senin–Sabtu, 08.00–17.00 WIT",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
@@ -21,7 +21,7 @@ export const offices = [
     labelEn: "Merauke Office",
     type: "Kantor utama",
     typeEn: "Head office",
-    address: "Jl. TMP Polder No. 45A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
+    address: "Jl. TMP (Taman Makam Pahlawan) Polder. 45 A, Maro, Kec. Merauke, Kabupaten Merauke, Papua 99613",
     mapsUrl: "https://maps.app.goo.gl/NnXv1xvtsn5jHxCB6",
     primary: true,
   },
