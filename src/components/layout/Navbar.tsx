@@ -17,6 +17,7 @@ const HOME_SCROLL_KEY = "scmu-scroll-home-top";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [desktopOpen, setDesktopOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
   const [currentHash, setCurrentHash] = useState("");
@@ -26,6 +27,13 @@ export function Navbar() {
   const copy = getCommonCopy(locale);
   const localizedNavigation = locale === "en" ? navigationEn : navigation;
   const homeHref = locale === "en" ? "/en" : "/";
+
+  useEffect(() => {
+    const syncScroll = () => setScrolled(window.scrollY > 0);
+    syncScroll();
+    window.addEventListener("scroll", syncScroll, { passive: true });
+    return () => window.removeEventListener("scroll", syncScroll);
+  }, []);
 
   useEffect(() => {
     const syncHash = () => setCurrentHash(window.location.hash);
@@ -140,7 +148,7 @@ export function Navbar() {
           </div>
         </Container>
       </div>
-      <header className="site-header">
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
         <Container className="navbar">
           <div className="navbar__mobile-brand"><Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} /></div>
           <nav className="desktop-nav" aria-label={copy.mainNavigation} ref={desktopNavRef}>
@@ -247,6 +255,7 @@ export function Navbar() {
                     className="mobile-nav__link"
                     key={item.href}
                     href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                     scroll={item.href === homeHref ? false : undefined}
                     onClick={(event) => handleDirectLinkClick(event, item.href)}
                   >
@@ -264,6 +273,7 @@ export function Navbar() {
                     type="button"
                     aria-expanded={expanded}
                     aria-controls={submenuId}
+                    aria-current={item.children.some((child) => isChildActive(child.href)) ? "page" : undefined}
                     onClick={() => setMobileOpen(expanded ? null : item.label)}
                   >
                     {item.label}<ChevronDown aria-hidden="true" />
@@ -271,7 +281,7 @@ export function Navbar() {
                   <div className="mobile-nav__submenu-wrap" id={submenuId}>
                     <div className="mobile-nav__submenu">
                       {item.children.map((child) => (
-                        <Link key={child.href} href={child.href} onClick={closeMobileNavigation}>{child.label}</Link>
+                        <Link key={child.href} href={child.href} aria-current={isChildActive(child.href) ? "page" : undefined} onClick={closeMobileNavigation}>{child.label}</Link>
                       ))}
                     </div>
                   </div>

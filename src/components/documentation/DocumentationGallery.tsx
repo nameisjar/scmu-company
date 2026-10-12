@@ -10,7 +10,11 @@ type Props = {
 
 export function DocumentationGallery({ limit, variant = "full", locale = "id" }: Props) {
   const source = locale === "en" ? documentationEn : documentation;
-  const items = typeof limit === "number" ? source.slice(0, limit) : source;
+  const uniqueSource = source.filter((item, index, items) => {
+    const normalizedSource = item.src.trim().toLowerCase();
+    return items.findIndex((candidate) => candidate.src.trim().toLowerCase() === normalizedSource) === index;
+  });
+  const items = typeof limit === "number" ? uniqueSource.slice(0, limit) : uniqueSource;
 
   return (
     <div className={`documentation-gallery documentation-gallery--${variant}`}>

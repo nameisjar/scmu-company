@@ -27,12 +27,11 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
         <div className="intro-profile">
           <figure className="intro-profile__media">
             <Image
-              src="/images/documentation/operasional-06.jpg"
-              alt={english ? "Dock area and freight-vehicle activity in the port" : "Area dermaga dan aktivitas kendaraan angkut di kawasan pelabuhan"}
+              src="/logo/scmu-profile.jpeg"
+              alt={english ? "PT. SCMU logo — PT. Sarana Cipta Mandiri Utama" : "Logo PT. SCMU — PT. Sarana Cipta Mandiri Utama"}
               fill
-              sizes="(max-width: 860px) 100vw, 44vw"
+              sizes="(max-width: 460px) calc(100vw - 40px), (max-width: 860px) 420px, (max-width: 1248px) 42vw, 520px"
             />
-            <figcaption>{english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU"}</figcaption>
           </figure>
 
           <div className="intro-profile__copy">

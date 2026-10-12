@@ -6,6 +6,126 @@ export type DocumentationItem = {
 
 export const documentation: DocumentationItem[] = [
   {
+    src: "/images/documentation/lapangan-01.jpeg",
+    alt: "Truk SCMU mengangkut kontainer menuju lokasi proyek di Jagebob",
+    label: "Pengangkutan kontainer menuju lokasi proyek",
+  },
+  {
+    src: "/images/documentation/lapangan-02.jpeg",
+    alt: "Pekerja menurunkan muatan karung dari truk SCMU di lokasi proyek",
+    label: "Distribusi muatan karung ke lokasi proyek",
+  },
+  {
+    src: "/images/documentation/lapangan-03.jpeg",
+    alt: "Forklift CAT SCMU memosisikan kontainer di area operasional",
+    label: "Penanganan kontainer menggunakan forklift",
+  },
+  {
+    src: "/images/documentation/lapangan-04.jpeg",
+    alt: "Kontainer diangkat untuk ditempatkan di atas armada self loader SCMU",
+    label: "Penempatan kontainer ke armada angkut",
+  },
+  {
+    src: "/images/documentation/lapangan-05.jpeg",
+    alt: "Pekerja menata muatan karung di atas truk SCMU di Jagebob",
+    label: "Penataan muatan untuk distribusi lapangan",
+  },
+  {
+    src: "/images/documentation/lapangan-06.jpeg",
+    alt: "Forklift SCMU memindahkan drum di antara kontainer dan truk",
+    label: "Pemindahan drum dengan forklift",
+  },
+  {
+    src: "/images/documentation/lapangan-07.jpeg",
+    alt: "Forklift CAT membawa muatan bulk bag di area depo kontainer",
+    label: "Penanganan bulk bag di area depo",
+  },
+  {
+    src: "/images/documentation/lapangan-08.jpeg",
+    alt: "Forklift beroperasi pada malam hari untuk memindahkan muatan",
+    label: "Operasional forklift pada malam hari",
+  },
+  {
+    src: "/images/documentation/lapangan-09.jpeg",
+    alt: "Kontainer terpasang di atas truk self loader SCMU sebelum pengiriman",
+    label: "Pemeriksaan kontainer sebelum perjalanan",
+  },
+  {
+    src: "/images/documentation/lapangan-10.jpeg",
+    alt: "Forklift dan truk SCMU menangani drum di area kontainer",
+    label: "Koordinasi pemuatan drum ke armada",
+  },
+  {
+    src: "/images/documentation/lapangan-11.jpeg",
+    alt: "Truk SCMU membawa kontainer melintasi area proyek Jagebob",
+    label: "Mobilisasi kontainer di kawasan proyek",
+  },
+  {
+    src: "/images/documentation/lapangan-12.jpeg",
+    alt: "Tim lapangan bekerja di atas truk bermuatan karung di Jagebob",
+    label: "Pembongkaran muatan karung di Jagebob",
+  },
+  {
+    src: "/images/documentation/lapangan-13.jpeg",
+    alt: "Bagian belakang truk SCMU memperlihatkan susunan muatan karung",
+    label: "Pemeriksaan susunan muatan karung",
+  },
+  {
+    src: "/images/documentation/lapangan-14.jpeg",
+    alt: "Pekerja menata muatan karung pada sisi belakang truk SCMU",
+    label: "Penataan muatan oleh tim lapangan",
+  },
+  {
+    src: "/images/documentation/lapangan-15.jpeg",
+    alt: "Tim menurunkan karung dari bak truk di lokasi distribusi",
+    label: "Bongkar muat barang di lokasi tujuan",
+  },
+  {
+    src: "/images/documentation/lapangan-16.jpeg",
+    alt: "Pekerja memindahkan karung dari kontainer terbuka ke truk SCMU",
+    label: "Transfer muatan dari kontainer ke truk",
+  },
+  {
+    src: "/images/documentation/lapangan-17.jpeg",
+    alt: "Truk SCMU menerima muatan karung di antara susunan kontainer",
+    label: "Pemuatan barang di depo kontainer",
+  },
+  {
+    src: "/images/documentation/lapangan-18.jpeg",
+    alt: "Truk SCMU terisi penuh dengan muatan karung di area depo",
+    label: "Penyelesaian pemuatan barang kemasan",
+  },
+  {
+    src: "/images/documentation/lapangan-19.jpeg",
+    alt: "Lembaran baja bergelombang ditata di atas truk SCMU",
+    label: "Pengangkutan material baja bergelombang",
+  },
+  {
+    src: "/images/documentation/lapangan-20.jpeg",
+    alt: "Pekerja memeriksa susunan material baja bergelombang di atas truk",
+    label: "Pemeriksaan muatan material proyek",
+  },
+  {
+    src: "/images/documentation/lapangan-21.jpeg",
+    alt: "Tim menurunkan muatan karung dari truk SCMU di Wenda Asri",
+    label: "Distribusi barang ke Wenda Asri",
+  },
+  {
+    src: "/images/documentation/lapangan-22.jpeg",
+    alt: "Dokumentasi perjalanan armada SCMU di kawasan Merauke",
+    label: "Pemantauan perjalanan armada",
+  },
+  {
+    src: "/images/documentation/lapangan-23.jpeg",
+    alt: "Truk SCMU membawa muatan tertutup terpal di jalan Merauke",
+    label: "Pengangkutan muatan dengan perlindungan terpal",
+  },
+  {
+    src: "/images/documentation/lapangan-24.jpeg",
+    alt: "Dokumentasi kondisi perjalanan armada di kawasan perkotaan",
+    label: "Koordinasi perjalanan di kawasan perkotaan",
+  },
+  {
     src: "/images/documentation/operasional-01.jpg",
     alt: "Forklift membantu proses pemuatan di antara truk dan deretan kontainer",
     label: "Koordinasi muatan di area kontainer",
@@ -143,6 +263,30 @@ export const documentation: DocumentationItem[] = [
 ];
 
 const documentationLabelsEn = [
+  "Container transport to a project site",
+  "Bagged-cargo distribution to a project site",
+  "Container handling with a forklift",
+  "Placing a container onto the transport fleet",
+  "Cargo arrangement for field distribution",
+  "Drum handling with a forklift",
+  "Bulk-bag handling in the container yard",
+  "Night-time forklift operation",
+  "Pre-departure container inspection",
+  "Coordinated drum loading onto the fleet",
+  "Container mobilization in the project area",
+  "Unloading bagged cargo in Jagebob",
+  "Bagged-cargo arrangement inspection",
+  "Cargo arrangement by the field team",
+  "Cargo handling at the destination",
+  "Cargo transfer from container to truck",
+  "Goods loading in the container yard",
+  "Completion of packaged-goods loading",
+  "Transporting corrugated steel materials",
+  "Project-material cargo inspection",
+  "Goods distribution to Wenda Asri",
+  "Fleet journey monitoring",
+  "Transporting tarpaulin-protected cargo",
+  "Urban-route coordination",
   "Cargo coordination in the container yard",
   "Heavy-equipment handling on a flat rack",
   "Container movement with lifting equipment",
