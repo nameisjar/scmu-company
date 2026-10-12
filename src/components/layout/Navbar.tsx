@@ -133,7 +133,6 @@ export function Navbar() {
     <>
       <div className="utility-bar">
         <Container className="utility-bar__inner">
-          <Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} />
           <div className="utility-bar__details">
             {company.email ? (
               <a href={`mailto:${company.email}`}><span className="utility-bar__contact-icon"><ScmuMailIcon aria-hidden="true" /></span>{company.email}</a>
@@ -150,6 +149,7 @@ export function Navbar() {
       </div>
       <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
         <Container className="navbar">
+          <div className="navbar__desktop-brand"><Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} /></div>
           <div className="navbar__mobile-brand"><Brand href={homeHref} homeLabel={locale === "en" ? "Home" : "Beranda"} /></div>
           <nav className="desktop-nav" aria-label={copy.mainNavigation} ref={desktopNavRef}>
             {localizedNavigation.map((item) => {

@@ -324,19 +324,19 @@ export const documentationEn: DocumentationItem[] = documentation.map((item, ind
 
 export const homepageHeroSlides = [
   {
-    src: "/images/documentation/operasional-08.jpg",
-    position: "center 43%",
-  },
-  {
-    src: "/images/documentation/operasional-01.jpg",
+    src: "/images/documentation/activity-05.jpg",
     position: "center 52%",
   },
   {
-    src: "/images/documentation/operasional-04.jpg",
+    src: "/images/documentation/operasional-01.jpg",
     position: "center 48%",
   },
   {
     src: "/images/documentation/operasional-02.jpg",
-    position: "center 48%",
+    position: "center 50%",
+  },
+  {
+    src: "/images/documentation/operasional-04.jpg",
+    position: "center 46%",
   },
 ] as const;
