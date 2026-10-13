@@ -19,7 +19,7 @@ export function AboutPageContent({ locale = "id" }: { locale?: Locale }) {
         <Container className="company-profile__layout">
           <figure className="company-profile__visual">
             <Image
-              src="/images/company-profile-scmu-transparent.png"
+              src="/images/company-profile-scmu-collage.png"
               alt={english ? "SCMU logistics services by aircraft, ship, forklift, and truck" : "Ilustrasi layanan logistik SCMU melalui pesawat, kapal, forklift, dan truk"}
               fill
               priority
