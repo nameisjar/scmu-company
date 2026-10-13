@@ -324,23 +324,23 @@ export const documentationEn: DocumentationItem[] = documentation.map((item, ind
 
 export const homepageHeroSlides = [
   {
-    src: "/images/documentation/operasional-03.jpg",
-    position: "50% 70%",
+    src: "/images/hero/port-vessel.png",
+    position: "50% 50%",
     mobilePosition: "78% 50%",
   },
   {
-    src: "/images/documentation/activity-03.jpg",
-    position: "50% 60%",
-    mobilePosition: "62% 55%",
+    src: "/images/hero/port-overview.png",
+    position: "50% 50%",
+    mobilePosition: "48% 50%",
   },
   {
-    src: "/images/documentation/activity-09.jpg",
-    position: "50% 65%",
-    mobilePosition: "65% 50%",
+    src: "/images/hero/container-handling.png",
+    position: "50% 50%",
+    mobilePosition: "72% 50%",
   },
   {
-    src: "/images/documentation/operasional-08.jpg",
-    position: "50% 20%",
-    mobilePosition: "48% 35%",
+    src: "/images/hero/heavy-cargo.png",
+    position: "50% 50%",
+    mobilePosition: "75% 50%",
   },
 ] as const;
