@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ScmuChatIcon, ScmuClockIcon, ScmuLocationIcon, ScmuMailIcon } from "@/components/icons/ScmuIcons";
 import { company, companyEn, navigation, navigationEn, offices } from "@/data/company";
-import { services, servicesEn } from "@/data/services";
 import { getCommonCopy } from "@/i18n/copy";
 import { localeFromPathname } from "@/i18n/config";
 import { Container } from "../ui/Container";
@@ -16,7 +15,6 @@ export function Footer() {
   const copy = getCommonCopy(locale);
   const localizedCompany = locale === "en" ? companyEn : company;
   const localizedNavigation = locale === "en" ? navigationEn : navigation;
-  const localizedServices = locale === "en" ? servicesEn : services;
   const homeHref = locale === "en" ? "/en" : "/";
 
   return (
@@ -31,16 +29,6 @@ export function Footer() {
           <ul>
             {localizedNavigation.slice(1).map((item) => (
               <li key={item.href}><Link href={item.href}>{item.label}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2>{copy.services}</h2>
-          <ul>
-            {localizedServices.map((service) => (
-              <li key={service.slug}>
-                <Link href={`${locale === "en" ? "/en" : ""}/layanan#${service.slug}`}>{service.title}</Link>
-              </li>
             ))}
           </ul>
         </div>
