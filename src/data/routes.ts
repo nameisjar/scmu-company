@@ -1,9 +1,10 @@
 import type { Locale } from "@/i18n/config";
+import type { RouteMapPlace } from "@/data/route-map";
 
 export type RouteCoverageGroup = {
   title: string;
   direction: "inbound" | "outbound" | "bidirectional";
-  cities: readonly string[];
+  cities: readonly RouteMapPlace[];
 };
 
 type RouteCoverageCopy = {
