@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import { homepageHeroSlides } from "@/data/documentation";
 import { Container } from "../ui/Container";
 import { ButtonLink } from "../ui/ButtonLink";
@@ -12,28 +12,21 @@ export function HeroSection({ locale = "id" }: { locale?: Locale }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const autoplayStartedAt = Date.now();
-    let autoplayTimer: number | undefined;
+    const startedAt = Date.now();
+    let timer: number | undefined;
 
-    const syncAutoplay = () => {
-      if (autoplayTimer) window.clearTimeout(autoplayTimer);
-
-      const elapsed = Date.now() - autoplayStartedAt;
-      const nextIndex = Math.floor(elapsed / 3000) % homepageHeroSlides.length;
-      setActiveIndex(nextIndex);
-
-      const untilNextSlide = 3000 - (elapsed % 3000);
-      autoplayTimer = window.setTimeout(syncAutoplay, untilNextSlide + 20);
+    const syncSlide = () => {
+      if (timer !== undefined) window.clearTimeout(timer);
+      const elapsed = Date.now() - startedAt;
+      setActiveIndex(Math.floor(elapsed / 3000) % homepageHeroSlides.length);
+      timer = window.setTimeout(syncSlide, 3000 - (elapsed % 3000) + 20);
     };
 
-    const syncAfterVisibilityChange = () => syncAutoplay();
-
-    syncAutoplay();
-    document.addEventListener("visibilitychange", syncAfterVisibilityChange);
-
+    syncSlide();
+    document.addEventListener("visibilitychange", syncSlide);
     return () => {
-      document.removeEventListener("visibilitychange", syncAfterVisibilityChange);
-      if (autoplayTimer) window.clearTimeout(autoplayTimer);
+      document.removeEventListener("visibilitychange", syncSlide);
+      if (timer !== undefined) window.clearTimeout(timer);
     };
   }, []);
 
@@ -42,15 +35,19 @@ export function HeroSection({ locale = "id" }: { locale?: Locale }) {
       <div className="hero__media" aria-hidden="true">
         {homepageHeroSlides.map((slide, index) => (
           <Image
-            className={`hero__image ${index === activeIndex ? "is-active" : ""}`}
+            key={slide.src}
+            className={`hero__image${index === activeIndex ? " is-active" : ""}`}
             src={slide.src}
             alt=""
             fill
-            priority={index === 0}
+            loading="eager"
+            fetchPriority={index === 0 ? "high" : "auto"}
             quality={88}
             sizes="100vw"
-            style={{ objectPosition: slide.position }}
-            key={slide.src}
+            style={{
+              "--hero-position": slide.position,
+              "--hero-mobile-position": slide.mobilePosition,
+            } as CSSProperties}
           />
         ))}
       </div>
