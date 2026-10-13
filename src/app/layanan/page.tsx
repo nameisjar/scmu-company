@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { PhotoPageHero } from "@/components/layout/PhotoPageHero";
-import { ServiceCard } from "@/components/services/ServiceCard";
+import { LogisticsCapabilities } from "@/components/services/LogisticsCapabilities";
 import { RouteCoverage } from "@/components/services/RouteCoverage";
-import { Container } from "@/components/ui/Container";
-import { services, servicesEn } from "@/data/services";
 import type { Locale } from "@/i18n/config";
 
 export const metadata: Metadata = {
@@ -13,7 +11,6 @@ export const metadata: Metadata = {
 
 export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {
   const english = locale === "en";
-  const localizedServices = english ? servicesEn : services;
   return (
     <main>
       <PhotoPageHero
@@ -27,9 +24,7 @@ export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {
           credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />
-      <section className="section section--soft">
-        <Container><div className="services-grid">{localizedServices.map((service) => <ServiceCard key={service.slug} service={service} />)}</div></Container>
-      </section>
+      <LogisticsCapabilities locale={locale} />
       <RouteCoverage locale={locale} />
     </main>
   );

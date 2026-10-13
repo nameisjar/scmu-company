@@ -243,6 +243,50 @@ p { color: var(--neutral-600); }
 .home-service-card__copy p { margin: 0; color: var(--neutral-600); font-size: .9rem; line-height: 1.65; }
 .service-card { scroll-margin-top: 92px; }
 
+.logistics-services { background: var(--neutral-0); padding-block: 80px 88px; }
+.logistics-services__heading { margin: 0 0 40px; color: var(--scmu-blue-deep); font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -.03em; text-align: center; }
+.logistics-services__grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.logistics-services__grid > li { grid-column: span 2; min-width: 0; }
+.logistics-services__grid > li:nth-child(4) { grid-column: 2 / span 2; }
+.logistics-services__grid > li:nth-child(5) { grid-column: 4 / span 2; }
+.logistics-info-card { --icon-cutout: var(--neutral-0); height: 100%; padding: 40px 28px; border: 1px solid var(--neutral-200); border-radius: 8px; background: var(--neutral-0); text-align: center; cursor: default; scroll-margin-top: 110px; transition: transform .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.logistics-info-card__icon { display: flex; justify-content: center; margin-bottom: 24px; color: var(--scmu-blue); }
+.logistics-info-card__icon svg { width: 48px; height: 48px; }
+.logistics-info-card h3 { margin: 0 0 14px; color: var(--scmu-blue-deep); font-size: clamp(1.2rem, 1.8vw, 1.4rem); line-height: 1.35; letter-spacing: -.02em; }
+.logistics-info-card p { max-width: 320px; margin: 0 auto; color: var(--neutral-600); font-size: .92rem; line-height: 1.8; overflow-wrap: anywhere; }
+.logistics-info-card__icon, .logistics-info-card h3, .logistics-info-card p { transition: color .25s ease; }
+.logistics-info-card__icon svg [fill] { transition: fill .25s ease; }
+.logistics-services__grid > li[data-pending] { opacity: 0; transform: translateY(12px); }
+.logistics-services__grid > li[data-revealed] { animation: service-card-enter .4s ease-out var(--service-reveal-delay, 0ms) both; }
+@keyframes service-card-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .logistics-info-card:hover { --icon-cutout: var(--scmu-blue); transform: translateY(-4px); background: var(--scmu-blue); border-color: var(--scmu-blue); box-shadow: 0 8px 20px rgba(0, 39, 107, .12); }
+  .logistics-info-card:hover .logistics-info-card__icon, .logistics-info-card:hover h3, .logistics-info-card:hover p { color: var(--neutral-0); }
+}
+@media (max-width: 1000px) {
+  .logistics-services__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .logistics-services__grid > li:nth-child(4) { grid-column: span 2; }
+  .logistics-services__grid > li:nth-child(5) { grid-column: 2 / span 2; }
+}
+@media (max-width: 620px) {
+  .section.logistics-services { padding-block: 52px 64px; }
+  .logistics-services__heading { margin-bottom: 28px; font-size: 1.9rem; }
+  .logistics-services__grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .logistics-services__grid > li, .logistics-services__grid > li:nth-child(4), .logistics-services__grid > li:nth-child(5) { grid-column: auto; }
+  .logistics-info-card { padding: 32px 24px; }
+  .logistics-info-card__icon { margin-bottom: 20px; }
+  .logistics-info-card__icon svg { width: 44px; height: 44px; }
+  .logistics-info-card p { font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logistics-services__grid > li[data-pending], .logistics-services__grid > li[data-revealed] { opacity: 1; transform: none; animation: none; }
+  .logistics-info-card, .logistics-info-card__icon, .logistics-info-card h3, .logistics-info-card p, .logistics-info-card__icon svg [fill] { transition: none; }
+  .logistics-info-card:hover { transform: none; }
+}
+
 .route-coverage { background: var(--neutral-50); }
 .route-coverage__heading { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; align-items: start; margin-bottom: 36px; }
 .route-coverage__heading .section-label { margin-bottom: 10px; }
