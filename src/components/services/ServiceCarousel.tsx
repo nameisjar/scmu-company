@@ -107,13 +107,6 @@ export function ServiceCarousel() {
                   <Link className="service-slide__link" href={`/layanan/${service.slug}`}>
                     Pelajari {service.shortTitle} <ArrowUpRight aria-hidden="true" />
                   </Link>
-                  {service.image.source ? (
-                    <a className="service-slide__credit" href={service.image.source} target="_blank" rel="noreferrer">
-                      Foto: {service.image.credit}{service.image.provider ? ` / ${service.image.provider}` : ""}
-                    </a>
-                  ) : (
-                    <span className="service-slide__credit">Foto: {service.image.credit}</span>
-                  )}
                 </div>
               ) : (
                 <button

@@ -64,7 +64,6 @@ export function HeroSection({ locale = "id" }: { locale?: Locale }) {
           </div>
         </div>
       </Container>
-      <span className="hero__credit">{locale === "en" ? "PT. SCMU Visual" : "Visual PT. SCMU"}</span>
     </section>
   );
 }

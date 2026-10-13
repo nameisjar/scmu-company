@@ -17,9 +17,7 @@ type PhotoPageHeroProps = {
   creditLabel?: string;
 };
 
-export function PhotoPageHero({ eyebrow, title, description, children, image, creditLabel = "Foto" }: PhotoPageHeroProps) {
-  const credit = <>{creditLabel}: {image.credit}{image.provider ? ` / ${image.provider}` : ""}</>;
-
+export function PhotoPageHero({ eyebrow, title, description, children, image }: PhotoPageHeroProps) {
   return (
     <section className="photo-page-hero">
       <Image
@@ -37,11 +35,6 @@ export function PhotoPageHero({ eyebrow, title, description, children, image, cr
         {description && <p className="photo-page-hero__description">{description}</p>}
         {children && <div className="photo-page-hero__actions">{children}</div>}
       </Container>
-      {image.source ? (
-        <a className="photo-page-hero__credit" href={image.source} target="_blank" rel="noreferrer">{credit}</a>
-      ) : (
-        <span className="photo-page-hero__credit">{credit}</span>
-      )}
     </section>
   );
 }
