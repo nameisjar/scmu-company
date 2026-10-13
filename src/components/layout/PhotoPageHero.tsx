@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 
@@ -10,6 +10,7 @@ type PhotoPageHeroProps = {
   image: {
     src: string;
     position?: string;
+    mobilePosition?: string;
     credit: string;
     source?: string;
     provider?: string;
@@ -27,7 +28,10 @@ export function PhotoPageHero({ eyebrow, title, description, children, image }: 
         fill
         priority
         sizes="100vw"
-        style={{ objectPosition: image.position }}
+        style={{
+          "--page-hero-position": image.position ?? "center",
+          "--page-hero-mobile-position": image.mobilePosition ?? image.position ?? "center",
+        } as CSSProperties}
       />
       <Container className="photo-page-hero__inner">
         <p className="photo-page-hero__eyebrow">{eyebrow}</p>

@@ -20,8 +20,9 @@ export function FaqPageContent({ locale = "id" }: { locale?: Locale }) {
         eyebrow={english ? "Frequently Asked Questions" : "Pertanyaan Umum"}
         title={english ? "Information before you send cargo details." : "Informasi sebelum mengirim detail barang."}
         image={{
-          src: "/images/documentation/operasional-07.jpg",
-          position: "center 54%",
+          src: "/images/hero/port-overview.png",
+          position: "50% 55%",
+          mobilePosition: "48% 50%",
           credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />

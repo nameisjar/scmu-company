@@ -19,8 +19,9 @@ export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {
         title={english ? "Five services for different freight requirements." : "Lima layanan untuk kebutuhan pengiriman yang berbeda."}
         description={english ? "Choose based on cargo characteristics, origin, destination, and time priority. If you are unsure, send us the details for an initial discussion." : "Pilih berdasarkan karakteristik barang, asal, tujuan, dan prioritas waktu. Jika belum yakin, kirimkan detail untuk dibahas terlebih dahulu."}
         image={{
-          src: "/images/documentation/operasional-03.jpg",
-          position: "center 52%",
+          src: "/images/hero/forklift-loading.png",
+          position: "50% 58%",
+          mobilePosition: "70% 50%",
           credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />

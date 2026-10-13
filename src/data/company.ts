@@ -51,10 +51,6 @@ export const navigation: NavigationItem[] = [
   {
     label: "Tentang Kami",
     href: "/tentang-kami",
-    children: [
-      { label: "Profil Perusahaan", href: "/tentang-kami" },
-      { label: "Mengapa PT. SCMU", href: "/#keunggulan" },
-    ],
   },
   {
     label: "Layanan",
@@ -70,10 +66,6 @@ export const navigationEn: NavigationItem[] = [
   {
     label: "About Us",
     href: "/en/tentang-kami",
-    children: [
-      { label: "Company Profile", href: "/en/tentang-kami" },
-      { label: "Why PT. SCMU", href: "/en#keunggulan" },
-    ],
   },
   { label: "Services", href: "/en/layanan" },
   { label: "Documentation", href: "/en/dokumentasi" },

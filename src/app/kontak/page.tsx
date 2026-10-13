@@ -27,8 +27,9 @@ export function ContactPageContent({ locale = "id" }: { locale?: Locale }) {
         eyebrow={english ? "Contact PT. SCMU" : "Kontak PT. SCMU"}
         title={english ? "Discuss your freight requirements." : "Diskusikan kebutuhan pengiriman Anda."}
         image={{
-          src: "/images/documentation/operasional-01.jpg",
-          position: "center 52%",
+          src: "/images/hero/container-handling.png",
+          position: "50% 50%",
+          mobilePosition: "72% 50%",
           credit: english ? "PT. SCMU Documentation" : "Dokumentasi PT. SCMU",
         }}
       />
