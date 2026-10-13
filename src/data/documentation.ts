@@ -324,9 +324,9 @@ export const documentationEn: DocumentationItem[] = documentation.map((item, ind
 
 export const homepageHeroSlides = [
   {
-    src: "/images/hero/port-vessel.png",
+    src: "/images/hero/tank-lifting.png",
     position: "50% 50%",
-    mobilePosition: "78% 50%",
+    mobilePosition: "75% 50%",
   },
   {
     src: "/images/hero/port-overview.png",
@@ -339,8 +339,8 @@ export const homepageHeroSlides = [
     mobilePosition: "72% 50%",
   },
   {
-    src: "/images/hero/heavy-cargo.png",
+    src: "/images/hero/forklift-loading.png",
     position: "50% 50%",
-    mobilePosition: "75% 50%",
+    mobilePosition: "70% 50%",
   },
 ] as const;

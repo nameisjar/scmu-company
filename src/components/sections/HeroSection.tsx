@@ -8,6 +8,8 @@ import { Container } from "../ui/Container";
 import { ButtonLink } from "../ui/ButtonLink";
 import type { Locale } from "@/i18n/config";
 
+const HERO_SLIDE_INTERVAL_MS = 6000;
+
 export function HeroSection({ locale = "id" }: { locale?: Locale }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -18,8 +20,8 @@ export function HeroSection({ locale = "id" }: { locale?: Locale }) {
     const syncSlide = () => {
       if (timer !== undefined) window.clearTimeout(timer);
       const elapsed = Date.now() - startedAt;
-      setActiveIndex(Math.floor(elapsed / 3000) % homepageHeroSlides.length);
-      timer = window.setTimeout(syncSlide, 3000 - (elapsed % 3000) + 20);
+      setActiveIndex(Math.floor(elapsed / HERO_SLIDE_INTERVAL_MS) % homepageHeroSlides.length);
+      timer = window.setTimeout(syncSlide, HERO_SLIDE_INTERVAL_MS - (elapsed % HERO_SLIDE_INTERVAL_MS) + 20);
     };
 
     syncSlide();
