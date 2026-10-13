@@ -26,34 +26,19 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
       <Container>
         <div className="intro-profile">
           <figure className="intro-profile__media">
-            <Image
-              className="intro-profile__photo"
-              src="/images/documentation/lapangan-03.jpeg"
-              alt={english ? "SCMU forklift handling a container in the operational yard" : "Forklift SCMU menangani kontainer di area operasional"}
-              fill
-              sizes="(max-width: 492px) calc(100vw - 32px), (max-width: 860px) 460px, (max-width: 1248px) 42vw, 460px"
-            />
-            <div className="intro-profile__experience">
-              <span>15+</span>
-              <strong>{english ? "Years of Experience" : "Tahun Pengalaman"}</strong>
-            </div>
-            <div className="intro-profile__map-area">
+            <div className="intro-profile__logo">
               <Image
-                className="intro-profile__map"
-                src="/images/scmu-south-papua-map.png"
-                alt={english ? "Illustration of Mappi, Boven Digoel, Asmat, and Merauke" : "Ilustrasi wilayah Mappi, Boven Digoel, Asmat, dan Merauke"}
-                width={1536}
-                height={1024}
-                sizes="(max-width: 492px) 52vw, 240px"
+                src="/logo/scmu-mark.png"
+                alt=""
+                width={500}
+                height={500}
+                sizes="(max-width: 472px) 56vw, 247px"
               />
             </div>
-            <div className="intro-profile__branding">
-              <div className="intro-profile__logo">
-                <Image src="/logo/scmu-mark.png" alt="" width={120} height={120} />
-              </div>
+            <figcaption className="intro-profile__branding">
               <strong>PT. SARANA CIPTA MANDIRI UTAMA</strong>
               <span>PT. SCMU</span>
-            </div>
+            </figcaption>
           </figure>
 
           <div className="intro-profile__copy">
