@@ -124,8 +124,9 @@ p { color: var(--neutral-600); }
 .utility-bar__details { display: flex; flex: 0 0 auto; align-items: center; justify-content: flex-end; gap: 22px; margin-left: auto; color: var(--neutral-700); font-size: .76rem; }
 .utility-bar__details a, .utility-bar__details span { display: inline-flex; align-items: center; gap: 9px; }
 .utility-bar__details a:hover { color: var(--scmu-blue-dark); }
-.utility-bar__contact-icon { width: 18px; height: 18px; display: inline-flex; justify-content: center; flex: 0 0 auto; color: inherit; }
+.utility-bar__contact-icon { width: 18px; height: 18px; display: inline-flex; justify-content: center; flex: 0 0 auto; color: #ea4335; }
 .utility-bar__contact-icon svg { width: 17px; height: 17px; color: inherit; }
+.utility-bar__contact-icon--whatsapp { color: #25d366; }
 .utility-bar__contact-icon--whatsapp svg { fill: currentColor; }
 .utility-bar__placeholder small { margin-left: 2px; color: var(--neutral-400); font-size: .65rem; font-weight: 600; letter-spacing: .03em; }
 .site-header { position: sticky; top: 0; z-index: 50; background: white; color: var(--scmu-blue-deep); }
