@@ -9,14 +9,13 @@ import { localeFromPathname } from "@/i18n/config";
 
 const initialData: QuoteData = {
   name: "",
-  email: "",
   message: "",
 };
 
 type RequiredField = keyof QuoteData;
 type FormErrors = Partial<Record<RequiredField | "config", string>>;
 
-const requiredFields: RequiredField[] = ["name", "email", "message"];
+const requiredFields: RequiredField[] = ["name", "message"];
 
 export function QuotationForm() {
   const locale = localeFromPathname(usePathname());
@@ -40,9 +39,6 @@ export function QuotationForm() {
     fields.forEach((field) => {
       if (!data[field].trim()) nextErrors[field] = english ? "This field is required." : "Bagian ini wajib diisi.";
     });
-    if (fields.includes("email") && data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      nextErrors.email = english ? "Enter a valid email address." : "Masukkan alamat email yang valid.";
-    }
     return nextErrors;
   }
 
@@ -70,28 +66,18 @@ export function QuotationForm() {
   }
 
   return (
-    <form className="quote-form" onSubmit={handleSubmit} noValidate ref={formRef}>
-      <div className="quote-form__header">
-        <div>
-          <h3>{english ? "Send a message" : "Kirim pesan"}</h3>
-        </div>
-        <p>{english ? "Tell us about your shipping needs. The PT. SCMU team will continue the discussion via WhatsApp." : "Ceritakan kebutuhan pengiriman Anda. Tim PT. SCMU akan melanjutkan pembahasan melalui WhatsApp."}</p>
-      </div>
-
+    <form className="quote-form" aria-label={english ? "Request a quotation" : "Minta penawaran"} onSubmit={handleSubmit} noValidate ref={formRef}>
       <div className="form-grid">
         <Field label={english ? "Name" : "Nama"} required error={errors.name}>
           <input name="name" value={data.name} onChange={(event) => update("name", event.target.value)} autoComplete="name" />
         </Field>
-        <Field label="Email" required error={errors.email}>
-          <input name="email" type="email" value={data.email} onChange={(event) => update("email", event.target.value)} autoComplete="email" placeholder={english ? "Example: name@email.com" : "Contoh: nama@email.com"} />
-        </Field>
-        <Field label={english ? "Message" : "Pesan"} required error={errors.message} className="form-field--full">
+        <Field label={english ? "Shipment Details" : "Detail Pengiriman"} required error={errors.message}>
           <textarea
             name="message"
             value={data.message}
             onChange={(event) => update("message", event.target.value)}
-            rows={6}
-            placeholder={english ? "Example: I need to ship building materials from Merauke to Mappi. Please advise which service is available." : "Contoh: Saya ingin mengirim bahan bangunan dari Merauke ke Mappi. Mohon informasi layanan yang tersedia."}
+            rows={4}
+            placeholder={english ? "Cargo type, quantity, origin, and destination." : "Jenis barang, jumlah, asal, dan tujuan."}
           />
         </Field>
       </div>
@@ -101,7 +87,7 @@ export function QuotationForm() {
         <div className="form-submit-row__actions">
           <button className="button button--whatsapp" type="submit">
             <WhatsAppIcon />
-            <span>{english ? "Send via WhatsApp" : "Kirim melalui WhatsApp"}</span>
+            <span>{english ? "Continue to WhatsApp" : "Lanjut ke WhatsApp"}</span>
           </button>
         </div>
       </div>
@@ -114,13 +100,14 @@ function Field({ label, required, error, className = "", children }: {
   required?: boolean;
   error?: string;
   className?: string;
-  children: React.ReactElement<{ "aria-invalid"?: boolean; "aria-describedby"?: string }>;
+  children: React.ReactElement<{ required?: boolean; "aria-invalid"?: boolean; "aria-describedby"?: string }>;
 }) {
   const id = label.toLowerCase().replace(/[^a-z]+/g, "-");
   return (
     <label className={`form-field ${className}`}>
       <span>{label}{required && <em> *</em>}</span>
       {React.cloneElement(children, {
+        required: Boolean(required),
         "aria-invalid": Boolean(error),
         "aria-describedby": error ? `${id}-error` : undefined,
       })}

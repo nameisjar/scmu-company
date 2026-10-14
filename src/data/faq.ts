@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/types";
+import { offices } from "@/data/company";
 
 export const faqs: FaqItem[] = [
   {
@@ -24,7 +25,11 @@ export const faqs: FaqItem[] = [
   {
     question: "Informasi apa yang perlu disiapkan?",
     answer:
-      "Siapkan nama, alamat email, dan pesan singkat mengenai jenis barang, jumlah, lokasi asal, lokasi tujuan, serta prioritas pengiriman.",
+      "Siapkan nama dan detail pengiriman mengenai jenis barang, jumlah, lokasi asal, lokasi tujuan, serta prioritas pengiriman.",
+  },
+  {
+    question: "Di mana alamat kantor PT. SCMU?",
+    answer: offices.map((office) => `${office.type} (${office.city}): ${office.address}.`).join(" "),
   },
   {
     question: "Bagaimana cara menghubungi PT. SCMU?",
@@ -52,7 +57,11 @@ export const faqsEn: FaqItem[] = [
   },
   {
     question: "What information should I prepare?",
-    answer: "Prepare your name, email address, and a short message covering the cargo type, quantity, origin, destination, and delivery priority.",
+    answer: "Prepare your name and shipment details covering the cargo type, quantity, origin, destination, and delivery priority.",
+  },
+  {
+    question: "Where are PT. SCMU's offices located?",
+    answer: offices.map((office) => `${office.typeEn} (${office.city}): ${office.address}.`).join(" "),
   },
   {
     question: "How can I contact PT. SCMU?",

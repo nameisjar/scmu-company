@@ -185,7 +185,6 @@ export function QuotationSection({ locale = "id" }: { locale?: Locale }) {
       <Container>
         <SectionHeading
           title={locale === "en" ? "Request a Quotation" : "Minta Penawaran"}
-          description={locale === "en" ? "Briefly describe your needs. The website will prepare a message to continue via WhatsApp." : "Tulis kebutuhan Anda secara singkat. Website akan menyiapkan pesan untuk dilanjutkan melalui WhatsApp."}
           align="center"
         />
         <div className="quote-layout"><QuotationForm /></div>

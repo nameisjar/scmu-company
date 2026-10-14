@@ -1,6 +1,5 @@
 export type QuoteData = {
   name: string;
-  email: string;
   message: string;
 };
 
@@ -10,9 +9,8 @@ export function createWhatsAppMessage(data: QuoteData, locale: "id" | "en" = "id
 I would like to discuss a freight shipment.
 
 Name: ${data.name}
-Email: ${data.email}
 
-Message:
+Shipment details:
 ${data.message}
 
 Thank you.`;
@@ -22,9 +20,8 @@ Thank you.`;
 Saya ingin berkonsultasi mengenai pengiriman barang.
 
 Nama: ${data.name}
-Email: ${data.email}
 
-Pesan:
+Detail pengiriman:
 ${data.message}
 
 Terima kasih.`;
