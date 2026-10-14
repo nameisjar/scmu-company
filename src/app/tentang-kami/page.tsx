@@ -32,11 +32,11 @@ export function AboutPageContent({ locale = "id" }: { locale?: Locale }) {
             <h1>{company.name}</h1>
             <div className="company-profile__body">
               {english ? <>
-                <p>Established in 2009, PT. Sarana Cipta Mandiri Utama (SCMU) provides logistics, transport, and freight services. As a Freight Forwarding (JPT) company, PT. SCMU supports cargo shipments by sea, air, and road, with operations in South Papua covering Merauke, Mappi, Boven Digoel, and Asmat. Each service is planned according to the cargo type, destination, and customer requirements.</p>
+                <p>PT. Sarana Cipta Mandiri Utama (SCMU) is a Freight Forwarding (JPT) company providing logistics, transport, and cargo shipping services. Acquired in 2009, PT. SCMU supports cargo shipments by sea, air, and road.</p>
                 <p>As distribution needs continue to grow, we help customers plan effective and efficient shipments that support smooth business operations and supply chains.</p>
                 <p>Supported by a dedicated team, PT. SCMU prioritizes cargo safety, operational coordination, and clear communication to build trust and long-term partnerships.</p>
               </> : <>
-                <p>Berdiri sejak tahun 2009, PT. Sarana Cipta Mandiri Utama (SCMU) bergerak di bidang jasa logistik, transportasi, dan pengiriman barang. Sebagai perusahaan yang bergerak di bidang Jasa Pengurusan Transportasi (JPT), PT. SCMU mendukung kebutuhan pengiriman barang melalui jalur laut, udara, maupun darat, dengan wilayah operasional di Papua Selatan yang mencakup Merauke, Mappi, Boven Digoel, dan Asmat. Setiap layanan direncanakan sesuai dengan jenis barang, tujuan, dan kebutuhan pelanggan.</p>
+                <p>PT. Sarana Cipta Mandiri Utama (SCMU) merupakan perusahaan Jasa Pengurusan Transportasi (JPT) yang bergerak di bidang logistik, transportasi, dan pengiriman barang. Diakuisisi pada tahun 2009, PT. SCMU mendukung kebutuhan pengiriman melalui jalur laut, udara, maupun darat.</p>
                 <p>Seiring meningkatnya kebutuhan distribusi, kami membantu pelanggan merencanakan pengiriman yang efektif dan efisien untuk mendukung kelancaran kegiatan bisnis serta rantai pasok.</p>
                 <p>Didukung oleh tim yang berdedikasi, PT. SCMU mengutamakan keamanan barang, koordinasi operasional, dan komunikasi yang jelas untuk membangun kepercayaan serta hubungan kerja sama jangka panjang.</p>
               </>}

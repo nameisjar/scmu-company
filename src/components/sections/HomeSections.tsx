@@ -43,19 +43,13 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
 
           <div className="intro-profile__copy">
             <p className="section-label">{english ? "Company Overview" : "Profil Singkat"}</p>
-            <h2>{english ? "A transport-management partner from South Papua since 2009." : "Mitra pengurusan transportasi dari Papua Selatan sejak 2009."}</h2>
+            <h2>{english ? "Transport-management services from South Papua." : "Jasa pengurusan transportasi dari Papua Selatan."}</h2>
             <p className="lead">
               {english ? "PT. SCMU is a transport-management company supporting distribution needs through road, air, sea, river, and multimodal services." : "PT. SCMU merupakan perusahaan Jasa Pengurusan Transportasi yang membantu kebutuhan distribusi melalui jalur darat, udara, laut, sungai, dan multimoda."}
             </p>
             <p>
               {english ? "Based in Merauke, our services cover Merauke, Mappi, Boven Digoel, Asmat, and other regions subject to route availability." : "Berbasis di Merauke, layanan kami mencakup Merauke, Mappi, Boven Digoel, Asmat, serta berbagai wilayah lain sesuai ketersediaan rute."}
             </p>
-
-            <dl className="intro-profile__facts">
-              <div><dt>{english ? "Established" : "Tahun berdiri"}</dt><dd>2009</dd></div>
-              <div><dt>{english ? "South Papua focus" : "Fokus Papua Selatan"}</dt><dd>{english ? "4 regions" : "4 wilayah"}</dd></div>
-              <div><dt>{english ? "Transport options" : "Pilihan transportasi"}</dt><dd>{english ? "5 services" : "5 layanan"}</dd></div>
-            </dl>
 
             <Link className="text-link" href={localizeHref("/tentang-kami", locale)}>
               {english ? "View Company Profile" : "Lihat Profil Perusahaan"} <ArrowRight aria-hidden="true" />
