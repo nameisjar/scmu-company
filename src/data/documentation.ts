@@ -2,6 +2,8 @@ export type DocumentationItem = {
   src: string;
   alt: string;
   label: string;
+  kind?: "video";
+  poster?: string;
 };
 
 export const documentation: DocumentationItem[] = [
@@ -260,6 +262,23 @@ export const documentation: DocumentationItem[] = [
     alt: "Pekerja mengarahkan pengangkatan muatan karung dari truk",
     label: "Koordinasi bongkar muat barang",
   },
+  {
+    src: "/images/documentation/terbaru-01.jpeg",
+    alt: "Kontainer biru muda berada di atas truk self loader di antara susunan kontainer",
+    label: "Kontainer di atas truk self loader",
+  },
+  {
+    src: "/images/documentation/terbaru-02.jpeg",
+    alt: "Truk self loader membawa kontainer biru muda di area penumpukan kontainer",
+    label: "Truk bermuatan kontainer di area depo",
+  },
+  {
+    src: "/videos/documentation/terbaru-01.mp4",
+    kind: "video",
+    poster: "/images/documentation/terbaru-video-01.jpg",
+    alt: "Video dokumentasi kegiatan operasional SCMU",
+    label: "Video kegiatan operasional",
+  },
 ];
 
 const documentationLabelsEn = [
@@ -314,6 +333,9 @@ const documentationLabelsEn = [
   "Operational activity supervision",
   "Travel through challenging road conditions",
   "Cargo-handling coordination",
+  "Container on a self-loader truck",
+  "Container-loaded truck in the yard",
+  "Operational activity video",
 ] as const;
 
 export const documentationEn: DocumentationItem[] = documentation.map((item, index) => ({

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import Image from "next/image";
 import { type TouchEvent, useEffect, useRef, useState } from "react";
 import { documentation, documentationEn } from "@/data/documentation";
@@ -52,14 +52,14 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
       if (event.key === "Escape") {
         event.preventDefault();
         closeLightbox();
-      } else if (event.key === "ArrowLeft") {
+      } else if (event.key === "ArrowLeft" && !(event.target instanceof HTMLVideoElement)) {
         event.preventDefault();
         showPrevious();
-      } else if (event.key === "ArrowRight") {
+      } else if (event.key === "ArrowRight" && !(event.target instanceof HTMLVideoElement)) {
         event.preventDefault();
         showNext();
       } else if (event.key === "Tab") {
-        const controls = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-documentation-lightbox] button:not([disabled])"));
+        const controls = Array.from(document.querySelectorAll<HTMLElement>("[data-documentation-lightbox] button:not([disabled]), [data-documentation-lightbox] video[controls]"));
         const firstControl = controls[0];
         const lastControl = controls.at(-1);
 
@@ -103,7 +103,7 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
           <a
             className="documentation-card"
             href={item.src}
-            aria-label={`${locale === "en" ? "Open photo" : "Buka foto"}: ${item.label}`}
+            aria-label={`${item.kind === "video" ? (locale === "en" ? "Open video" : "Buka video") : (locale === "en" ? "Open photo" : "Buka foto")}: ${item.label}`}
             onClick={(event) => {
               event.preventDefault();
               setActiveIndex(index);
@@ -113,12 +113,18 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
           >
             <figure>
               <div className="documentation-card__image">
-                <Image
-                  src={item.src}
+                {(item.kind !== "video" || item.poster) && <Image
+                  src={item.poster ?? item.src}
                   alt={item.alt}
                   fill
                   sizes={variant === "preview" ? "(max-width: 620px) 100vw, (max-width: 860px) 50vw, 50vw" : "(max-width: 620px) 100vw, (max-width: 860px) 50vw, 33vw"}
-                />
+                />}
+                {item.kind === "video" && (
+                  <div className="documentation-card__video-preview" aria-hidden="true">
+                    <Play />
+                    <span>Video</span>
+                  </div>
+                )}
               </div>
               <figcaption>
                 <span>{String(index + 1).padStart(2, "0")}</span>
@@ -144,7 +150,7 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
             <span>{activeIndex + 1} / {items.length}</span>
             <button
               type="button"
-              aria-label={locale === "en" ? "Close photo viewer" : "Tutup penampil foto"}
+              aria-label={locale === "en" ? "Close documentation viewer" : "Tutup penampil dokumentasi"}
               onClick={closeLightbox}
               ref={closeButtonRef}
             >
@@ -155,7 +161,7 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
           <button
             className="documentation-lightbox__control documentation-lightbox__control--previous"
             type="button"
-            aria-label={locale === "en" ? "Previous photo" : "Foto sebelumnya"}
+            aria-label={locale === "en" ? "Previous documentation" : "Dokumentasi sebelumnya"}
             onClick={showPrevious}
           >
             <ChevronLeft aria-hidden="true" />
@@ -163,17 +169,22 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
 
           <figure
             className="documentation-lightbox__figure"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+            onTouchStart={activeItem.kind === "video" ? undefined : handleTouchStart}
+            onTouchEnd={activeItem.kind === "video" ? undefined : handleTouchEnd}
           >
             <div className="documentation-lightbox__image">
-              <Image
+              {activeItem.kind === "video" ? (
+                <video key={activeItem.src} controls playsInline preload="metadata" poster={activeItem.poster} aria-label={activeItem.alt}>
+                  <source src={activeItem.src} type="video/mp4" />
+                  <a href={activeItem.src}>{locale === "en" ? "Download video" : "Unduh video"}</a>
+                </video>
+              ) : <Image
                 src={activeItem.src}
                 alt={activeItem.alt}
                 fill
                 sizes="100vw"
                 priority
-              />
+              />}
             </div>
             <figcaption id="documentation-lightbox-caption">
               <span>{String(activeIndex + 1).padStart(2, "0")}</span>
@@ -184,7 +195,7 @@ export function DocumentationGallery({ limit, variant = "full", locale = "id" }:
           <button
             className="documentation-lightbox__control documentation-lightbox__control--next"
             type="button"
-            aria-label={locale === "en" ? "Next photo" : "Foto berikutnya"}
+            aria-label={locale === "en" ? "Next documentation" : "Dokumentasi berikutnya"}
             onClick={showNext}
           >
             <ChevronRight aria-hidden="true" />
