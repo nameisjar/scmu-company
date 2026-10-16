@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     template: "%s | PT. SCMU",
   },
   description: company.description,
+  icons: {
+    icon: { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+  },
   openGraph: {
     title: "PT. SCMU | Pengiriman Barang",
     description: company.description,
