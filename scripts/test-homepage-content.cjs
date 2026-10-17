@@ -13,6 +13,13 @@ const keywords = [
   "pengiriman barang antarpulau",
   "jasa pengiriman multimoda",
   "jasa pengiriman laut",
+  "jasa pengiriman darat",
+  "jasa pengiriman udara",
+  "jasa pengiriman sungai",
+  "jasa distribusi barang",
+  "jasa angkutan kontainer",
+  "jasa pengiriman barang proyek",
+  "perusahaan freight forwarding",
 ];
 function readMain(route) {
   const html = fs.readFileSync(path.join(root, ".next/server/app", route + ".html"), "utf8");
@@ -31,7 +38,12 @@ const words = text.split(/\s+/).length;
 assert.ok(words >= 250, "At least 250 visible words, not metadata or closed answers");
 const counts = Object.fromEntries(keywords.map((keyword) => {
   const count = text.split(keyword).length - 1;
-  assert.ok(count >= 2 && count <= 3, `${keyword}: expected 2–3 natural mentions, got ${count}`);
+  // A shorter keyword also appears inside longer phrases (e.g. "... barang proyek").
+  // Count those separately rather than treating them as extra standalone repetitions.
+  const nestedCount = keywords.filter((other) => other !== keyword && other.includes(keyword))
+    .reduce((total, other) => total + text.split(other).length - 1, 0);
+  const standaloneCount = count - nestedCount;
+  assert.ok(standaloneCount >= 2 && standaloneCount <= 3, `${keyword}: expected 2–3 standalone mentions, got ${standaloneCount}`);
   return [keyword, count];
 }));
 assert.equal((main.match(/<h1\b/g) || []).length, 1);

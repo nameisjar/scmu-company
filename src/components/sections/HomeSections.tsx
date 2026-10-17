@@ -13,20 +13,20 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { FaqAccordion } from "./FaqAccordion";
 
 const whyReasons = [
-  { title: "Berbasis di Merauke", text: "Cakupan layanan di Papua Selatan meliputi Merauke, Boven Digoel, Mappi, dan Asmat.", Icon: ScmuCargoPictogram },
+  { title: "Berbasis di Merauke", text: "Jasa distribusi barang di Papua Selatan mencakup Merauke, Boven Digoel, Mappi, dan Asmat sesuai akses wilayah yang tersedia.", Icon: ScmuCargoPictogram },
   { title: "Pilihan moda transportasi", text: "Pilihan darat, udara, sungai, dan jasa pengiriman laut disesuaikan dengan karakteristik barang serta akses wilayah tujuan.", Icon: ScmuRoutePictogram },
   { title: "Cakupan rute antardaerah", text: "Pengiriman barang antarpulau menghubungkan Merauke dengan Jakarta, Surabaya, dan Makassar. Pengiriman dari Merauke juga tersedia menuju Pontianak dan Medan sesuai rute yang dilayani.", Icon: ScmuCoordinationPictogram },
-  { title: "Pembahasan melalui kontak resmi", text: "Konsultasikan kebutuhan jasa angkutan barang melalui WhatsApp resmi. Siapkan jenis barang, jumlah, berat atau ukuran, serta alamat asal dan tujuan untuk pembahasan awal.", Icon: ScmuConversationPictogram },
+  { title: "Pembahasan melalui kontak resmi", text: "Konsultasikan kebutuhan jasa angkutan barang melalui WhatsApp resmi. Untuk jasa angkutan kontainer atau jasa pengiriman barang proyek, siapkan jenis muatan, berat, ukuran, serta alamat asal dan tujuan.", Icon: ScmuConversationPictogram },
 ];
 
 // Homepage copy stays separate so service details on other pages are unchanged.
 const homeServiceDescriptions: Record<string, { id: string; en: string }> = {
   "pengiriman-darat": {
-    id: "Jasa angkutan barang melalui jalur darat untuk distribusi antarkota dan antarwilayah sesuai cakupan layanan serta akses jalan yang tersedia.",
+    id: "Jasa pengiriman darat mendukung jasa angkutan barang antarkota dan antarwilayah sesuai cakupan layanan serta akses jalan yang tersedia.",
     en: "Road cargo transport for intercity and regional distribution within the service coverage and available road access.",
   },
   "pengiriman-udara": {
-    id: "Pengiriman melalui rute penerbangan yang tersedia untuk barang dengan prioritas waktu. Jenis barang, berat, dan dimensi perlu diinformasikan sebelum layanan dikonfirmasi.",
+    id: "Jasa pengiriman udara untuk barang dengan prioritas waktu pada rute penerbangan yang tersedia. Jenis barang, berat, dan dimensi perlu diinformasikan sebelum layanan dikonfirmasi.",
     en: "Shipping on available air routes for time-priority cargo. Cargo type, weight, and dimensions are reviewed before confirming the service.",
   },
   "pengiriman-laut": {
@@ -34,7 +34,7 @@ const homeServiceDescriptions: Record<string, { id: string; en: string }> = {
     en: "Sea freight for inter-island cargo distribution. Options depend on volume, packaging, origin and destination ports, and available vessel schedules.",
   },
   "pengiriman-sungai": {
-    id: "Angkutan untuk wilayah yang terhubung melalui jalur sungai. Titik muat, titik bongkar, karakteristik muatan, dan kondisi perairan dibahas sebelum pengiriman.",
+    id: "Jasa pengiriman sungai untuk wilayah yang terhubung jalur perairan. Titik muat, titik bongkar, karakteristik muatan, dan kondisi perairan dibahas sebelum pengiriman.",
     en: "Cargo transport for areas connected by rivers. Loading and unloading points, cargo characteristics, and waterway conditions are discussed before shipment.",
   },
   "pengiriman-multimoda": {
@@ -69,7 +69,7 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
             <p className="section-label">{english ? "Company Overview" : "Profil Singkat"}</p>
             <h2>{english ? "Freight forwarding from Merauke." : "Jasa ekspedisi dari Merauke."}</h2>
             <p className="lead">
-              {english ? "Based in Merauke, South Papua, PT. SCMU supports transport management and logistics needs. Our cargo shipping services are planned according to cargo characteristics and customer requirements." : "Berbasis di Merauke, Papua Selatan, PT. SCMU mendukung kebutuhan jasa pengurusan transportasi dan jasa logistik. Layanan jasa pengiriman barang direncanakan sesuai karakteristik muatan dan kebutuhan pelanggan."}
+              {english ? "Based in Merauke, South Papua, PT. SCMU supports transport management and logistics needs. As a freight-forwarding company, we plan cargo shipping and distribution according to cargo characteristics and customer requirements." : "Berbasis di Merauke, Papua Selatan, PT. SCMU mendukung kebutuhan jasa pengurusan transportasi dan jasa logistik. Sebagai perusahaan freight forwarding, kami merencanakan jasa pengiriman barang dan jasa distribusi barang sesuai karakteristik muatan serta kebutuhan pelanggan."}
             </p>
             <p>
               {english ? "As a freight-forwarding partner, we help plan distribution in Merauke, Mappi, Boven Digoel, Asmat, and other regions of Indonesia, subject to route availability." : "Sebagai mitra jasa ekspedisi, kami membantu merencanakan distribusi di Merauke, Mappi, Boven Digoel, Asmat, serta wilayah lain di Indonesia sesuai ketersediaan rute."}
@@ -104,7 +104,7 @@ export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
                 />
               </div>
               <div className="home-service-card__copy">
-                <h3>{service.title}</h3>
+                <h3>{locale === "id" ? `Jasa ${service.title}` : service.title}</h3>
                 <p>{homeServiceDescriptions[service.slug]?.[locale] ?? service.description}</p>
               </div>
             </article>
@@ -118,10 +118,10 @@ export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
 export function WhySection({ locale = "id" }: { locale?: Locale }) {
   const english = locale === "en";
   const localizedReasons = english ? [
-    { title: "Based in Merauke", text: "Our South Papua service coverage includes Merauke, Boven Digoel, Mappi, and Asmat.", Icon: ScmuCargoPictogram },
+    { title: "Based in Merauke", text: "Cargo distribution in South Papua covers Merauke, Boven Digoel, Mappi, and Asmat, subject to available regional access.", Icon: ScmuCargoPictogram },
     { title: "Transport mode options", text: "Road, air, river, and sea freight options suit cargo characteristics and access to the destination.", Icon: ScmuRoutePictogram },
     { title: "Interregional route coverage", text: "Inter-island distribution connects Merauke with Jakarta, Surabaya, and Makassar. Outbound shipments from Merauke also serve Pontianak and Medan on available routes.", Icon: ScmuCoordinationPictogram },
-    { title: "Discussion through official channels", text: "Discuss cargo transport needs through our official WhatsApp contact. Prepare cargo type, quantity, weight or dimensions, and origin and destination addresses for an initial discussion.", Icon: ScmuConversationPictogram },
+    { title: "Discussion through official channels", text: "Discuss cargo transport needs through our official WhatsApp contact. For container transport or project shipments, prepare cargo type, weight, dimensions, and origin and destination addresses.", Icon: ScmuConversationPictogram },
   ] : whyReasons;
   return (
     <section className="section anchor-section approach-section" id="keunggulan" aria-labelledby="why-heading">
@@ -133,7 +133,7 @@ export function WhySection({ locale = "id" }: { locale?: Locale }) {
           </div>
           <div className="approach-editorial__intro">
             <p>
-              {english ? "PT. SCMU supports logistics needs within South Papua and between regions. Where a route requires transfers between modes, multimodal freight is planned around the available connections. Contact our team to discuss your shipment and service availability." : "PT. SCMU mendukung kebutuhan jasa logistik di Papua Selatan dan antardaerah. Untuk rute yang memerlukan perpindahan moda, jasa pengiriman multimoda direncanakan mengikuti koneksi yang tersedia. Hubungi tim kami untuk membahas kebutuhan pengiriman dan memperoleh informasi layanan."}
+              {english ? "As a freight-forwarding company, PT. SCMU supports logistics needs within South Papua and between regions. Where a route requires transfers between modes, multimodal freight is planned around the available connections. Contact our team to discuss your shipment and service availability." : "Sebagai perusahaan freight forwarding, PT. SCMU mendukung kebutuhan jasa logistik di Papua Selatan dan antardaerah. Untuk rute yang memerlukan perpindahan moda, jasa pengiriman multimoda direncanakan mengikuti koneksi yang tersedia. Hubungi tim kami untuk membahas kebutuhan pengiriman dan memperoleh informasi layanan."}
             </p>
           </div>
         </div>
@@ -169,6 +169,7 @@ export function DocumentationSection({ locale = "id" }: { locale?: Locale }) {
           <div>
             <p className="section-label">{english ? "Activity Documentation" : "Dokumentasi Kegiatan"}</p>
             <h2>{english ? "Transport and logistics activities in the field." : "Aktivitas transportasi dan logistik di lapangan."}</h2>
+            <p>{english ? "View container transport and project-cargo handling activities in PT. SCMU's operational documentation." : "Lihat aktivitas jasa angkutan kontainer dan penanganan muatan untuk jasa pengiriman barang proyek dalam dokumentasi operasional PT. SCMU."}</p>
           </div>
           <div>
             <ButtonLink href={localizeHref("/dokumentasi", locale)} variant="outline">{english ? "View All Documentation" : "Lihat Semua Dokumentasi"}</ButtonLink>
