@@ -76,7 +76,7 @@ export const services: Service[] = [
     shortTitle: "Laut",
     Icon: ScmuSeaIcon,
     description:
-      "Pengiriman melalui jalur laut untuk distribusi antarpulau serta barang dengan karakteristik atau volume yang sesuai.",
+      "Pengiriman barang antarpulau melalui jalur laut sesuai karakteristik dan volume muatan, rute pelabuhan, serta jadwal kapal yang tersedia.",
     overview:
       "Layanan ini ditujukan untuk distribusi antarpulau. Ketersediaan ditentukan setelah jenis barang, volume, asal, tujuan, dan rute diperiksa.",
     quickFacts: {
@@ -190,7 +190,7 @@ const serviceTranslations = [
   {
     title: "Sea Freight",
     shortTitle: "Sea",
-    description: "Sea freight for inter-island distribution and cargo with suitable characteristics or volume.",
+    description: "Inter-island cargo shipping by sea, subject to cargo characteristics and volume, port routes, and available vessel schedules.",
     overview: "This service supports inter-island distribution. Availability is determined after the cargo type, volume, origin, destination, and route have been reviewed.",
     suitableFor: "Inter-island distribution and larger volumes",
     initialInformation: "Packaging, volume, origin, and destination",

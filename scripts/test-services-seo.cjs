@@ -14,10 +14,12 @@ for (const route of ["layanan", "en/layanan"]) {
     assert.ok(html.includes("<title>Jasa Angkutan Barang Merauke | PT. SCMU</title>"));
     assert.equal(heading[0][1], "Jasa Angkutan Barang dari Merauke.");
     assert.ok(html.includes("PT. SCMU melayani jasa angkutan barang"));
+    const seaCard = html.match(/<article\b[^>]*id="pengiriman-laut"[^>]*>([\s\S]*?)<\/article>/)?.[1];
+    assert.ok(seaCard && seaCard.includes("Pengiriman barang antarpulau melalui jalur laut"), "Inter-island keyword appears in visible sea-service copy");
   } else {
     assert.equal(heading[0][1], "Cargo transport services from Merauke.");
   }
 }
 const sitemap = fs.readFileSync(path.join(root, ".next/server/app/sitemap.xml.body"), "utf8");
 assert.ok(sitemap.includes("/layanan</loc>"), "Existing public page remains in the sitemap");
-console.log("PASS: Services page keyword in title, H1, description; five services, route coverage, ID/EN, and sitemap retained.");
+console.log("PASS: Cargo transport and inter-island keywords, five services, route coverage, ID/EN, and sitemap retained.");
