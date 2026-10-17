@@ -47,6 +47,11 @@ const counts = Object.fromEntries(keywords.map((keyword) => {
   return [keyword, count];
 }));
 assert.equal((main.match(/<h1\b/g) || []).length, 1);
+const headings = [...main.matchAll(/<h[1-3]\b[^>]*>([\s\S]*?)<\/h[1-3]>/g)]
+  .map((match) => match[1].replace(/<[^>]*>/g, " ").toLowerCase());
+for (const keyword of keywords.slice(0, 3)) {
+  assert.ok(headings.some((heading) => heading.includes(keyword)), "Primary keyword appears in a visible heading: " + keyword);
+}
 assert.ok(text.includes("pt. sarana cipta mandiri utama") && text.includes("merauke"));
 assert.ok(main.includes("Dari Papua Selatan, Menghubungkan Indonesia."), "Hero slogan retained");
 assert.equal((main.match(/class="home-service-card"/g) || []).length, 5, "All five service cards retained");
@@ -57,7 +62,7 @@ for (const keyword of keywords) {
 assert.ok(!text.includes("ke seluruh indonesia"), "No new universal coverage claim");
 assert.ok(!main.includes("G98X+85P"), "Unconfirmed address not introduced");
 const english = readMain("en");
-assert.ok(english.includes("Shipping and Logistics Services"));
+assert.ok(english.includes("Cargo Shipping and Freight Forwarding"));
 assert.ok(!keywords.some((keyword) => english.toLowerCase().includes(keyword)), "English copy remains translated");
 assert.equal((english.match(/class="home-service-card"/g) || []).length, 5);
 console.log(JSON.stringify({ passed: true, visibleMainWords: words, keywordCounts: counts }, null, 2));

@@ -67,7 +67,7 @@ export function CompanyIntro({ locale = "id" }: { locale?: Locale }) {
 
           <div className="intro-profile__copy">
             <p className="section-label">{english ? "Company Overview" : "Profil Singkat"}</p>
-            <h2>{english ? "Freight forwarding from Merauke." : "Jasa ekspedisi dari Merauke."}</h2>
+            <h2>{english ? "Transport-management services from Merauke." : "Jasa Pengurusan Transportasi dari Merauke."}</h2>
             <p className="lead">
               {english ? "Based in Merauke, South Papua, PT. SCMU supports transport management and logistics needs. As a freight-forwarding company, we plan cargo shipping and distribution according to cargo characteristics and customer requirements." : "Berbasis di Merauke, Papua Selatan, PT. SCMU mendukung kebutuhan jasa pengurusan transportasi dan jasa logistik. Sebagai perusahaan freight forwarding, kami merencanakan jasa pengiriman barang dan jasa distribusi barang sesuai karakteristik muatan serta kebutuhan pelanggan."}
             </p>
@@ -90,7 +90,7 @@ export function ServicesSection({ locale = "id" }: { locale?: Locale }) {
   return (
     <section className="section anchor-section services-section" id="layanan">
       <Container>
-        <SectionHeading title={locale === "en" ? "Shipping and Logistics Services" : "Layanan Pengiriman dan Logistik"} align="center" />
+        <SectionHeading title={locale === "en" ? "Cargo Shipping and Freight Forwarding" : "Jasa Pengiriman Barang dan Jasa Ekspedisi"} align="center" />
         <div className="home-services-grid">
           {localizedServices.map((service) => (
             <article className="home-service-card" key={service.slug}>
