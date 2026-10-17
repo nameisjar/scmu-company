@@ -10,7 +10,7 @@ import {
 import { HeroSection } from "@/components/sections/HeroSection";
 import type { Locale } from "@/i18n/config";
 
-const homepageTitle = "Jasa Pengurusan Transportasi & Ekspedisi Merauke | PT. SCMU";
+const homepageTitle = "PT. SCMU Merauke | Jasa Pengurusan Transportasi | Jasa Pengiriman Barang | Jasa Ekspedisi";
 
 const homepageDescription = "PT. SCMU Merauke melayani jasa pengurusan transportasi, jasa pengiriman barang, dan jasa ekspedisi darat, laut, udara, sungai, serta multimoda.";
 
