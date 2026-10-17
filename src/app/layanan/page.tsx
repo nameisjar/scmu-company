@@ -5,8 +5,8 @@ import { RouteCoverage } from "@/components/services/RouteCoverage";
 import type { Locale } from "@/i18n/config";
 
 export const metadata: Metadata = {
-  title: "Layanan Pengiriman",
-  description: "Layanan pengiriman barang PT. SCMU melalui jalur darat, udara, laut, sungai, dan multimoda.",
+  title: "Jasa Angkutan Barang Merauke",
+  description: "PT. SCMU menyediakan jasa angkutan barang dari Merauke melalui jalur darat, udara, laut, sungai, dan multimoda sesuai kebutuhan serta rute yang tersedia.",
 };
 
 export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {
@@ -16,8 +16,8 @@ export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {
       <PhotoPageHero
         creditLabel={english ? "Photo" : "Foto"}
         eyebrow={english ? "PT. SCMU Services" : "Layanan PT. SCMU"}
-        title={english ? "Five services for different freight requirements." : "Lima layanan untuk kebutuhan pengiriman yang berbeda."}
-        description={english ? "Choose based on cargo characteristics, origin, destination, and time priority. If you are unsure, send us the details for an initial discussion." : "Pilih berdasarkan karakteristik barang, asal, tujuan, dan prioritas waktu. Jika belum yakin, kirimkan detail untuk dibahas terlebih dahulu."}
+        title={english ? "Cargo transport services from Merauke." : "Jasa Angkutan Barang dari Merauke."}
+        description={english ? "PT. SCMU supports cargo transport by road, air, sea, river, and multimodal services. The suitable option depends on cargo characteristics, origin, destination, and route availability." : "PT. SCMU melayani jasa angkutan barang melalui jalur darat, udara, laut, sungai, dan multimoda. Pilihan layanan disesuaikan dengan karakteristik muatan, asal, tujuan, serta ketersediaan rute."}
         image={{
           src: "/images/hero/forklift-loading.png",
           position: "50% 58%",
