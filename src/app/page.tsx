@@ -10,12 +10,15 @@ import {
 import { HeroSection } from "@/components/sections/HeroSection";
 import type { Locale } from "@/i18n/config";
 
+const homepageTitle = "Jasa Pengurusan Transportasi & Ekspedisi Merauke | PT. SCMU";
+
 const homepageDescription = "PT. SCMU Merauke melayani jasa pengurusan transportasi, jasa pengiriman barang, dan jasa ekspedisi darat, laut, udara, sungai, serta multimoda.";
 
 export const metadata: Metadata = {
+  title: { absolute: homepageTitle },
   description: homepageDescription,
   openGraph: {
-    title: "PT. SCMU | Pengiriman Barang",
+    title: homepageTitle,
     description: homepageDescription,
     type: "website",
     locale: "id_ID",
