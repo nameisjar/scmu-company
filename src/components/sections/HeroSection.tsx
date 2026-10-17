@@ -58,8 +58,8 @@ export function HeroSection({ locale = "id" }: { locale?: Locale }) {
           <h1>{locale === "en" ? "From South Papua, Connecting Indonesia." : "Dari Papua Selatan, Menghubungkan Indonesia."}</h1>
           <p>
             {locale === "en"
-              ? "PT. SCMU provides transport management and freight services by road, air, sea, river, and multimodal transport to support distribution needs in South Papua and across Indonesia."
-              : "PT. SCMU menyediakan jasa pengurusan transportasi dan pengiriman barang melalui jalur darat, udara, laut, sungai, dan multimoda untuk mendukung kebutuhan distribusi pelanggan di Papua Selatan serta berbagai wilayah di Indonesia."}
+              ? "PT. Sarana Cipta Mandiri Utama (PT. SCMU) provides transport management and cargo shipping services from Merauke to regions across Indonesia. Road, air, sea, river, and multimodal options support distribution according to the route, cargo type, and volume."
+              : "PT. Sarana Cipta Mandiri Utama (PT. SCMU) menyediakan jasa pengurusan transportasi dan jasa pengiriman barang dari Merauke ke berbagai wilayah Indonesia. Pilihan jalur darat, udara, laut, sungai, dan multimoda disesuaikan dengan rute, jenis, serta volume barang."}
           </p>
           <div className="hero-actions">
             <ButtonLink href="#layanan">{locale === "en" ? "View Services" : "Lihat Layanan"} <ArrowRight aria-hidden="true" /></ButtonLink>
