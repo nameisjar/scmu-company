@@ -28,6 +28,16 @@ export const faqs: FaqItem[] = [
       "Siapkan nama dan detail pengiriman mengenai jenis barang, jumlah, lokasi asal, lokasi tujuan, serta prioritas pengiriman.",
   },
   {
+    question: "Barang apa saja yang dapat dikirim?",
+    answer:
+      "Barang umum, barang kemasan, material proyek, muatan kontainer, dan kebutuhan pengiriman lainnya dapat dibahas terlebih dahulu. Penerimaan barang ditentukan setelah tim PT. SCMU meninjau jenis, ukuran, berat, cara penanganan, rute, serta ketentuan keselamatan yang berlaku.",
+  },
+  {
+    question: "Bagaimana biaya dan estimasi waktu pengiriman ditentukan?",
+    answer:
+      "Biaya dan estimasi dipengaruhi oleh jenis barang, berat atau volume, asal, tujuan, moda, jadwal, serta kebutuhan penanganan. Informasi akhir dikonfirmasi setelah detail pengiriman dan ketersediaan rute diperiksa.",
+  },
+  {
     question: "Di mana alamat kantor PT. SCMU?",
     answer: offices.map((office) => `${office.type} (${office.city}): ${office.address}.`).join(" "),
   },
@@ -58,6 +68,14 @@ export const faqsEn: FaqItem[] = [
   {
     question: "What information should I prepare?",
     answer: "Prepare your name and shipment details covering the cargo type, quantity, origin, destination, and delivery priority.",
+  },
+  {
+    question: "What types of cargo can be shipped?",
+    answer: "General cargo, packaged goods, project materials, containerized cargo, and other shipment requirements can be discussed with the team. Acceptance is confirmed after PT. SCMU reviews the cargo type, dimensions, weight, handling requirements, route, and applicable safety requirements.",
+  },
+  {
+    question: "How are shipping costs and transit estimates determined?",
+    answer: "Cost and timing depend on the cargo type, weight or volume, origin, destination, transport mode, schedule, and handling requirements. Final information is confirmed after the shipment details and route availability have been reviewed.",
   },
   {
     question: "Where are PT. SCMU's offices located?",

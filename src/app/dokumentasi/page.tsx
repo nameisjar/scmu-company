@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/config";
 export const metadata: Metadata = {
   title: "Dokumentasi Kegiatan",
   description: "Dokumentasi kegiatan transportasi dan logistik PT. SCMU.",
+  alternates: { canonical: "/dokumentasi", languages: { id: "/dokumentasi", en: "/en/dokumentasi" } },
 };
 
 export function DocumentationPageContent({ locale = "id" }: { locale?: Locale }) {

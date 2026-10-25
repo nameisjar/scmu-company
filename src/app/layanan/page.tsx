@@ -7,6 +7,7 @@ import type { Locale } from "@/i18n/config";
 export const metadata: Metadata = {
   title: "Jasa Angkutan Barang Merauke",
   description: "PT. SCMU menyediakan jasa angkutan barang dari Merauke melalui jalur darat, udara, laut, sungai, dan multimoda sesuai kebutuhan serta rute yang tersedia.",
+  alternates: { canonical: "/layanan", languages: { id: "/layanan", en: "/en/layanan" } },
 };
 
 export function ServicesPageContent({ locale = "id" }: { locale?: Locale }) {

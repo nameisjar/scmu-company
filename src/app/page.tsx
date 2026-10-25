@@ -17,11 +17,13 @@ const homepageDescription = "PT. SCMU Merauke melayani jasa pengurusan transport
 export const metadata: Metadata = {
   title: { absolute: homepageTitle },
   description: homepageDescription,
+  alternates: { canonical: "/", languages: { id: "/", en: "/en" } },
   openGraph: {
     title: homepageTitle,
     description: homepageDescription,
     type: "website",
     locale: "id_ID",
+    url: "/",
   },
 };
 

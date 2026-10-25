@@ -9,6 +9,7 @@ import { localizeHref } from "@/i18n/config";
 export const metadata: Metadata = {
   title: "Pertanyaan Umum",
   description: "Jawaban atas pertanyaan umum mengenai layanan dan permintaan penawaran PT. SCMU.",
+  alternates: { canonical: "/faq", languages: { id: "/faq", en: "/en/faq" } },
 };
 
 export function FaqPageContent({ locale = "id" }: { locale?: Locale }) {

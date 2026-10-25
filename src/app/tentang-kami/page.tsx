@@ -9,6 +9,7 @@ import { localizeHref } from "@/i18n/config";
 export const metadata: Metadata = {
   title: "Profil Perusahaan",
   description: "Profil PT. SCMU, visi perusahaan, dan komitmen dalam layanan logistik, transportasi, serta pengiriman barang.",
+  alternates: { canonical: "/tentang-kami", languages: { id: "/tentang-kami", en: "/en/tentang-kami" } },
 };
 
 export function AboutPageContent({ locale = "id" }: { locale?: Locale }) {

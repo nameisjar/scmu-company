@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/config";
 export const metadata: Metadata = {
   title: "Kontak",
   description: "Hubungi PT. SCMU untuk konsultasi dan permintaan penawaran pengiriman barang.",
+  alternates: { canonical: "/kontak", languages: { id: "/kontak", en: "/en/kontak" } },
 };
 
 const primaryOffice = offices.find((office) => office.primary) ?? offices[0];

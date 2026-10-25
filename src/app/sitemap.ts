@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { company } from "@/data/company";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/tentang-kami", "/layanan", "/dokumentasi", "/faq", "/kontak"];
+  const paths = ["", "/tentang-kami", "/layanan", "/layanan/jakarta-merauke", "/dokumentasi", "/faq", "/kontak"];
   return paths.flatMap((path) => {
     const englishPath = `/en${path}`;
     return [
